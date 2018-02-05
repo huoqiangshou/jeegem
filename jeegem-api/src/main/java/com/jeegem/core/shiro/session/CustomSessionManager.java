@@ -36,7 +36,6 @@ import com.jeegem.user.bo.UserOnlineBo;
  * @version 1.0,2016年6月2日 <br/>
  * 
  */
-
 public class CustomSessionManager {
 
 	/**

@@ -1,4 +1,9 @@
-<#macro user index>
+<!-- 
+	其他地方使用:<@_left.user  1 1/> 这样的
+	第一个用于判断是哪个菜单
+	第二个是用于判断是具体菜单下面的小菜单
+ -->
+<#macro user index1  index2>
 <ul class="nav navbar-nav side-nav" id="sidebar">
               
               <li class="collapsed-content"> 
@@ -11,19 +16,24 @@
                 <a href="#" class="sidebar-toggle" data-toggle="#navigation">Navigation <i class="fa fa-angle-up"></i></a>
                 
                 <ul class="menu">
-                   <li class="dropdown  ${(index==1)?string('open active',' ')}">
+                   <li class="dropdown  ${(index1==1)?string('open active',' ')}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <i class="fa fa-th-large"></i> 个人中心 <b class="fa fa-plus dropdown-plus"></b>
                     </a>
                     <ul class="dropdown-menu">
-                      <li class="${(index==1)?string('active',' ')}">
+                      <li class="${(index2==1)?string('active',' ')}">
                         <a href="${basePath}/user/index.shtml">
                           <i class="fa fa-caret-right"></i> 个人资料
                         </a>
                       </li>
-                      <li>
+                      <li class="${(index2==2)?string('active',' ')}">
                         <a href="${basePath}/user/updateSelf.shtml">
                           <i class="fa fa-caret-right"></i> 资料修改
+                        </a>
+                      </li>
+                      <li class="${(index2==3)?string('active',' ')}">
+                        <a href="${basePath}/user/updatePswd.shtml">
+                          <i class="fa fa-caret-right"></i> 密码修改
                         </a>
                       </li>
                     </ul>

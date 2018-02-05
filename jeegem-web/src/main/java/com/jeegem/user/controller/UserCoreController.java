@@ -105,7 +105,7 @@ public class UserCoreController extends BaseController {
 		return resultMap;
 	}
 	/**
-	 * 个人资料修改
+	 * 个人资料修改保存
 	 * @return
 	 */
 	@RequestMapping(value="updateSelf",method=RequestMethod.POST)
@@ -122,4 +122,24 @@ public class UserCoreController extends BaseController {
 		}
 		return resultMap;
 	}
+	
+	/**
+	 * 个人资料修改
+	 * @return
+	 */
+	@RequestMapping(value="updateProfile",method=RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView updateProfile(){
+		ModelAndView mav = new ModelAndView("user/updateSelf.ftl");
+		
+		UUser u = TokenManager.getToken();
+		
+		UUser user = userService.findUserByEmail(u.getEmail());
+		
+		mav.addObject("user", user);
+		
+		return mav;
+	}
+	
+	
 }

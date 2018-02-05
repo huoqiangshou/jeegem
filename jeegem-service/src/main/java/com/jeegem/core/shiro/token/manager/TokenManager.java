@@ -41,6 +41,7 @@ public class TokenManager {
 	 */
 	public static UUser getToken(){
 		UUser token = (UUser)SecurityUtils.getSubject().getPrincipal();
+		System.out.println("getToken="+token);
 		return token ;
 	}
 	

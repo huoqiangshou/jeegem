@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>Minimal 1.3 - Form Elements</title>
+    <title>Minimal 1.3 - DataTables</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
@@ -15,13 +15,11 @@
     <link rel="stylesheet" href="assets\css\vendor\bootstrap-checkbox.css">
     <link rel="stylesheet" href="assets\css\vendor\bootstrap\bootstrap-dropdown-multilevel.css">
 
-    <link rel="stylesheet" href="assets\js\vendor\summernote\css\summernote.css">
-    <link rel="stylesheet" href="assets\js\vendor\summernote\css\summernote-bs3.css">
     <link rel="stylesheet" href="assets\js\vendor\chosen\css\chosen.min.css">
     <link rel="stylesheet" href="assets\js\vendor\chosen\css\chosen-bootstrap.css">
-    <link rel="stylesheet" href="assets\js\vendor\datepicker\css\bootstrap-datetimepicker.css">
-    <link rel="stylesheet" href="assets\js\vendor\colorpicker\css\bootstrap-colorpicker.css">
-    <link rel="stylesheet" href="assets\js\vendor\colorpalette\bootstrap-colorpalette.css">
+    <link rel="stylesheet" href="assets\js\vendor\datatables\css\dataTables.bootstrap.css">
+    <link rel="stylesheet" href="assets\js\vendor\datatables\css\ColVis.css">
+    <link rel="stylesheet" href="assets\js\vendor\datatables\css\TableTools.css">
 
     <link href="assets\css\minimal.css" rel="stylesheet">
 
@@ -48,12 +46,8 @@
       <div class="row">
         
 
-
-
-
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
-          
 
 
           <!-- Branding -->
@@ -423,12 +417,12 @@
                     </a>
                   </li>
 
-                  <li class="dropdown open active">
+                  <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <i class="fa fa-list"></i> Forms <b class="fa fa-plus dropdown-plus"></b>
                     </a>
                     <ul class="dropdown-menu">
-                      <li class="active">
+                      <li>
                         <a href="form-elements.html">
                           <i class="fa fa-caret-right"></i> Common Elements
                         </a>
@@ -492,7 +486,7 @@
                     </a>
                   </li>
 
-                  <li class="dropdown">
+                  <li class="dropdown open active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <i class="fa fa-th-large"></i> Tables <b class="fa fa-plus dropdown-plus"></b>
                     </a>
@@ -502,7 +496,7 @@
                           <i class="fa fa-caret-right"></i> Bootstrap Tables
                         </a>
                       </li>
-                      <li>
+                      <li class="active">
                         <a href="datatables.html">
                           <i class="fa fa-caret-right"></i> DataTables
                         </a>
@@ -695,6 +689,32 @@
 
                 </li></ul>
 
+              
+
+              <li class="summary" id="order-summary">
+                <a href="#" class="sidebar-toggle underline" data-toggle="#order-summary">Orders Summary <i class="fa fa-angle-up"></i></a>
+
+                <div class="media">
+                  <a class="pull-right" href="#">
+                    <span id="sales-chart"></span>
+                  </a>
+                  <div class="media-body">
+                    This week sales
+                    <h3 class="media-heading">26, 149</h3>
+                  </div>
+                </div>
+
+                <div class="media">
+                  <a class="pull-right" href="#">
+                    <span id="balance-chart"></span>
+                  </a>
+                  <div class="media-body">
+                    This week balance
+                    <h3 class="media-heading">318, 651</h3>
+                  </div>
+                </div>
+
+              </li>
 
               <li class="settings" id="general-settings">
                 <a href="#" class="sidebar-toggle underline" data-toggle="#general-settings">General Settings <i class="fa fa-angle-up"></i></a>
@@ -732,105 +752,514 @@
             <!-- Sidebar end -->
 
 
+
+
+
           </div>
           <!--/.nav-collapse -->
 
+
+
+
+
         </div>
         <!-- Fixed navbar end -->
+        
+
+
+
+
         
         <!-- Page content -->
         <div id="content" class="col-md-12">
           
 
+
+
+
+
+
+
+
           <!-- page header -->
           <div class="pageheader">
             
 
-            <h2><i class="fa fa-thumb-tack" style="line-height: 48px;padding-left: 1px;"></i> 资料修改 </h2>
+            <h2><i class="fa fa-lightbulb-o" style="line-height: 48px;padding-left: 0;"></i> DataTables <span>// Place subtitle here...</span></h2>
             
 
             <div class="breadcrumbs">
               <ol class="breadcrumb">
-                <li>所在位置</li>
-                <li><a href="index.html">JeeGem</a></li>
-                <li><a href="form-elements.html">个人中心</a></li>
-                <li class="active">资料修改</li>
+                <li>You are here</li>
+                <li><a href="index.html">Minimal</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li class="active">DataTables</li>
               </ol>
             </div>
 
 
           </div>
           <!-- /page header -->
+          
+          
+
+
+
 
           <!-- content main container -->
           <div class="main">
 
+
+
+
             <!-- row -->
             <div class="row">
 
+              
               <!-- col 12 -->
-              <div class="col-md-6">
-
+              <div class="col-md-12">
+                
+                
                 <!-- tile -->
-                <section class="tile color transparent-black">
+                <section class="tile transparent">
+
 
                   <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>资料</strong> 修改</h1>
+                  <div class="tile-header transparent">
+                    <h1><strong>Basic</strong> Datatable </h1>
+                    <span class="note">including: <span class="italic">multi-column sorting and row select</span></span>
+                    <div class="controls">
+                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
                   </div>
                   <!-- /tile header -->
 
                   <!-- tile body -->
-                  <div class="tile-body">
+                  <div class="tile-body color transparent-black rounded-corners">
                     
-                    <form class="form-horizontal" role="form">
-                      
-                      <div class="form-group">
-                        <label for="input01" class="col-sm-4 control-label">昵称</label>
-                        <div class="col-sm-8">
-                          <input type="text" name="nickname" class="form-control" id="nickname">
-                        </div>
-                      </div>
-					  
-					  <div class="form-group">
-                        <label for="input03" class="col-sm-4 control-label">Email(不可更改)</label>
-                        <div class="col-sm-8">
-                          <input type="text" name="email" class="form-control" id="email" disabled>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="input02" class="col-sm-4 control-label">原密码</label>
-                        <div class="col-sm-8">
-                          <input type="password" name="src_password" class="form-control" id="src_password">
-                        </div>
-                      </div>
-					  
-                      <div class="form-group">
-                        <label for="input04" class="col-sm-4 control-label">新密码</label>
-                        <div class="col-sm-8">
-                          <input type="password" name="new_password" class="form-control" id="new_password" >
-                        </div>
-                      </div>
-						
-                      <div class="form-group">
-                        <label for="input04" class="col-sm-4 control-label">确认密码</label>
-                        <div class="col-sm-8">
-                          <input type="password" name="confirm_password" class="form-control" id="confirm_password" >
-                        </div>
-                      </div>
-                      
-                      <div class="form-group form-footer">
-                        <div class="col-sm-offset-4 col-sm-8">
-                          <button type="button" class="btn btn-primary">提交</button>
-                          <button type="reset" class="btn btn-default">重置</button>
-                        </div>
-                      </div>
-
-                    </form>
+                    <div class="table-responsive">
+                      <table class="table table-datatable table-custom" id="basicDataTable">
+                        <thead>
+                          <tr>
+                            <th class="sort-alpha">Rendering engine</th>
+                            <th class="sort-alpha">Browser</th>
+                            <th class="sort-amount">Platform(s)</th>
+                            <th class="sort-numeric">Engine version</th>
+                            <th>CSS grade</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="odd gradeX">
+                                  <td>Trident</td>
+                                  <td>Internet
+                                           Explorer 4.0</td>
+                                  <td>Win 95+</td>
+                                  <td class="text-center"> 4</td>
+                                  <td class="text-center">X</td>
+                          </tr>
+                          <tr class="even gradeC">
+                                  <td>Trident</td>
+                                  <td>Internet
+                                           Explorer 5.0</td>
+                                  <td>Win 95+</td>
+                                  <td class="text-center">5</td>
+                                  <td class="text-center">C</td>
+                          </tr>
+                          <tr class="odd gradeA">
+                                  <td>Trident</td>
+                                  <td>Internet
+                                           Explorer 5.5</td>
+                                  <td>Win 95+</td>
+                                  <td class="text-center">5.5</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="even gradeA">
+                                  <td>Trident</td>
+                                  <td>Internet
+                                           Explorer 6</td>
+                                  <td>Win 98+</td>
+                                  <td class="text-center">6</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="odd gradeA">
+                                  <td>Trident</td>
+                                  <td>Internet Explorer 7</td>
+                                  <td>Win XP SP2+</td>
+                                  <td class="text-center">7</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="even gradeA">
+                                  <td>Trident</td>
+                                  <td>AOL browser (AOL desktop)</td>
+                                  <td>Win XP</td>
+                                  <td class="text-center">6</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Firefox 1.0</td>
+                                  <td>Win 98+ / OSX.2+</td>
+                                  <td class="text-center">1.7</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Firefox 1.5</td>
+                                  <td>Win 98+ / OSX.2+</td>
+                                  <td class="text-center">1.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Firefox 2.0</td>
+                                  <td>Win 98+ / OSX.2+</td>
+                                  <td class="text-center">1.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Firefox 3.0</td>
+                                  <td>Win 2k+ / OSX.3+</td>
+                                  <td class="text-center">1.9</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Camino 1.0</td>
+                                  <td>OSX.2+</td>
+                                  <td class="text-center">1.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Camino 1.5</td>
+                                  <td>OSX.3+</td>
+                                  <td class="text-center">1.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Netscape 7.2</td>
+                                  <td>Win 95+ / Mac OS 8.6-9.2</td>
+                                  <td class="text-center">1.7</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Netscape Browser 8</td>
+                                  <td>Win 98SE+</td>
+                                  <td class="text-center">1.7</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Netscape Navigator 9</td>
+                                  <td>Win 98+ / OSX.2+</td>
+                                  <td class="text-center">1.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.0</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td class="text-center">1</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.1</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td class="text-center">1.1</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.2</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td class="text-center">1.2</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.3</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td class="text-center">1.3</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.4</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td class="text-center">1.4</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.5</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td class="text-center">1.5</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.6</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td class="text-center">1.6</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.7</td>
+                                  <td>Win 98+ / OSX.1+</td>
+                                  <td class="text-center">1.7</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Mozilla 1.8</td>
+                                  <td>Win 98+ / OSX.1+</td>
+                                  <td class="text-center">1.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Seamonkey 1.1</td>
+                                  <td>Win 98+ / OSX.2+</td>
+                                  <td class="text-center">1.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Gecko</td>
+                                  <td>Epiphany 2.20</td>
+                                  <td>Gnome</td>
+                                  <td class="text-center">1.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Webkit</td>
+                                  <td>Safari 1.2</td>
+                                  <td>OSX.3</td>
+                                  <td class="text-center">125.5</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Webkit</td>
+                                  <td>Safari 1.3</td>
+                                  <td>OSX.3</td>
+                                  <td class="text-center">312.8</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Webkit</td>
+                                  <td>Safari 2.0</td>
+                                  <td>OSX.4+</td>
+                                  <td class="text-center">419.3</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Webkit</td>
+                                  <td>Safari 3.0</td>
+                                  <td>OSX.4+</td>
+                                  <td class="text-center">522.1</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Webkit</td>
+                                  <td>OmniWeb 5.5</td>
+                                  <td>OSX.4+</td>
+                                  <td class="text-center">420</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Webkit</td>
+                                  <td>iPod Touch / iPhone</td>
+                                  <td>iPod</td>
+                                  <td class="text-center">420.1</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Webkit</td>
+                                  <td>S60</td>
+                                  <td>S60</td>
+                                  <td class="text-center">413</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Opera 7.0</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Opera 7.5</td>
+                                  <td>Win 95+ / OSX.2+</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Opera 8.0</td>
+                                  <td>Win 95+ / OSX.2+</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Opera 8.5</td>
+                                  <td>Win 95+ / OSX.2+</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Opera 9.0</td>
+                                  <td>Win 95+ / OSX.3+</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Opera 9.2</td>
+                                  <td>Win 88+ / OSX.3+</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Opera 9.5</td>
+                                  <td>Win 88+ / OSX.3+</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Opera for Wii</td>
+                                  <td>Wii</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Nokia N800</td>
+                                  <td>N800</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Presto</td>
+                                  <td>Nintendo DS browser</td>
+                                  <td>Nintendo DS</td>
+                                  <td class="text-center">8.5</td>
+                                  <td class="text-center">C/A<sup>1</sup></td>
+                          </tr>
+                          <tr class="gradeC">
+                                  <td>KHTML</td>
+                                  <td>Konqureror 3.1</td>
+                                  <td>KDE 3.1</td>
+                                  <td class="text-center">3.1</td>
+                                  <td class="text-center">C</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>KHTML</td>
+                                  <td>Konqureror 3.3</td>
+                                  <td>KDE 3.3</td>
+                                  <td class="text-center">3.3</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>KHTML</td>
+                                  <td>Konqureror 3.5</td>
+                                  <td>KDE 3.5</td>
+                                  <td class="text-center">3.5</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeX">
+                                  <td>Tasman</td>
+                                  <td>Internet Explorer 4.5</td>
+                                  <td>Mac OS 8-9</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">X</td>
+                          </tr>
+                          <tr class="gradeC">
+                                  <td>Tasman</td>
+                                  <td>Internet Explorer 5.1</td>
+                                  <td>Mac OS 7.6-9</td>
+                                  <td class="text-center">1</td>
+                                  <td class="text-center">C</td>
+                          </tr>
+                          <tr class="gradeC">
+                                  <td>Tasman</td>
+                                  <td>Internet Explorer 5.2</td>
+                                  <td>Mac OS 8-X</td>
+                                  <td class="text-center">1</td>
+                                  <td class="text-center">C</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Misc</td>
+                                  <td>NetFront 3.1</td>
+                                  <td>Embedded devices</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">C</td>
+                          </tr>
+                          <tr class="gradeA">
+                                  <td>Misc</td>
+                                  <td>NetFront 3.4</td>
+                                  <td>Embedded devices</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">A</td>
+                          </tr>
+                          <tr class="gradeX">
+                                  <td>Misc</td>
+                                  <td>Dillo 0.8</td>
+                                  <td>Embedded devices</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">X</td>
+                          </tr>
+                          <tr class="gradeX">
+                                  <td>Misc</td>
+                                  <td>Links</td>
+                                  <td>Text only</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">X</td>
+                          </tr>
+                          <tr class="gradeX">
+                                  <td>Misc</td>
+                                  <td>Lynx</td>
+                                  <td>Text only</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">X</td>
+                          </tr>
+                          <tr class="gradeC">
+                                  <td>Misc</td>
+                                  <td>IE Mobile</td>
+                                  <td>Windows Mobile 6</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">C</td>
+                          </tr>
+                          <tr class="gradeC">
+                                  <td>Misc</td>
+                                  <td>PSP browser</td>
+                                  <td>PSP</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">C</td>
+                          </tr>
+                          <tr class="gradeU">
+                                  <td>Other browsers</td>
+                                  <td>All others</td>
+                                  <td>-</td>
+                                  <td class="text-center">-</td>
+                                  <td class="text-center">U</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
 
                   </div>
                   <!-- /tile body -->
-                  
                 
 
 
@@ -840,23 +1269,230 @@
 
 
 
+                <!-- tile -->
+                <section class="tile transparent">
+
+
+                  <!-- tile header -->
+                  <div class="tile-header transparent">
+                    <h1><strong>Inline Editing</strong> Datatable</h1>
+                    <div class="controls">
+                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
+                  </div>
+                  <!-- /tile header -->
+
+                  <!-- tile body -->
+                  <div class="tile-body color transparent-white rounded-corners">
+                    
+                    <div class="table-responsive">
+                      <table class="table table-datatable table-custom" id="inlineEditDataTable">
+                        <thead>
+                          <tr>
+                            <th class="sort-alpha">Rendering engine</th>
+                            <th class="sort-alpha">Browser</th>
+                            <th class="sort-amount">Platform(s)</th>
+                            <th class="sort-numeric">Engine version</th>
+                            <th>CSS grade</th>
+                            <th class="no-sort">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="odd gradeX">
+                            <td>Trident</td>
+                            <td>Internet Explorer 4.0</td>
+                            <td>Win 95+</td>
+                            <td class="text-center"> 4</td>
+                            <td class="text-center">X</td>
+                            <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+                          </tr>
+                          <tr class="even gradeC">
+                            <td>Trident</td>
+                            <td>Internet Explorer 5.0</td>
+                            <td>Win 95+</td>
+                            <td class="text-center">5</td>
+                            <td class="text-center">C</td>
+                            <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+                          </tr>
+                          <tr class="odd gradeA">
+                            <td>Trident</td>
+                            <td>Internet Explorer 5.5</td>
+                            <td>Win 95+</td>
+                            <td class="text-center">5.5</td>
+                            <td class="text-center">A</td>
+                            <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+                          </tr>
+                          <tr class="even gradeA">
+                            <td>Trident</td>
+                            <td>Internet Explorer 6</td>
+                            <td>Win 98+</td>
+                            <td class="text-center">6</td>
+                            <td class="text-center">A</td>
+                            <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+                          </tr>
+                          <tr class="odd gradeA">
+                            <td>Trident</td>
+                            <td>Internet Explorer 7</td>
+                            <td>Win XP SP2+</td>
+                            <td class="text-center">7</td>
+                            <td class="text-center">A</td>
+                            <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                  <!-- /tile body -->
+                
+
+
+                </section>
+                <!-- /tile -->
+
+
+
+                <!-- tile -->
+                <section class="tile transparent">
+
+
+                  <!-- tile header -->
+                  <div class="tile-header transparent">
+                    <h1><strong>Drill-down rows</strong> Datatable </h1>
+                    <span class="note">including: <span class="italic">col reorder with resize</span></span>
+                    <div class="controls">
+                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
+                  </div>
+                  <!-- /tile header -->
+
+                  <!-- tile body -->
+                  <div class="tile-body rounded-corners">
+                    
+                    <div class="table-responsive">
+                      <table class="table table-datatable table-custom" id="drillDownDataTable">
+                        <thead>
+                          <tr>
+                            <th class="no-sort" style="width: 45px"></th>
+                            <th class="sort-alpha">Rendering engine</th>
+                            <th class="sort-alpha">Browser</th>
+                            <th>CSS grade</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                  <!-- /tile body -->
+                
+
+
+                </section>
+                <!-- /tile -->
+
+
+                <!-- tile -->
+                <section class="tile transparent">
+
+
+                  <!-- tile header -->
+                  <div class="tile-header transparent">
+                    <h1><strong>Advanced</strong> Datatable </h1>
+                    <span class="note">including: <span class="italic">TableTools and ColVis</span></span>
+                    <div class="controls">
+                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
+                  </div>
+                  <!-- /tile header -->
+
+                  <!-- tile body -->
+                  <div class="tile-body color blue rounded-corners">
+                    
+                    <div class="table-responsive">
+                      <table class="table table-datatable table-custom" id="advancedDataTable">
+                        <thead>
+                          <tr>
+                            <th class="sort-alpha">Rendering engine</th>
+                            <th class="sort-alpha">Browser</th>
+                            <th class="sort-amount">Platform(s)</th>
+                            <th class="sort-numeric">Engine version</th>
+                            <th>CSS grade</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="odd gradeX">
+                            <td>Trident</td>
+                            <td>Internet Explorer 4.0</td>
+                            <td>Win 95+</td>
+                            <td class="text-center"> 4</td>
+                            <td class="text-center">X</td>
+                          </tr>
+                          <tr class="even gradeC">
+                            <td>Trident</td>
+                            <td>Internet Explorer 5.0</td>
+                            <td>Win 95+</td>
+                            <td class="text-center">5</td>
+                            <td class="text-center">C</td>
+                          </tr>
+                          <tr class="odd gradeA">
+                            <td>Trident</td>
+                            <td>Internet Explorer 5.5</td>
+                            <td>Win 95+</td>
+                            <td class="text-center">5.5</td>
+                            <td class="text-center">A</td>
+                          </tr>
+                          <tr class="even gradeA">
+                            <td>Trident</td>
+                            <td>Internet Explorer 6</td>
+                            <td>Win 98+</td>
+                            <td class="text-center">6</td>
+                            <td class="text-center">A</td>
+                          </tr>
+                          <tr class="odd gradeA">
+                            <td>Trident</td>
+                            <td>Internet Explorer 7</td>
+                            <td>Win XP SP2+</td>
+                            <td class="text-center">7</td>
+                            <td class="text-center">A</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                  <!-- /tile body -->
+                
+
+
+                </section>
+                <!-- /tile -->
+
+
               </div>
-              <!-- /col 6 -->
-
-
-              <!-- col 12 -->
-              <div class="col-md-6">
-
-
-              </div>
-              <!-- /col 6 -->
+              <!-- /col 12 -->
 
 
               
             </div>
             <!-- /row -->
+          
+
 
           </div>
+          <!-- /content container -->
+
+
+
+
+
 
         </div>
         <!-- Page content end -->
@@ -1291,112 +1927,340 @@
     <script type="text/javascript" src="assets\js\vendor\nicescroll\jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="assets\js\vendor\animate-numbers\jquery.animateNumbers.js"></script>
     <script type="text/javascript" src="assets\js\vendor\videobackground\jquery.videobackground.js"></script>
-    <script type="text/javascript" src="assets\js\vendor\blockui\jquery.blockUI.js"></script>
+    <script type="text/javascript" src="assets\js\vendor\blockui\jquery.blockUI.js"></script>\
 
-    <script src="assets\js\vendor\summernote\summernote.min.js"></script>
+    <script src="assets\js\vendor\datatables\jquery.dataTables.min.js"></script>
+    <script src="assets\js\vendor\datatables\ColReorderWithResize.js"></script>
+    <script src="assets\js\vendor\datatables\colvis\dataTables.colVis.min.js"></script>
+    <script src="assets\js\vendor\datatables\tabletools\ZeroClipboard.js"></script>
+    <script src="assets\js\vendor\datatables\tabletools\dataTables.tableTools.min.js"></script>
+    <script src="assets\js\vendor\datatables\dataTables.bootstrap.js"></script>
 
     <script src="assets\js\vendor\chosen\chosen.jquery.min.js"></script>
-
-    <script src="assets\js\vendor\momentjs\moment-with-langs.min.js"></script>
-    <script src="assets\js\vendor\datepicker\bootstrap-datetimepicker.min.js"></script>
-
-    <script src="assets\js\vendor\colorpicker\bootstrap-colorpicker.min.js"></script>
-
-    <script src="assets\js\vendor\colorpalette\bootstrap-colorpalette.js"></script>
 
     <script src="assets\js\minimal.min.js"></script>
 
     <script>
-
-    //initialize file upload button function
-    $(document)
-      .on('change', '.btn-file :file', function() {
-        var input = $(this),
-        numFiles = input.get(0).files ? input.get(0).files.length : 1,
-        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-        input.trigger('fileselect', [numFiles, label]);
-    });
-
-
     $(function(){
 
-      //load wysiwyg editor
-      $('#input06').summernote({
-        toolbar: [
-          //['style', ['style']], // no style button
-          ['style', ['bold', 'italic', 'underline', 'clear']],
-          ['fontsize', ['fontsize']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['height', ['height']],
-          //['insert', ['picture', 'link']], // no insert buttons
-          //['table', ['table']], // no table button
-          //['help', ['help']] //no help button
-        ],
-        height: 137   //set editable area's height
-      });
+      // Add custom class to pagination div
+      $.fn.dataTableExt.oStdClasses.sPaging = 'dataTables_paginate paging_bootstrap paging_custom';
 
-      //chosen select input
-      $(".chosen-select").chosen({disable_search_threshold: 10});
+      $('div.dataTables_filter input').addClass('form-control');
+      $('div.dataTables_length select').addClass('form-control');
 
-      //initialize datepicker
-      $('#datepicker').datetimepicker({
-        icons: {
-          time: "fa fa-clock-o",
-          date: "fa fa-calendar",
-          up: "fa fa-arrow-up",
-          down: "fa fa-arrow-down"
+      /*************************************************/
+      /**************** BASIC DATATABLE ****************/
+      /*************************************************/
+
+      /* Define two custom functions (asc and desc) for string sorting */
+      jQuery.fn.dataTableExt.oSort['string-case-asc']  = function(x,y) {
+          return ((x < y) ? -1 : ((x > y) ?  1 : 0));
+      };
+       
+      jQuery.fn.dataTableExt.oSort['string-case-desc'] = function(x,y) {
+          return ((x < y) ?  1 : ((x > y) ? -1 : 0));
+      };
+
+      /* Add a click handler to the rows - this could be used as a callback */
+      $("#basicDataTable tbody tr").click( function( e ) {
+        if ( $(this).hasClass('row_selected') ) {
+          $(this).removeClass('row_selected');
         }
-      });
+        else {
+          oTable01.$('tr.row_selected').removeClass('row_selected');
+          $(this).addClass('row_selected');
+        }
 
-      $("#datepicker").on("dp.show",function (e) {
-        var newtop = $('.bootstrap-datetimepicker-widget').position().top - 45;      
-        $('.bootstrap-datetimepicker-widget').css('top', newtop + 'px');
-      });
-
-      //initialize colorpicker
-      $('#colorpicker').colorpicker();
-
-      $('#colorpicker').colorpicker().on('showPicker', function(e){
-        var newtop = $('.dropdown-menu.colorpicker.colorpicker-visible').position().top - 45;      
-        $('.dropdown-menu.colorpicker.colorpicker-visible').css('top', newtop + 'px');
-      });
-
-      //initialize colorpicker RGB
-      $('#colorpicker-rgb').colorpicker({
-        format: 'rgb'
-      });
-
-      $('#colorpicker-rgb').colorpicker().on('showPicker', function(e){
-        var newtop = $('.dropdown-menu.colorpicker.colorpicker-visible').position().top - 45;      
-        $('.dropdown-menu.colorpicker.colorpicker-visible').css('top', newtop + 'px');
-      });
-
-      //initialize file upload button
-      $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
-        
-        var input = $(this).parents('.input-group').find(':text'),
-            log = numFiles > 1 ? numFiles + ' files selected' : label;
-
-            console.log(log);
-        
-        if( input.length ) {
-          input.val(log);
+        // FadeIn/Out delete rows button
+        if ($('#basicDataTable tr.row_selected').length > 0) {
+          $('#deleteRow').stop().fadeIn(300);
         } else {
-          if( log ) alert(log);
+          $('#deleteRow').stop().fadeOut(300);
+        }
+      });
+
+      /* Build the DataTable with third column using our custom sort functions */
+      var oTable01 = $('#basicDataTable').dataTable({
+        "sDom":
+          "R<'row'<'col-md-6'l><'col-md-6'f>r>"+
+          "t"+
+          "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
+        "oLanguage": {
+          "sSearch": ""
+        },
+        "aaSorting": [ [0,'asc'], [1,'asc'] ],
+        "aoColumns": [
+          null,
+          null,
+          { "sType": 'string-case' },
+          null,
+          null
+        ],
+        "fnInitComplete": function(oSettings, json) { 
+          $('.dataTables_filter input').attr("placeholder", "Search");
+        }
+      });
+
+      // Append delete button to table
+      var deleteRowLink = '<a href="#" id="deleteRow" class="btn btn-red btn-xs delete-row">Delete selected row</a>'
+      $('#basicDataTable_wrapper').append(deleteRowLink);
+
+      /* Add a click handler for the delete row */
+      $('#deleteRow').click( function() {
+        var anSelected = fnGetSelected(oTable01);
+        if (anSelected.length !== 0 ) {
+          oTable01.fnDeleteRow(anSelected[0]);
+          $('#deleteRow').stop().fadeOut(300);
+        }
+      });
+
+      /* Get the rows which are currently selected */
+      function fnGetSelected(oTable01Local){
+        return oTable01Local.$('tr.row_selected');
+      };
+
+      /*******************************************************/
+      /**************** INLINE EDIT DATATABLE ****************/
+      /*******************************************************/
+
+      function restoreRow (oTable02, nRow){
+        var aData = oTable02.fnGetData(nRow);
+        var jqTds = $('>td', nRow);
+        
+        for ( var i=0, iLen=jqTds.length ; i<iLen ; i++ ) {
+          oTable02.fnUpdate( aData[i], nRow, i, false );
         }
         
+        oTable02.fnDraw();
+      };
+
+      function editRow (oTable02, nRow){
+        var aData = oTable02.fnGetData(nRow);
+        var jqTds = $('>td', nRow);
+        jqTds[0].innerHTML = '<input type="text" value="'+aData[0]+'" class="form-control">';
+        jqTds[1].innerHTML = '<input type="text" value="'+aData[1]+'" class="form-control">';
+        jqTds[2].innerHTML = '<input type="text" value="'+aData[2]+'" class="form-control">';
+        jqTds[3].innerHTML = '<input type="text" value="'+aData[3]+'" class="form-control">';
+        jqTds[4].innerHTML = '<input type="text" value="'+aData[4]+'" class="form-control">';
+        jqTds[5].innerHTML = '<a class="edit save" href="#">Save</a><a class="delete" href="#">Delete</a>';
+      };
+
+      function saveRow (oTable02, nRow){
+        var jqInputs = $('input', nRow);
+        oTable02.fnUpdate( jqInputs[0].value, nRow, 0, false );
+        oTable02.fnUpdate( jqInputs[1].value, nRow, 1, false );
+        oTable02.fnUpdate( jqInputs[2].value, nRow, 2, false );
+        oTable02.fnUpdate( jqInputs[3].value, nRow, 3, false );
+        oTable02.fnUpdate( jqInputs[4].value, nRow, 4, false );
+        oTable02.fnUpdate( '<a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a>', nRow, 5, false );
+        oTable02.fnDraw();
+      };
+
+
+
+      var oTable02 = $('#inlineEditDataTable').dataTable({
+        "sDom":
+          "R<'row'<'col-md-6'l><'col-md-6'f>r>"+
+          "t"+
+          "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
+        "oLanguage": {
+          "sSearch": ""
+        },
+        "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ "no-sort" ] }
+        ],
+        "fnInitComplete": function(oSettings, json) { 
+          $('.dataTables_filter input').attr("placeholder", "Search");
+        }
       });
 
-      // Initialize colorpalette
-      $('#event-colorpalette').colorPalette({ 
-        colors:[['#428bca', '#5cb85c', '#5bc0de', '#f0ad4e' ,'#d9534f', '#ff4a43', '#22beef', '#a2d200', '#ffc100', '#cd97eb', '#16a085', '#FF0066', '#A40778', '#1693A5']] 
-      }).on('selectColor', function(e) {
-        var data = $(this).data();
+      // Append add row button to table
+      var addRowLink = '<a href="#" id="addRow" class="btn btn-green btn-xs add-row">Add row</a>'
+      $('#inlineEditDataTable_wrapper').append(addRowLink);
 
-        $(data.returnColor).val(e.color);
-        $(this).parents(".input-group").css("border-bottom-color", e.color );
+      var nEditing = null;
+
+      // Add row initialize
+      $('#addRow').click( function (e) {
+        e.preventDefault();
+
+        // Only allow a new row when not currently editing
+        if ( nEditing !== null ) {
+          return;
+        }
+        
+        var aiNew = oTable02.fnAddData([ '', '', '', '', '', '<a class="edit" href="">Edit</a>', '<a class="delete" href="">Delete</a>' ]);
+        var nRow = oTable02.fnGetNodes(aiNew[0]);
+        editRow(oTable02, nRow);
+        nEditing = nRow;
+
+        $(nRow).find('td:last-child').addClass('actions text-center');
       });
+
+      // Delete row initialize
+      $(document).on( "click", "#inlineEditDataTable a.delete", function(e) {
+        e.preventDefault();
+        
+        var nRow = $(this).parents('tr')[0];
+        oTable02.fnDeleteRow( nRow );
+      });
+
+      // Edit row initialize
+      $(document).on( "click", "#inlineEditDataTable a.edit", function(e) {
+        e.preventDefault();
+         
+        /* Get the row as a parent of the link that was clicked on */
+        var nRow = $(this).parents('tr')[0];
+         
+        if (nEditing !== null && nEditing != nRow){
+          /* A different row is being edited - the edit should be cancelled and this row edited */
+          restoreRow(oTable02, nEditing);
+          editRow(oTable02, nRow);
+          nEditing = nRow;
+        }
+        else if (nEditing == nRow && this.innerHTML == "Save") {
+          /* This row is being edited and should be saved */
+          saveRow(oTable02, nEditing);
+          nEditing = null;
+        }
+        else {
+          /* No row currently being edited */
+          editRow(oTable02, nRow);
+          nEditing = nRow;
+        }
+      });
+
+      /******************************************************/
+      /**************** DRILL DOWN DATATABLE ****************/
+      /******************************************************/
+
+      var anOpen = [];
+
+      var oTable03 = $('#drillDownDataTable').dataTable({
+        "sDom":
+          "R<'row'<'col-md-6'l><'col-md-6'f>r>"+
+          "t"+
+          "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
+        "oLanguage": {
+          "sSearch": ""
+        },
+        "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ "no-sort" ] }
+        ],
+        "aaSorting": [[ 1, "asc" ]],
+        "bProcessing": true,
+        "sAjaxSource": "assets/js/vendor/datatables/ajax/sources/objects.txt",
+        "aoColumns": [
+          {
+            "mDataProp": null,
+            "sClass": "control text-center",
+            "sDefaultContent": '<a href="#"><i class="fa fa-plus"></i></a>'
+          },
+          { "mDataProp": "engine" },
+          { "mDataProp": "browser" },
+          { "mDataProp": "grade" }
+        ],
+        "fnInitComplete": function(oSettings, json) { 
+          $('.dataTables_filter input').attr("placeholder", "Search");
+        }
+      });
+
+      $(document).on( 'click', '#drillDownDataTable td.control', function () {
+        var nTr = this.parentNode;
+        var i = $.inArray( nTr, anOpen );
+
+        $(anOpen).each( function () {
+          if ( this !== nTr ) {
+            $('td.control', this).click();
+          }
+        });
+        
+        if ( i === -1 ) {
+          $('i', this).removeClass().addClass('fa fa-minus');
+          $(this).parent().addClass('drilled');
+          var nDetailsRow = oTable03.fnOpen( nTr, fnFormatDetails(oTable03, nTr), 'details' );
+          $('div.innerDetails', nDetailsRow).slideDown();
+          anOpen.push( nTr );
+        }
+        else {
+          $('i', this).removeClass().addClass('fa fa-plus');
+          $(this).parent().removeClass('drilled');
+          $('div.innerDetails', $(nTr).next()[0]).slideUp( function () {
+            oTable03.fnClose( nTr );
+            anOpen.splice( i, 1 );
+          } );
+        }
+
+        return false;
+      });
+       
+      function fnFormatDetails( oTable03, nTr ){
+        var oData = oTable03.fnGetData( nTr );
+        var sOut =
+          '<div class="innerDetails">'+
+            '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+              '<tr><td>Rendering engine:</td><td>'+oData.engine+'</td></tr>'+
+              '<tr><td>Browser:</td><td>'+oData.browser+'</td></tr>'+
+              '<tr><td>Platform:</td><td>'+oData.platform+'</td></tr>'+
+              '<tr><td>Version:</td><td>'+oData.version+'</td></tr>'+
+              '<tr><td>Grade:</td><td>'+oData.grade+'</td></tr>'+
+            '</table>'+
+          '</div>';
+        return sOut;
+      };
+
+      /****************************************************/
+      /**************** ADVANCED DATATABLE ****************/
+      /****************************************************/
+
+      var oTable04 = $('#advancedDataTable').dataTable({
+        "sDom":
+          "<'row'<'col-md-4'l><'col-md-4 text-center sm-left'T C><'col-md-4'f>r>"+
+          "t"+
+          "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
+         "oLanguage": {
+          "sSearch": ""
+        },
+        "oTableTools": {
+          "sSwfPath": "assets/js/vendor/datatables/tabletools/swf/copy_csv_xls_pdf.swf",
+          "aButtons": [
+            "copy",
+            "print",
+            {
+              "sExtends":    "collection",
+              "sButtonText": 'Save <span class="caret" />',
+              "aButtons":    [ "csv", "xls", "pdf" ]
+            }
+          ]
+        },
+        "fnInitComplete": function(oSettings, json) { 
+          $('.dataTables_filter input').attr("placeholder", "Search");
+        },
+        "oColVis": {
+          "buttonText": '<i class="fa fa-eye"></i>'
+        }
+      });
+
+      $('.ColVis_MasterButton').on('click', function(){
+        var newtop = $('.ColVis_collection').position().top - 45; 
+
+        $('.ColVis_collection').addClass('dropdown-menu');
+        $('.ColVis_collection>li>label').addClass('btn btn-default')     
+        $('.ColVis_collection').css('top', newtop + 'px');
+      });
+
+      $('.DTTT_button_collection').on('click', function(){
+        var newtop = $('.DTTT_dropdown').position().top - 45;   
+        $('.DTTT_dropdown').css('top', newtop + 'px');
+      });
+
+      //initialize chosen
+      $('.dataTables_length select').chosen({disable_search_threshold: 10});
+
+      // Add custom class
+      $('div.dataTables_filter input').addClass('form-control');
+      $('div.dataTables_length select').addClass('form-control');
       
     })
       

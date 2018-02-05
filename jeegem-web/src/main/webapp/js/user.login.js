@@ -16,3 +16,18 @@ function logout(){
 		}
 	});
 }
+
+/**退出*/
+function jeegemLogout(){
+	$("#loader").fadeIn();
+    $(".mask").fadeIn();
+	$.getJSON(baseUrl + '/u/logout.shtml',{},function(result){
+		$("#loader").fadeOut();
+        $(".mask").fadeOut();
+		if(result && result.status == 200){
+			$(".qqlogin").html('').next('ul').remove();
+			window.location.reload(true);
+			return !1;
+		}
+	});
+}

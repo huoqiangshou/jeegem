@@ -63,7 +63,6 @@
 						</ul>
 					</li>	
 				</@shiro.hasAnyRoles>    
-					          
 				         
 	          </ul>
 	           <ul class="nav navbar-nav  pull-right" >

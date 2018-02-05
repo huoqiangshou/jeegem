@@ -149,7 +149,6 @@
     <bean id="permission" class="com.jeegem.core.shiro.filter.PermissionFilter"/>
     <bean id="simple" class="com.jeegem.core.shiro.filter.SimpleAuthFilter"/>
 	
-	
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/u/login.shtml" />
