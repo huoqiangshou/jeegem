@@ -1,6 +1,4 @@
 <#macro top index>
-
-
 <ul class="nav navbar-nav quick-actions">
               
               <li class="dropdown divided">

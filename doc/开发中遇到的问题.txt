@@ -2,3 +2,18 @@
 	①、from提交出现post问题,一般都是你的button默认没有type="button",变成subbmit了,这样你的ajax提交还没返回
 		button早就搞完事了。。。就出post问题了。。。
 2、对于页面卡死等,方式一般也就排除了。。。一点一点删掉,排查,或者浏览器F12查看
+
+3、弹出层
+$("#loader").fadeIn()
+$(".mask").fadeIn()
+$("#loader").fadeOut()
+$(".mask").fadeOut()
+
+$(window).load(function() {
+        $("#loader").delay(500).fadeOut(300),
+        $(".mask").delay(800).fadeOut(300,
+        function() {
+                widthLess1024(),
+                widthLess768()
+        })
+});

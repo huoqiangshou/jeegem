@@ -211,24 +211,11 @@
             </li></ul>
             <!-- Sidebar end -->
 
-
-
-
-
           </div>
           <!--/.nav-collapse -->
 
-
-
-
-
         </div>
         <!-- Fixed navbar end -->
-        
-
-
-
-
         
         <!-- Page content -->
         <div id="content" class="col-md-12">
@@ -236,14 +223,14 @@
           <!-- page header -->
           <div class="pageheader">
 
-            <h2><i class="fa fa-puzzle-piece" style="line-height: 48px;padding-left: 5px;"></i> Tables <span>// Place subtitle here...</span></h2>
+            <h2><i class="fa fa-puzzle-piece" style="line-height: 48px;padding-left: 5px;"></i> 用户列表</h2>
             
             <div class="breadcrumbs">
               <ol class="breadcrumb">
-                <li>You are here</li>
-                <li><a href="index.html">Minimal</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <li class="active">Bootstrap Tables</li>
+                <li>所在位置</li>
+                <li><a href="index.html">JeeGem</a></li>
+                <li><a href="tables.html">用户中心</a></li>
+                <li class="active">用户列表</li>
               </ol>
             </div>
 
@@ -261,29 +248,17 @@
 
                 <!-- tile -->
                 <section class="tile color transparent-white">
-
+				<form method="post" action="" id="formId" class="form-inline">
                   <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>用户列表</strong> </h1>
-                    <div class="search">
-                      <input type="text" placeholder="Search...">
-                    </div>
-                    
-                  </div>
+                  
                   <!-- /tile header -->
-
+					
                   <!-- tile body -->
                   <div class="tile-body no-vpadding">
                     
                     <table class="table table-custom table-sortable">
                       <thead>
                         <tr>
-                          <th style="width: 40px;">
-                            <div class="checkbox check-transparent">
-                              <input type="checkbox" value="1" id="allchck2">
-                              <label for="allchck2"></label>
-                            </div>
-                          </th>
                           
                           <th >昵称</th>
                           <th >Email</th>
@@ -297,12 +272,7 @@
                       <#if page?exists && page.list?size gt 0 >
                       	<#list page.list as it>
 	                        <tr>
-	                          <td>
-	                            <div class="checkbox check-transparent">
-	                              <input type="checkbox" value="${it.id}" id="chck04">
-	                              <label for="chck04"></label>
-	                            </div>
-	                          </td>
+	                          
 	                          <td>${it.nickname?default('未设置')}</td>
 	                          <td>${it.email?default('未设置')}</td>
 	                          <td>${(it.status==1)?string('有效','禁止')}</td>
@@ -315,7 +285,7 @@
 									</a>
 	                          	</@shiro.hasPermission>
 	                          	<@shiro.hasPermission name="/member/deleteUserById.shtml">
-									<a href="javascript:_delete([${it.id}]);">删除</a>
+									<a href="javascript:void(0);" onclick='_delete(${it.id})'>删除</a>
 								</@shiro.hasPermission>
 	                          </td>
 	                        </tr>
@@ -330,28 +300,30 @@
 
                   </div>
                   <!-- /tile body -->
-
-
+					
+                    
+					<div class="col-sm-4 text-center">
+						
+                        <small class="inline table-options paging-info">当前页 | ${page.pageNo} 共 | ${page.totalCount} |条</small>
+                    </div>
+					
+					<#if page?exists>
                   <!-- tile footer -->
                   <div class="tile-footer bg-transparent-white-2 rounded-bottom-corners">
                     <div class="row">  
                       
                       <div class="col-sm-4 text-right sm-center">
                         <ul class="pagination pagination-xs nomargin pagination-custom">
-                          <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                          <li class="active"><a href="#">1</a></li>
-                          <li><a href="#">2</a></li>
-                          <li><a href="#">3</a></li>
-                          <li><a href="#">4</a></li>
-                          <li><a href="#">5</a></li>
-                          <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                          ${page.jeeGemPageHtml}
                         </ul>
                       </div>
 					  
                     </div>
                   </div>
-                  <!-- /tile footer -->
+                  </#if>
                   
+                  <!-- /tile footer -->
+                  </form>
                 </section>
                 <!-- /tile -->
 
@@ -786,8 +758,8 @@
 
     <script src="${basePath}/resources/assets/js/vendor/chosen/chosen.jquery.min.js"></script>
 
-    <script src="${basePath}/resources/assets/js/minimal.min.js"></script>
-
+    <script src="${basePath}/resources/assets/js/minimal.js"></script>
+<script  src="${basePath}/js/common/layer/layer.js"></script>
     <script>
     $(function(){
 
@@ -812,6 +784,64 @@
       })
       
     })
+      		
+      		<@shiro.hasPermission name="/member/deleteUserById.shtml">
+      		
+			//根据ID数组，删除
+			function _delete(id){
+				var ids = new Array();
+				ids.push(id);
+				var index = layer.confirm("确定删除？",function(){
+					
+					$("#loader").fadeIn()
+        			$(".mask").fadeIn()
+					
+					$.post('${basePath}/member/deleteUserById.shtml',{ids:ids.join(',')},function(result){
+						
+						$("#loader").fadeOut(300)
+        				$(".mask").fadeOut(300)
+						
+						if(result && result.status != 200){
+							return layer.msg(result.message,so.default),!0;
+						}else{
+							layer.msg('删除成功');
+							setTimeout(function(){
+								$('#formId').submit();
+							},1000);
+						}
+					},'json');
+					layer.close(index);
+				});
+			}
+			</@shiro.hasPermission>
+      		
+      		<@shiro.hasPermission name="/member/forbidUserById.shtml">
+			/*
+			 * 激活 | 禁止用户登录
+			 */
+			function forbidUserById(status,id){
+				var text = status?'激活':'禁止';
+				var index = layer.confirm("确定"+text+"这个用户？",function(){
+					
+					$("#loader").fadeIn()
+        			$(".mask").fadeIn()
+					
+					$.post('${basePath}/member/forbidUserById.shtml',{status:status,id:id},function(result){
+						$("#loader").fadeOut(300)
+        				$(".mask").fadeOut(300)
+						if(result && result.status != 200){
+							return layer.msg(result.message,so.default),!0;
+						}else{
+							layer.msg(text +'成功');
+							setTimeout(function(){
+								$('#formId').submit();
+							},1000);
+						}
+					},'json');
+					layer.close(index);
+				});
+			}
+			</@shiro.hasPermission>
       
     </script>
   </body>
