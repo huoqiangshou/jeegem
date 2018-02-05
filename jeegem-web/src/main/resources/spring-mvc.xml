@@ -12,9 +12,6 @@
 	http://www.springframework.org/schema/mvc 
 	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-
-
-
 	<!-- 自动扫描(自动注入) -->
 	<context:component-scan base-package="com.jeegem.*.controller;com.jeegem.*.*.controller"/>
 
@@ -24,7 +21,6 @@
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/js/**" location="/js/" />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-	
 	
 	<!-- 自动扫描 标签 -->
 	<context:component-scan base-package="com.jeegem.*.*.tag;com.jeegem.*.tag" />
@@ -70,11 +66,8 @@
 		</property>  
 	</bean>   
 	
-	
-
 	<!--===============通用视图解析器 begin===============-->
-	<bean id="viewResolverCommon"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean id="viewResolverCommon" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 <!--			可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑-->
@@ -84,11 +77,10 @@
 		</property>
 		<property name="order" value="1" />
 	</bean>
-
+	
 	<!-- 视图解析器 -->
 	<!-- 配置freeMarker视图解析器 -->
-	<bean id="viewResolverFtl"
-		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+	<bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="viewClass" value="com.jeegem.core.freemarker.extend.FreeMarkerViewExtend" />
 		<!-- 把Freemarker 扩展一下，把相关属性加入进去。。。 -->
 		<property name="contentType" value="text/html; charset=utf-8" />
@@ -96,6 +88,7 @@
 		<property name="suffix" value=".ftl" />
 		<property name="order" value="0" />
 	</bean>
+	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="order" value="2"></property>
@@ -104,9 +97,7 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-
-
-
+	
 	<!-- 配置freeMarker 拓展-->
 	<bean id="freemarkerConfig"
 		class="com.jeegem.core.freemarker.extend.FreeMarkerConfigExtend">

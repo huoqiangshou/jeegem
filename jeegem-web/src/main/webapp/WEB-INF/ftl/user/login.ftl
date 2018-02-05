@@ -11,9 +11,9 @@
     <link href="${basePath}/resources/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${basePath}/resources/assets/css/vendor/bootstrap-checkbox.css">
     <link rel="stylesheet" href="${basePath}/resources/assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
-
+	
     <link href="${basePath}/resources/assets/css/minimal.css" rel="stylesheet">
-
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,8 +22,7 @@
     <![endif]-->
   </head>
   <body class="bg-1">
-		
-  <div class="jeegemmask" style="display: none;"><div id="jeegemloader"></div></div>
+		<div class="jeegemmask" style="display: none;"><div id="jeegemloader"></div></div>
     <!-- Wrap all page content here -->
     <div id="wrap">
       <!-- Make page fluid -->
@@ -48,10 +47,11 @@
                 </div>
               </section>
               <section class="controls">
-                <div class="checkbox check-transparent">
-                  <input type="checkbox"  id="rememberMe"  >
+                <div class="checkbox check-transparent" >
+                  <input type="checkbox"  id="remember"  />
                   <label for="remember">记住我!</label>
                 </div>
+				
                 <a href="#">忘记密码?</a>
               </section>
               <section class="log-in">
@@ -68,21 +68,16 @@
       </div>
     </div>
     <!-- Wrap all page content end -->
-    
+    	
 		<!-- Javascript -->
         <script  src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
         <script  src="${basePath}/js/common/MD5.js"></script>
         <script  src="${basePath}/js/common/supersized.3.2.7.min.js"></script>
         <script  src="${basePath}/js/common/supersized-init.js"></script>
 		<script  src="${basePath}/js/common/layer/layer.js"></script>
-    	
+		
 		<script >
 			jQuery(document).ready(function() {
-				// 用click事件
-			    $(document).click( function(event) {
-			        console.log('click');
-			        event.stopPropagation();
-			    });
 			    
 				try{
 					var _href = window.location.href+"";
@@ -100,34 +95,22 @@
 					}
 				}; 
 				
-				
-				
 				//登录操作
 			    $('#login').click(function(){
 			    	
-			        var Email = $('#Email').val();
+			        var email = $('#email').val();
 			        var password = $('#password').val();
 			        
-			        if(Email == '') {
-			            $('.error').fadeOut('fast', function(){
-			                $('.error').css('top', '27px').show();
-			            });
-			            $('.error').fadeIn('fast', function(){
-			                $('.username').focus();
-			            });
+			        if(email == '') {
+			            layer.msg("email不能为空",function(){});
 			            return false;
 			        }
 			        if(password == '') {
-			            $('.error').fadeOut('fast', function(){
-			                $('.error').css('top', '96px').show();
-			            });
-			            $(this).find('.error').fadeIn('fast', function(){
-			                $('.password').focus();
-			            });
+			            layer.msg("password不能为空",function(){});
 			            return false;
 			        }
 			        var pswd = MD5(email +"#" + password),
-			        	data = {pswd:pswd,email:email,rememberMe:$("#rememberMe").is(':checked')};
+			        	data = {pswd:pswd,email:email,rememberMe:$("#remember").is(':checked')};
     				
 			        $.ajax({
 			        	url:"${basePath}/u/submitLogin.shtml",
@@ -138,7 +121,8 @@
 			        		$(".jeegemmask").css("display","block");
 			        	},
 			        	success:function(result){
-        					$(".jeegemmask").fadeOut(600);
+        					$(".jeegemmask").fadeOut(300);
+        					 
 				    		if(result && result.status != 200){
 				    			layer.msg(result.message,function(){});
 				    			$('.password').val('');
@@ -149,7 +133,7 @@
 				    		}
 			        	},
 			        	error:function(e){
-			        		$(".jeegemmask").fadeOut(500);
+			        		$(".jeegemmask").fadeOut(300)
 			        		console.log(e,e.message);
 			        		layer.msg('请看后台Java控制台，是否报错，确定已经配置数据库和Redis',new Function());
 			        	}

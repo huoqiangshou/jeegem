@@ -53,9 +53,11 @@ public class UserCoreController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value="index",method=RequestMethod.GET)
-	public ModelAndView userIndex(){
+	public ModelAndView userIndex(String opt){
+		ModelAndView mav = new ModelAndView("user/index");
 		
-		return new ModelAndView("user/index");
+		mav.addObject("opt", opt);
+		return mav;
 	}
 	
 	
