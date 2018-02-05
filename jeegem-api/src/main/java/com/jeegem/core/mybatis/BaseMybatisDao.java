@@ -197,8 +197,7 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 			/**
 			 * 处理Count
 			 */
-			PreparedStatement ps = getPreparedStatement4Count(countCode, countSql
-					.getParameterMappings(), params, conn);
+			PreparedStatement ps = getPreparedStatement4Count(countCode, countSql.getParameterMappings(), params, conn);
 			ps.execute();
 			ResultSet set = ps.getResultSet();
 
@@ -219,8 +218,7 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 * @param pageSize
 	 * @return
 	 */
-	public Pagination findPage(Map<String, Object> params, Integer pageNo,
-			Integer pageSize) {
+	public Pagination findPage(Map<String, Object> params, Integer pageNo,Integer pageSize) {
 
 		return findPage(DEFAULT_SQL_ID, DEFAULT_COUNT_SQL_ID, params, pageNo, pageSize);
 	}

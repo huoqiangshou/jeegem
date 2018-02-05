@@ -50,6 +50,7 @@ public class MemberController extends BaseController {
 	CustomSessionManager customSessionManager;
 	@Autowired
 	UUserService userService;
+	
 	/**
 	 * 用户列表管理
 	 * @return
@@ -62,6 +63,7 @@ public class MemberController extends BaseController {
 		map.put("page", page);
 		return new ModelAndView("member/list");
 	}
+	
 	/**
 	 * 在线用户管理
 	 * @return

@@ -38,15 +38,15 @@
                       </li>
                     </ul>
                   </li>
-                  
-                  <li class="dropdown">
+                  <@shiro.hasAnyRoles name='888888,100002'>
+                  <li class="dropdown ${(index1==2)?string('open active',' ')}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-list"></i> Forms <b class="fa fa-plus dropdown-plus"></b>
+                      <i class="fa fa-list"></i> 用户中心 <b class="fa fa-plus dropdown-plus"></b>
                     </a>
                     <ul class="dropdown-menu">
-                      <li>
-                        <a href="form-elements.html">
-                          <i class="fa fa-caret-right"></i> Common Elements
+                      <li class="${(index2==21)?string('active',' ')}">
+                        <a href="${basePath}/member/list.shtml" >
+                          <i class="fa fa-caret-right"></i> 用户列表
                         </a>
                       </li>
                       <li>
@@ -61,7 +61,8 @@
                       </li>
                     </ul>
                   </li>
-
+				  </@shiro.hasAnyRoles>
+				    
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <i class="fa fa-pencil"></i> Interface <b class="fa fa-plus dropdown-plus"></b>
