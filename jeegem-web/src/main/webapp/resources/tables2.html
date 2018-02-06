@@ -410,24 +410,14 @@
                 <a href="#" class="sidebar-toggle" data-toggle="#navigation">Navigation <i class="fa fa-angle-up"></i></a>
                 
                 <ul class="menu">
-                   <li class="dropdown  active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-th-large"></i> 个人中心 <b class="fa fa-plus dropdown-plus"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li >
-                        <a href="tables2.html">
-                          <i class="fa fa-caret-right"></i> 个人资料
-                        </a>
-                      </li>
-                      <li>
-                        <a href="datatables.html">
-                          <i class="fa fa-caret-right"></i> 资料修改
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
                   
+                  <li>
+                    <a href="index.html">
+                      <i class="fa fa-tachometer"></i> Dashboard
+                      <span class="badge badge-red">1</span>
+                    </a>
+                  </li>
+
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <i class="fa fa-list"></i> Forms <b class="fa fa-plus dropdown-plus"></b>
@@ -497,7 +487,23 @@
                     </a>
                   </li>
 
-                 
+                  <li class="dropdown open active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-th-large"></i> Tables <b class="fa fa-plus dropdown-plus"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li class="active">
+                        <a href="tables.html">
+                          <i class="fa fa-caret-right"></i> Bootstrap Tables
+                        </a>
+                      </li>
+                      <li>
+                        <a href="datatables.html">
+                          <i class="fa fa-caret-right"></i> DataTables
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
 
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -758,66 +764,73 @@
 
 
         </div>
+        <!-- Fixed navbar end -->
+        
+
+
+
+
         
         <!-- Page content -->
         <div id="content" class="col-md-12">
           
+
+
+
+
+
+
+
+
           <!-- page header -->
           <div class="pageheader">
-			
-            <h2><i class="fa fa-puzzle-piece" style="line-height: 48px;padding-left: 5px;"></i> 个人资料</h2>
-			
+            
+
+            <h2><i class="fa fa-puzzle-piece" style="line-height: 48px;padding-left: 5px;"></i> Tables <span>// Place subtitle here...</span></h2>
+            
+
             <div class="breadcrumbs">
               <ol class="breadcrumb">
-                <li>所在位置</li>
-                <li><a href="index2.html">JeeGem</a></li>
-                <li><a href="tables2.html">用户中心</a></li>
-                <li class="active">个人资料</li>
+                <li>You are here</li>
+                <li><a href="index.html">Minimal</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li class="active">Bootstrap Tables</li>
               </ol>
             </div>
 
 
           </div>
           <!-- /page header -->
-          
-          
-
-
-
 
           <!-- content main container -->
           <div class="main">
 
-
-
-
             <!-- row -->
             <div class="row">
-
               <!-- col 6 -->
-              <div class="col-md-6">
-
-
-
+              <div class="col-md-12">
                 <!-- tile -->
                 <section class="tile color transparent-black">
-
-
-
                   <!-- tile header -->
                   <div class="tile-header">
                     <h1><strong>Basic</strong> Example</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
+                    
                   </div>
                   <!-- /tile header -->
 
                   <!-- tile body -->
                   <div class="tile-body nopadding">
                     
+                    <form class="form-horizontal" role="form">
+                    <div >
+                        <div class="col-sm-3">
+                          <input type="text" name="nickname" class="form-control" id="nickname">
+                        </div>
+						<button type="button" class="btn btn-danger margin-bottom-20" >Default button</button>
+						<button type="button" class="btn  btn-red margin-bottom-20" >Default button</button>
+						<button type="button" class="btn  btn-amethyst margin-bottom-20" >Default button</button>
+                    </div>
+					
                     <table class="table">
                       <thead>
                         <tr>
@@ -848,87 +861,42 @@
                         </tr>
                       </tbody>
                     </table>
-
+                    
+                    
+                    
+                    <div class="row bg-transparent-white-1">  
+                      
+                      <div class="col-sm-10 text-right sm-center">
+						<ul class="pagination pagination-lg pagination-custom">
+                            <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                          </ul>
+                      </div>
+					  
+                    </div>
+                    
+					</form>
                   </div>
-                  <!-- /tile body -->
-                  
                 
-
-
-                </section>
-                <!-- /tile -->
-
-
-                <!-- tile -->
-                
-                <!-- /tile -->
-
-
-
-                <!-- tile -->
-                
-                <!-- /tile -->
-
-
-
-
-                <!-- tile -->
-                
-                <!-- /tile -->
-
-
-
+				
+</section>
               </div>
-              <!-- /col 6 -->
-
-
-
-              <!-- col 6 -->
-              <div class="col-md-6">
-
-                <!-- tile -->
-                
-                <!-- /tile -->
-
-
-
-
-              </div>
-              <!-- /col 6 -->
-
-
-              <!-- col 12 -->
-              <div class="col-md-12">
-                
-                
-                <!-- tile -->
-                
-                <!-- /tile -->
-
-
-              </div>
-              <!-- /col 12 -->
-
 
               
+              
             </div>
-            <!-- /row -->
-          
-
 
           </div>
           <!-- /content container -->
 
 
-
-
-
-
         </div>
         <!-- Page content end -->
-
-
-
 
         <div id="mmenu" class="right-panel">
           <!-- Nav tabs -->
