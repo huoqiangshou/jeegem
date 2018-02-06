@@ -49,35 +49,37 @@
                           <i class="fa fa-caret-right"></i> 用户列表
                         </a>
                       </li>
-                      <li>
-                        <a href="validation-elements.html">
-                          <i class="fa fa-caret-right"></i> Validation
-                        </a>
-                      </li>
-                      <li>
-                        <a href="form-wizard.html">
-                          <i class="fa fa-caret-right"></i> Form Wizard
+                      <li class="${(index2==22)?string('active',' ')}">
+                        <a href="${basePath}/member/online.shtml" >
+                          <i class="fa fa-caret-right"></i> 在线用户
                         </a>
                       </li>
                     </ul>
                   </li>
 				  </@shiro.hasAnyRoles>
-				    
-                  <li class="dropdown">
+				 
+				 <@shiro.hasAnyRoles name='888888,100003'>
+                  <li class="dropdown ${(index1==3)?string('open active',' ')}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-pencil"></i> Interface <b class="fa fa-plus dropdown-plus"></b>
+                      <i class="fa fa-pencil"></i> 权限管理 <b class="fa fa-plus dropdown-plus"></b>
                     </a>
                     <ul class="dropdown-menu">
-                      <li>
-                        <a href="ui-elements.html">
-                          <i class="fa fa-caret-right"></i> UI Elements
+                      <@shiro.hasPermission name="/role/index.shtml">
+                      <li class="${(index2==31)?string('active',' ')}">
+                        <a href="${basePath}/role/index.shtml">
+                          <i class="fa fa-caret-right"></i> 角色列表
                         </a>
                       </li>
-                      <li>
-                        <a href="typography.html">
-                          <i class="fa fa-caret-right"></i> Typography
+                      </@shiro.hasPermission>
+                      
+                      <@shiro.hasPermission name="/role/allocation.shtml">
+                      <li class="${(index2==32)?string('active',' ')}">
+                        <a href="${basePath}/role/allocation.shtml">
+                          <i class="fa fa-caret-right"></i> 角色分配
                         </a>
                       </li>
+                      </@shiro.hasPermission>
+                      
                       <li>
                         <a href="tiles.html">
                           <i class="fa fa-caret-right"></i> Tiles
@@ -89,15 +91,11 @@
                           <span class="label label-greensea">new</span>
                         </a>
                       </li>
-                      <li>
-                        <a href="${basePath}/nestable.html">
-                          <i class="fa fa-caret-right"></i> Nestable Lists
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
+                      
                     </ul>
                   </li>
-
+				</@shiro.hasAnyRoles>
+					 
                   <li>
                     <a href="${basePath}/buttons.html">
                       <i class="fa fa-tint"></i> Buttons & Icons
@@ -222,4 +220,82 @@
                         </a>
                       </li>
                     </li></ul>
+                    <li>
+                    <a href="widgets.html">
+                      <i class="fa fa-play-circle"></i> Widgets
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="charts.html">
+                      <i class="fa fa-bar-chart-o"></i> Charts & Graphs
+                    </a>
+                  </li>
+
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-folder"></i> Menu Levels <b class="fa fa-plus dropdown-plus"></b>
+                      <span class="label label-cyan">new</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 1.1</a></li>
+
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 1.2 <b class="fa fa-plus dropdown-plus"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.1</a></li>
+                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.2</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 2.3 <b class="fa fa-plus dropdown-plus"></b></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.1</a></li>
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.2</a></li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 3.3 <b class="fa fa-plus dropdown-plus"></b></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 4.1</a></li>
+                                   <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 4.2 <b class="fa fa-plus dropdown-plus"></b></a>
+                                      <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 5.1</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 5.2</a></li>
+                                      </ul>
+                                    </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 1.3 <b class="fa fa-plus dropdown-plus"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.1</a></li>
+                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.2</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 2.3 <b class="fa fa-plus dropdown-plus"></b></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.1</a></li>
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.2</a></li>
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.3</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+                </li></ul>
+
+              
+
+              
+            </li></ul>
+            
+            
+            
+            
 </#macro>

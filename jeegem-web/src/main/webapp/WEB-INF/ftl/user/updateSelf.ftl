@@ -85,7 +85,6 @@
             <!-- Sidebar -->
             <@_left.user 1 2 />
 
-            </li></ul>
             <!-- Sidebar end -->
 
           </div>

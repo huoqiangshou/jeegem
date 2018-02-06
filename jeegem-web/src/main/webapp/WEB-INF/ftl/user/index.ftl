@@ -78,92 +78,10 @@
             <!-- Sidebar -->
             <@_left.user  1 1/>
 
-                  <li>
-                    <a href="widgets.html">
-                      <i class="fa fa-play-circle"></i> Widgets
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="charts.html">
-                      <i class="fa fa-bar-chart-o"></i> Charts & Graphs
-                    </a>
-                  </li>
-
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-folder"></i> Menu Levels <b class="fa fa-plus dropdown-plus"></b>
-                      <span class="label label-cyan">new</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 1.1</a></li>
-
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 1.2 <b class="fa fa-plus dropdown-plus"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.1</a></li>
-                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.2</a></li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 2.3 <b class="fa fa-plus dropdown-plus"></b></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.1</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.2</a></li>
-                              <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 3.3 <b class="fa fa-plus dropdown-plus"></b></a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 4.1</a></li>
-                                   <li class="dropdown">
-                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 4.2 <b class="fa fa-plus dropdown-plus"></b></a>
-                                      <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 5.1</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 5.2</a></li>
-                                      </ul>
-                                    </li>
-                                </ul>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 1.3 <b class="fa fa-plus dropdown-plus"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.1</a></li>
-                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.2</a></li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 2.3 <b class="fa fa-plus dropdown-plus"></b></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.1</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.2</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.3</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-
-                    </ul>
-                  </li>
-
-
-                </li></ul>
-
-              
-
-              
-            </li></ul>
             <!-- Sidebar end -->
-
-
-
-
 
           </div>
           <!--/.nav-collapse -->
-
-
-
-
 
         </div>
         
