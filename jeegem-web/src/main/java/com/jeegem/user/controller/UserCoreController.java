@@ -60,6 +60,17 @@ public class UserCoreController extends BaseController {
 		return mav;
 	}
 	
+	/**
+	 * 个人资料
+	 * @return
+	 */
+	@RequestMapping(value="index2",method=RequestMethod.GET)
+	public ModelAndView userIndex2(String opt){
+		ModelAndView mav = new ModelAndView("user/index");
+		
+		mav.addObject("opt", opt);
+		return mav;
+	}
 	
 	/**
 	 * 偷懒一下，通用页面跳转

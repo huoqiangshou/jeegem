@@ -1,4 +1,4 @@
-package com.jeegem.permission.controller;
+package com.jeegem.user.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -38,8 +38,8 @@ import com.jeegem.user.service.UUserService;
  */
 @Controller
 @Scope(value="prototype")
-@RequestMapping("role")
-public class UserRoleAllocationController extends BaseController {
+@RequestMapping("user")
+public class UserRoleAllocation2Controller extends BaseController {
 	@Autowired
 	UUserService userService;
 	@Autowired
@@ -51,7 +51,7 @@ public class UserRoleAllocationController extends BaseController {
 	 * @param findContent
 	 * @return
 	 */
-	@RequestMapping(value="allocation")
+	@RequestMapping(value="allocation2")
 	public ModelAndView allocation(ModelMap modelMap,Integer pageNo,String findContent){
 		modelMap.put("findContent", findContent);
 		Pagination<UserRoleAllocationBo> boPage = userService.findUserAndRole(modelMap,pageNo,pageSize);
@@ -59,37 +59,21 @@ public class UserRoleAllocationController extends BaseController {
 		return new ModelAndView("role/allocation");
 	}
 	
+	/**
+	 * 选择角色
+	 * @param modelMap
+	 * @param pageNo
+	 * @param findContent
+	 * @return
+	 */
+	@RequestMapping(value="chooseRole")
+	public ModelAndView chooseRole(Long id){
+		List<URoleBo> roles = userService.selectRoleByUserId(id);
+		
+		ModelAndView mav = new ModelAndView("role/chooseRole");
+		mav.addObject("roles", roles);
+		mav.addObject("userRoleId", id);
+		return mav;
+	}
 	
-	/**
-	 * 根据用户ID查询权限
-	 * @param id
-	 * @return
-	 */
-	@RequestMapping(value="selectRoleByUserId")
-	@ResponseBody
-	public List<URoleBo> selectRoleByUserId(Long id){
-		List<URoleBo> bos = userService.selectRoleByUserId(id);
-		return bos;
-	}
-	/**
-	 * 操作用户的角色
-	 * @param userId 	用户ID
-	 * @param ids		角色ID，以‘,’间隔
-	 * @return
-	 */
-	@RequestMapping(value="addRole2User")
-	@ResponseBody
-	public Map<String,Object> addRole2User(Long userId,String ids){
-		return userService.addRole2User(userId,ids);
-	}
-	/**
-	 * 根据用户id清空角色。
-	 * @param userIds	用户ID ，以‘,’间隔
-	 * @return
-	 */
-	@RequestMapping(value="clearRoleByUserIds")
-	@ResponseBody
-	public Map<String,Object> clearRoleByUserIds(String userIds){
-		return userService.deleteRoleByUserIds(userIds);
-	}
 }

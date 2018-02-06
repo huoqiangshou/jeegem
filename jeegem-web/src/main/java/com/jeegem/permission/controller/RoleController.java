@@ -49,9 +49,18 @@ public class RoleController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value="index")
-	public ModelAndView index(String findContent,ModelMap modelMap){
+	public ModelAndView index(String findContent,ModelMap modelMap,Integer pageNo){
 		modelMap.put("findContent", findContent);
-		Pagination<URole> role = roleService.findPage(modelMap,pageNo,pageSize);
+		Integer tpn = 1;
+		try {
+			tpn = pageNo;
+			if (tpn == null || tpn == 0) {
+				tpn = super.pageNo;
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Pagination<URole> role = roleService.findPage(modelMap,tpn,pageSize);
 		return new ModelAndView("role/index","page",role);
 	}
 	/**
