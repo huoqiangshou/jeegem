@@ -163,6 +163,7 @@ public class Pagination<T> extends SimplePage implements java.io.Serializable,
 				
 			}
 			
+			
 			if (this.getPageNo() < this.getTotalPage()) {
 				s.append("<li><a href='javascript:void(0);' onclick='_submitform("+(this.getPageNo() + 1)+")'><i class='fa fa-angle-double-right'></i></a></li>");
 			}else if(this.getPageNo() == this.getTotalPage()){

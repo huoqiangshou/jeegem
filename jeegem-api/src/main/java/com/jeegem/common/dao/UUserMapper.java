@@ -23,6 +23,6 @@ public interface UUserMapper {
 
 	UUser findUserByEmail(String email);
 
-	List<URoleBo> selectRoleByUserId(Long id);
+	List<URoleBo> selectRoleByUserId2(Long id);
 
 }

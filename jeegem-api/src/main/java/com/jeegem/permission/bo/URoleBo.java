@@ -15,9 +15,12 @@ public class URoleBo extends URole implements Serializable{
 	 * 是否勾选
 	 */
 	private String marker;
-
+	
+	private String roleId;
+	
 	public boolean isCheck(){
-		return StringUtils.equals(userId,marker);
+//		return StringUtils.equals(userId,marker);
+		return StringUtils.isNotBlank(userId) && StringUtils.isNotBlank(roleId);
 	}
 	public String getMarker() {
 		return marker;
@@ -31,6 +34,12 @@ public class URoleBo extends URole implements Serializable{
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public String getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
 	}
 	
 }
