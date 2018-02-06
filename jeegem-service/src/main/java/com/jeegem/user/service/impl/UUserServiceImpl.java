@@ -141,7 +141,8 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 
 	@Override
 	public List<URoleBo> selectRoleByUserId(Long id) {
-		return userMapper.selectRoleByUserId(id);
+//		return userMapper.selectRoleByUserId(id);
+		return userMapper.selectRoleByUserId2(id);
 	}
 
 	@Override
