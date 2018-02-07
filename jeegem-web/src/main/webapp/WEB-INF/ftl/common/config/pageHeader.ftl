@@ -6,8 +6,8 @@
             <div class="breadcrumbs">
               <ol class="breadcrumb">
                 <li>所在位置</li>
-                <li><a href="index.html">JeeGem</a></li>
-                <li><a href="ui-elements.html">${place}</a></li>
+                <li><a href="${basePath}/user/index.html">JeeGem</a></li>
+                <li><a href="javascript:void(0);">${place}</a></li>
                 <li class="active">${function}</li>
               </ol>
             </div>

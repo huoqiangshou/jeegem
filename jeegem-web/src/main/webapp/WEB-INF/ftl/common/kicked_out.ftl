@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>Minimal 1.3 - 您已被踢出。。。</title>
+    <title>JeeGem - 您已被踢出。。。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 

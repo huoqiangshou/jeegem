@@ -1,4 +1,5 @@
 <#macro navbar parent child>
+<script baseUrl="${basePath}" src="${basePath}/js/user.login.js"></script>
 <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
           
           <!-- Branding -->
@@ -18,17 +19,11 @@
           <div class="navbar-collapse">
                         
             <!-- Page refresh -->
-            <ul class="nav navbar-nav refresh">
-              <li class="divided">
-                <a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
-              </li>
-            </ul>
+            
             <!-- /Page refresh -->
 
             <!-- Search -->
-            <div class="search" id="main-search">
-              <i class="fa fa-search"></i> <input type="text" placeholder="Search...">
-            </div>
+            
             <!-- Search end -->
 
             <!-- Quick Actions -->
@@ -252,8 +247,8 @@
                 <div class="profile-photo">
                   <img src="${basePath}/resources/assets/images/profile-photo.jpg" alt="">
                 </div>
-                <a class="dropdown-toggle options" data-toggle="dropdown" href="#">
-                  John Douey <i class="fa fa-caret-down"></i>
+                <a class="dropdown-toggle options" data-toggle="dropdown" href="${basePath}/user/index.shtml">
+                  ${token.nickname} <i class="fa fa-caret-down"></i>
                 </a>
                 
                 <ul class="dropdown-menu arrow settings">
@@ -319,7 +314,7 @@
                   <li class="divider"></li>
 
                   <li>
-                    <a href="#"><i class="fa fa-user"></i> Profile</a>
+                    <a href="${basePath}/user/index.shtml"><i class="fa fa-user"></i> 个人资料</a>
                   </li>
 
                   <li>
@@ -447,193 +442,7 @@
                   </li>
 				</@shiro.hasAnyRoles>
 					 
-                  <li>
-                    <a href="${basePath}/buttons.html">
-                      <i class="fa fa-tint"></i> Buttons & Icons
-                    </a>
-                  </li>
-                  <li>
-                    <a href="${basePath}/grid.html">
-                      <i class="fa fa-th"></i> Grid Layout
-                    </a>
-                  </li>
-
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-desktop"></i> Example Pages <b class="fa fa-plus dropdown-plus"></b>
-                      <span class="label label-greensea">mails</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a href="login.html">
-                          <i class="fa fa-caret-right"></i> Login Page
-                        </a>
-                      </li>
-                      <li>
-                        <a href="calendar.html">
-                          <i class="fa fa-caret-right"></i> Calendar
-                        </a>
-                      </li>
-                      <li>
-                        <a href="page404.html">
-                          <i class="fa fa-caret-right"></i> Page 404
-                        </a>
-                      </li>
-                      <li>
-                        <a href="page500.html">
-                          <i class="fa fa-caret-right"></i> Page 500
-                        </a>
-                      </li>
-                      <li>
-                        <a href="page-offline.html">
-                          <i class="fa fa-caret-right"></i> Page Offline
-                        </a>
-                      </li>
-                      <li>
-                        <a href="invoice.html">
-                          <i class="fa fa-caret-right"></i> Invoice
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="blank-page.html">
-                          <i class="fa fa-caret-right"></i> Blank Page
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="locked-screen.html">
-                          <i class="fa fa-caret-right"></i> Locked Screen
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="gallery.html">
-                          <i class="fa fa-caret-right"></i> Gallery
-                        </a>
-                      </li>
-                      <li>
-                        <a href="timeline.html">
-                          <i class="fa fa-caret-right"></i> Timeline
-                        </a>
-                      </li>
-                      <li>
-                        <a href="chat.html">
-                          <i class="fa fa-caret-right"></i> Chat
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="search-results.html">
-                          <i class="fa fa-caret-right"></i> Search Results
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
-                      <li>
-                      <li>
-                        <a href="profile-page.html">
-                          <i class="fa fa-caret-right"></i> Profile Page
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="weather-page.html">
-                          <i class="fa fa-caret-right"></i> Weather Page
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="frontpage/index.html">
-                          <i class="fa fa-caret-right"></i> Front Page
-                          <span class="label label-greensea">new</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="mail.html">
-                          <i class="fa fa-caret-right"></i> Vertical Mail
-                          <span class="badge badge-red">5</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="mail-horizontal.html">
-                          <i class="fa fa-caret-right"></i> Horizontal Mail
-                          <span class="label label-greensea">mails</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="vector-maps.html">
-                          <i class="fa fa-caret-right"></i> Vector Maps
-                        </a>
-                      </li>
-                      <li>
-                        <a href="google-maps.html">
-                          <i class="fa fa-caret-right"></i> Google Maps
-                        </a>
-                      </li>
-                    </li></ul>
-                    <li>
-                    <a href="widgets.html">
-                      <i class="fa fa-play-circle"></i> Widgets
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="charts.html">
-                      <i class="fa fa-bar-chart-o"></i> Charts & Graphs
-                    </a>
-                  </li>
-
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-folder"></i> Menu Levels <b class="fa fa-plus dropdown-plus"></b>
-                      <span class="label label-cyan">new</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 1.1</a></li>
-
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 1.2 <b class="fa fa-plus dropdown-plus"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.1</a></li>
-                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.2</a></li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 2.3 <b class="fa fa-plus dropdown-plus"></b></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.1</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.2</a></li>
-                              <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 3.3 <b class="fa fa-plus dropdown-plus"></b></a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 4.1</a></li>
-                                   <li class="dropdown">
-                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 4.2 <b class="fa fa-plus dropdown-plus"></b></a>
-                                      <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 5.1</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 5.2</a></li>
-                                      </ul>
-                                    </li>
-                                </ul>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 1.3 <b class="fa fa-plus dropdown-plus"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.1</a></li>
-                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.2</a></li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 2.3 <b class="fa fa-plus dropdown-plus"></b></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.1</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.2</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.3</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
+                  
 
                     </ul>
                   </li>
