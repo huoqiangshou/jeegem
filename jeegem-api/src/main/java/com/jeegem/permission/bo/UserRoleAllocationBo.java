@@ -2,13 +2,13 @@ package com.jeegem.permission.bo;
 
 import java.io.Serializable;
 
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 /**
  * 用户角色分配 查询列表BO
  * @author jeegem
  *
  */
-public class UserRoleAllocationBo extends UUser implements Serializable {
+public class UserRoleAllocationBo extends User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//Role Name列转行，以,分割

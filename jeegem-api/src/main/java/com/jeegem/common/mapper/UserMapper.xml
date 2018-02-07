@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.jeegem.common.dao.UUserMapper" >
-  <resultMap id="BaseResultMap" type="com.jeegem.common.model.UUser" >
+<mapper namespace="com.jeegem.common.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.jeegem.common.model.User" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="nickname" property="nickname" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
@@ -32,12 +32,12 @@
   <select id="findAll" resultMap="BaseResultMap" >
   	 select 
     <include refid="Base_Column_List" />
-    from u_user 
+    from jeegem_user 
     <include refid="where_all"/>
     <include refid="limit_sql" />
   </select>
   <select id="findCount" resultMap="BaseResultMap" >
- 	 select count(id) from  u_user
+ 	 select count(id) from  jeegem_user
   	<include refid="where_all" />
   </select>
   
@@ -45,9 +45,9 @@
   <!-- 用户权限分配的分页查询 -->
   <select id="findUserAndRole" resultType="com.jeegem.permission.bo.UserRoleAllocationBo">
   	select u.id,u.nickname,u.email,u.create_time,u.last_login_time,u.status ,group_concat(ur.name) roleNames,group_concat(ur.id)roleIds from
-	 u_user u
-	left join u_user_role uur on uur.uid = u.id
-	left join u_role ur on ur.id = uur.rid
+	 jeegem_user u
+	left join jeegem_user_role uur on uur.uid = u.id
+	left join jeegem_role ur on ur.id = uur.rid
 	<where>
   	<if test="findContent != null and findContent !='' " >
         and (
@@ -59,25 +59,25 @@
 	group by u.id 
   </select>
   <!-- sql有问题 -->
-  <select id="selectRoleByUserId" resultType="com.jeegem.permission.bo.URoleBo">
+  <select id="selectRoleByUserId" resultType="com.jeegem.permission.bo.RoleBo">
   		
 		select 
 			ur.id,ur.name,ur.type,ifnull(uu.id,0)marker,uu.id userId 
 		from 
-			u_role ur
+			jeegem_role ur
 		left join 
-			u_user_role uur 
+			jeegem_user_role uur 
 		on 
 			uur.rid = ur.id
 		left join 
-			(select id from u_user where id =#{id,jdbcType=BIGINT}) uu 
+			(select id from jeegem_user where id =#{id,jdbcType=BIGINT}) uu 
 		on 
 			uu.id = uur.uid
 		group by ur.id
   		
   </select>
   
-  <select id="selectRoleByUserId2" resultType="com.jeegem.permission.bo.URoleBo">
+  <select id="selectRoleByUserId2" resultType="com.jeegem.permission.bo.RoleBo">
 		SELECT
 			ur.id,
 			ur.name,
@@ -85,8 +85,8 @@
 			ur.id AS roleId,
 			uur.uid AS userId
 		FROM
-			u_role ur
-		LEFT JOIN u_user_role uur ON ur.id = uur.rid
+			jeegem_role ur
+		LEFT JOIN jeegem_user_role uur ON ur.id = uur.rid
 		AND uur.uid = #{id,jdbcType=BIGINT};
   </select>
   
@@ -94,37 +94,37 @@
   <select id="login" resultMap="BaseResultMap" >
   	 select 
     <include refid="Base_Column_List" />
-    from u_user
+    from jeegem_user
     where email = #{email,jdbcType=VARCHAR} and  pswd = #{pswd,jdbcType=VARCHAR} 
   </select>
   <!-- 根据邮箱|帐号查询 -->
   <select id="findUserByEmail" resultMap="BaseResultMap" >
   	 select 
     <include refid="Base_Column_List" />
-    from u_user
+    from jeegem_user
     where email = #{email,jdbcType=VARCHAR} 
   </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from u_user
+    from jeegem_user
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from u_user
+    delete from jeegem_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.UUser" >
-    insert into u_user (id, nickname, email, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.User" >
+    insert into jeegem_user (id, nickname, email, 
       pswd, create_time, last_login_time,status
       )
     values (#{id,jdbcType=BIGINT}, #{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{pswd,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP},#{status,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.UUser" >
-    insert into u_user
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.User" >
+    insert into jeegem_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -172,8 +172,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.jeegem.common.model.UUser" >
-    update u_user
+  <update id="updateByPrimaryKeySelective" parameterType="com.jeegem.common.model.User" >
+    update jeegem_user
     <set >
       <if test="nickname != null" >
         nickname = #{nickname,jdbcType=VARCHAR},
@@ -196,8 +196,8 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.jeegem.common.model.UUser" >
-    update u_user
+  <update id="updateByPrimaryKey" parameterType="com.jeegem.common.model.User" >
+    update jeegem_user
     set nickname = #{nickname,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       pswd = #{pswd,jdbcType=VARCHAR},

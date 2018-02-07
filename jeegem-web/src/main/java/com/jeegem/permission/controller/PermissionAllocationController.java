@@ -14,8 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.core.mybatis.page.Pagination;
+import com.jeegem.permission.bo.PermissionBo;
 import com.jeegem.permission.bo.RolePermissionAllocationBo;
-import com.jeegem.permission.bo.UPermissionBo;
 import com.jeegem.permission.service.PermissionService;
 import com.jeegem.permission.service.RoleService;
 /**
@@ -70,7 +70,7 @@ public class PermissionAllocationController extends BaseController {
 	@RequestMapping(value="selectPermissionById",method=RequestMethod.GET)
 	public ModelAndView selectPermissionById(Long id){
 		ModelAndView mav = new ModelAndView("permission/selectPermission");
-		List<UPermissionBo> permissionBos = permissionService.selectPermissionById(id);
+		List<PermissionBo> permissionBos = permissionService.selectPermissionById(id);
 		mav.addObject("permissionBos", permissionBos);
 		mav.addObject("roleId", id);
 		

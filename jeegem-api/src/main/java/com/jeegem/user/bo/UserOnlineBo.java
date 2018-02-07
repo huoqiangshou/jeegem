@@ -3,13 +3,13 @@ package com.jeegem.user.bo;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 /**
  * Session  + User Bo
  * @author jeegem.com
  *
  */
-public class UserOnlineBo extends UUser implements Serializable {
+public class UserOnlineBo extends User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -29,7 +29,7 @@ public class UserOnlineBo extends UUser implements Serializable {
 	public UserOnlineBo() {
 	}
 	
-	public UserOnlineBo(UUser user) {
+	public UserOnlineBo(User user) {
 		super(user);
 	}
 	

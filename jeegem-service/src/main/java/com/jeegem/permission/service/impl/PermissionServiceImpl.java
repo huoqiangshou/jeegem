@@ -8,30 +8,30 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jeegem.common.dao.UPermissionMapper;
-import com.jeegem.common.dao.URolePermissionMapper;
-import com.jeegem.common.dao.UUserMapper;
-import com.jeegem.common.dao.UUserRoleMapper;
-import com.jeegem.common.model.UPermission;
-import com.jeegem.common.model.URolePermission;
+import com.jeegem.common.dao.PermissionMapper;
+import com.jeegem.common.dao.RolePermissionMapper;
+import com.jeegem.common.dao.UserMapper;
+import com.jeegem.common.dao.UserRoleMapper;
+import com.jeegem.common.model.Permission;
+import com.jeegem.common.model.RolePermission;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.common.utils.StringUtils;
 import com.jeegem.core.mybatis.BaseMybatisDao;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.core.shiro.token.manager.TokenManager;
-import com.jeegem.permission.bo.UPermissionBo;
+import com.jeegem.permission.bo.PermissionBo;
 import com.jeegem.permission.service.PermissionService;
 @Service
-public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> implements PermissionService {
+public class PermissionServiceImpl extends BaseMybatisDao<PermissionMapper> implements PermissionService {
 
 	@Autowired
-	UPermissionMapper permissionMapper;
+	PermissionMapper permissionMapper;
 	@Autowired
-	UUserMapper userMapper;
+	UserMapper userMapper;
 	@Autowired
-	URolePermissionMapper rolePermissionMapper;
+	RolePermissionMapper rolePermissionMapper;
 	@Autowired
-	UUserRoleMapper userRoleMapper;
+	UserRoleMapper userRoleMapper;
 	
 	@Override
 	public int deleteByPrimaryKey(Long id) {
@@ -39,13 +39,13 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 	}
 
 	@Override
-	public UPermission insert(UPermission record) {
+	public Permission insert(Permission record) {
 		permissionMapper.insert(record);
 		return record;
 	}
 
 	@Override
-	public UPermission insertSelective(UPermission record) {
+	public Permission insertSelective(Permission record) {
 		//添加权限
 		permissionMapper.insertSelective(record);
 		//每添加一个权限，都往【系统管理员 	888888】里添加一次。保证系统管理员有最大的权限
@@ -54,17 +54,17 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 	}
 
 	@Override
-	public UPermission selectByPrimaryKey(Long id) {
+	public Permission selectByPrimaryKey(Long id) {
 		return permissionMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
-	public int updateByPrimaryKey(UPermission record) {
+	public int updateByPrimaryKey(Permission record) {
 		return permissionMapper.updateByPrimaryKey(record);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(UPermission record) {
+	public int updateByPrimaryKeySelective(Permission record) {
 		return permissionMapper.updateByPrimaryKeySelective(record);
 	}
 
@@ -84,7 +84,7 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 			for (String idx : idArray) {
 				Long id = new Long(idx);
 				
-				List<URolePermission> rolePermissions= rolePermissionMapper.findRolePermissionByPid(id);
+				List<RolePermission> rolePermissions= rolePermissionMapper.findRolePermissionByPid(id);
 				if(null != rolePermissions && rolePermissions.size() > 0){
 					errorCount += rolePermissions.size();
 				}else{
@@ -109,13 +109,13 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Pagination<UPermission> findPage(Map<String,Object> resultMap, Integer pageNo,
+	public Pagination<Permission> findPage(Map<String,Object> resultMap, Integer pageNo,
 			Integer pageSize) {
 		return super.findPage(resultMap, pageNo, pageSize);
 	}
 
 	@Override
-	public List<UPermissionBo> selectPermissionById(Long id) {
+	public List<PermissionBo> selectPermissionById(Long id) {
 		return permissionMapper.selectPermissionById(id);
 	}
 
@@ -149,7 +149,7 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 				for (String pid : idArray) {
 					//这里严谨点可以判断，也可以不判断。这个{@link StringUtils 我是重写了的} 
 					if(StringUtils.isNotBlank(pid)){
-						URolePermission entity = new URolePermission(roleId,new Long(pid));
+						RolePermission entity = new RolePermission(roleId,new Long(pid));
 						count += rolePermissionMapper.insertSelective(entity);
 					}
 				}

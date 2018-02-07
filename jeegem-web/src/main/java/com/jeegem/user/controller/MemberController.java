@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.core.shiro.session.CustomSessionManager;
 import com.jeegem.user.bo.UserOnlineBo;
-import com.jeegem.user.service.UUserService;
+import com.jeegem.user.service.UserService;
 /**
  * 
  * 开发团队：jeegem<br/>
@@ -49,7 +49,7 @@ public class MemberController extends BaseController {
 	@Autowired
 	CustomSessionManager customSessionManager;
 	@Autowired
-	UUserService userService;
+	UserService userService;
 	
 	/**
 	 * 用户列表管理
@@ -59,7 +59,7 @@ public class MemberController extends BaseController {
 	public ModelAndView list(ModelMap map,Integer pageNo,String findContent){
 		
 		map.put("findContent", findContent);
-		Pagination<UUser> page = userService.findByPage(map,pageNo,pageSize);
+		Pagination<User> page = userService.findByPage(map,pageNo,pageSize);
 		map.put("page", page);
 		return new ModelAndView("member/list");
 	}

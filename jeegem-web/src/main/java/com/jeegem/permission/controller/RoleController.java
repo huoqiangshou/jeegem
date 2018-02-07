@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
-import com.jeegem.common.model.URole;
+import com.jeegem.common.model.Role;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.permission.service.RoleService;
@@ -60,7 +60,7 @@ public class RoleController extends BaseController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Pagination<URole> role = roleService.findPage(modelMap,tpn,pageSize);
+		Pagination<Role> role = roleService.findPage(modelMap,tpn,pageSize);
 		return new ModelAndView("role/index","page",role);
 	}
 	/**
@@ -70,7 +70,7 @@ public class RoleController extends BaseController {
 	 */
 	@RequestMapping(value="addRole",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> addRole(URole role){
+	public Map<String,Object> addRole(Role role){
 		try {
 			int count = roleService.insertSelective(role);
 			resultMap.put("status", 200);
@@ -99,7 +99,7 @@ public class RoleController extends BaseController {
 	@RequestMapping(value="mypermission",method=RequestMethod.GET)
 	public ModelAndView mypermission(Long userId){
 		
-		List<URole> rolePermissions = this.roleService.findNowAllPermission();
+		List<Role> rolePermissions = this.roleService.findNowAllPermission();
 		
 		ModelAndView mav = new ModelAndView("permission/mypermission");
 		mav.addObject("rolePermissions", rolePermissions);
@@ -114,7 +114,7 @@ public class RoleController extends BaseController {
 	@ResponseBody
 	public List<Map<String, Object>> getPermissionTree(){
 		//查询我所有的角色 ---> 权限
-		List<URole> roles = roleService.findNowAllPermission();
+		List<Role> roles = roleService.findNowAllPermission();
 		//把查询出来的roles 转换成bootstarp 的 tree数据
 		List<Map<String, Object>> data = UserManager.toTreeData(roles);
 		return data;

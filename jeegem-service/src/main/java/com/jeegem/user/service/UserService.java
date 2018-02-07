@@ -5,30 +5,30 @@ import java.util.Map;
 
 import org.springframework.ui.ModelMap;
 
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 import com.jeegem.core.mybatis.page.Pagination;
-import com.jeegem.permission.bo.URoleBo;
+import com.jeegem.permission.bo.RoleBo;
 import com.jeegem.permission.bo.UserRoleAllocationBo;
 
-public interface UUserService {
+public interface UserService {
 
 	int deleteByPrimaryKey(Long id);
 
-	UUser insert(UUser record);
+	User insert(User record);
 
-    UUser insertSelective(UUser record);
+    User insertSelective(User record);
 
-    UUser selectByPrimaryKey(Long id);
+    User selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(UUser record);
+    int updateByPrimaryKeySelective(User record);
 
-    int updateByPrimaryKey(UUser record);
+    int updateByPrimaryKey(User record);
     
-    UUser login(String email ,String pswd);
+    User login(String email ,String pswd);
 
-	UUser findUserByEmail(String email);
+	User findUserByEmail(String email);
 
-	Pagination<UUser> findByPage(Map<String, Object> resultMap, Integer pageNo,
+	Pagination<User> findByPage(Map<String, Object> resultMap, Integer pageNo,
 			Integer pageSize);
 
 	Map<String, Object> deleteUserById(String ids);
@@ -38,7 +38,7 @@ public interface UUserService {
 	Pagination<UserRoleAllocationBo> findUserAndRole(ModelMap modelMap,
 			Integer pageNo, Integer pageSize);
 
-	List<URoleBo> selectRoleByUserId(Long id);
+	List<RoleBo> selectRoleByUserId(Long id);
 
 	Map<String, Object> addRole2User(Long userId, String ids);
 

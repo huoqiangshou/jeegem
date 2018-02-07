@@ -11,13 +11,4 @@
   	
   </typeAliases>
   
- <!-- 
- <mappers>
-    <mapper resource="mapper/StudentMapper.xml"/>
- </mappers>
-    <plugins>  
-       <plugin interceptor="net.wenyifan.common.mybatis.plugin.PageInterceptor">    
-       </plugin>  
-    </plugins>    
--->
 </configuration>

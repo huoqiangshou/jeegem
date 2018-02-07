@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.jeegem.common.dao.UPermissionMapper" >
-  <resultMap id="BaseResultMap" type="com.jeegem.common.model.UPermission" >
+<mapper namespace="com.jeegem.common.dao.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.jeegem.common.model.Permission" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -29,36 +29,32 @@
   <select id="findAll" resultMap="BaseResultMap" >
   	 select 
     <include refid="Base_Column_List" />
-    from u_permission 
+    from jeegem_permission 
     <include refid="where_all"/>
     <include refid="limit_sql" />
   </select>
   <select id="findCount" resultMap="BaseResultMap" >
- 	 select count(id) from  u_permission
+ 	 select count(id) from  jeegem_permission
   	<include refid="where_all" />
   </select>
   <!-- 根据角色获取权限，marker:0,没有权限，marker：非0(和up.id)一致表示有权限。 
-  	com.jeegem.permission.bo.UPermissionBo中的这个方法是校验权限
-  	public boolean isCheck(){
-		return StringUtils.equals(roleId,marker);
-	}
   -->
   
-  <select id="selectPermissionById" resultType="com.jeegem.permission.bo.UPermissionBo">
+  <select id="selectPermissionById" resultType="com.jeegem.permission.bo.PermissionBo">
 		SELECT
 			up.id AS id,
 			up.name as name,
 			urp.rid AS roleId,
 			urp.pid AS permissionId
 		FROM
-			u_permission up
-		LEFT JOIN u_role_permission urp ON up.id = urp.pid
+			jeegem_permission up
+		LEFT JOIN jeegem_role_permission urp ON up.id = urp.pid
 		AND urp.rid =  #{id,jdbcType=BIGINT}
   </select>
   
   <!-- 根据用ID查询permission -->
   <select id="findPermissionByUserId" resultType="java.lang.String">
-  		select p.url from u_permission p , u_role_permission rp, u_user_role ur 
+  		select p.url from jeegem_permission p , jeegem_role_permission rp, jeegem_user_role ur 
 		where uid =#{id,jdbcType=BIGINT} and p.id = rp.pid and rp.rid = ur.rid
   </select>
   
@@ -66,19 +62,19 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from u_permission
+    from jeegem_permission
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from u_permission
+    delete from jeegem_permission
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.UPermission" >
-    insert into u_permission (id, url, name)
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.Permission" >
+    insert into jeegem_permission (id, url, name)
     values (#{id,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.UPermission" >
-    insert into u_permission
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.Permission" >
+    insert into jeegem_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -102,8 +98,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.jeegem.common.model.UPermission" >
-    update u_permission
+  <update id="updateByPrimaryKeySelective" parameterType="com.jeegem.common.model.Permission" >
+    update jeegem_permission
     <set >
       <if test="url != null" >
         url = #{url,jdbcType=VARCHAR},
@@ -114,8 +110,8 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.jeegem.common.model.UPermission" >
-    update u_permission
+  <update id="updateByPrimaryKey" parameterType="com.jeegem.common.model.Permission" >
+    update jeegem_permission
     set url = #{url,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}

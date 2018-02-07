@@ -9,30 +9,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
-import com.jeegem.common.dao.UUserMapper;
-import com.jeegem.common.dao.UUserRoleMapper;
-import com.jeegem.common.model.UUser;
-import com.jeegem.common.model.UUserRole;
+import com.jeegem.common.dao.UserMapper;
+import com.jeegem.common.dao.UserRoleMapper;
+import com.jeegem.common.model.User;
+import com.jeegem.common.model.UserRole;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.core.mybatis.BaseMybatisDao;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.core.shiro.session.CustomSessionManager;
 import com.jeegem.core.shiro.token.manager.TokenManager;
-import com.jeegem.permission.bo.URoleBo;
+import com.jeegem.permission.bo.RoleBo;
 import com.jeegem.permission.bo.UserRoleAllocationBo;
-import com.jeegem.user.service.UUserService;
+import com.jeegem.user.service.UserService;
 
 @Service
-public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUserService {
+public class UserServiceImpl extends BaseMybatisDao<UserMapper> implements UserService {
 	/***
 	 * 用户手动操作Session
 	 * */
 	@Autowired
 	CustomSessionManager customSessionManager;
 	@Autowired
-	UUserMapper userMapper;
+	UserMapper userMapper;
 	@Autowired
-	UUserRoleMapper userRoleMapper;
+	UserRoleMapper userRoleMapper;
 
 	@Override
 	public int deleteByPrimaryKey(Long id) {
@@ -40,49 +40,49 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 	}
 
 	@Override
-	public UUser insert(UUser entity) {
+	public User insert(User entity) {
 		userMapper.insert(entity);
 		return entity;
 	}
 
 	@Override
-	public UUser insertSelective(UUser entity) {
+	public User insertSelective(User entity) {
 		userMapper.insertSelective(entity);
 		return entity;
 	}
 
 	@Override
-	public UUser selectByPrimaryKey(Long id) {
+	public User selectByPrimaryKey(Long id) {
 		return userMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
-	public int updateByPrimaryKey(UUser entity) {
+	public int updateByPrimaryKey(User entity) {
 		return userMapper.updateByPrimaryKey(entity);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(UUser entity) {
+	public int updateByPrimaryKeySelective(User entity) {
 		return userMapper.updateByPrimaryKeySelective(entity);
 	}
 
 	@Override
-	public UUser login(String email ,String pswd) {
+	public User login(String email ,String pswd) {
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("email", email);
 		map.put("pswd", pswd);
-		UUser user = userMapper.login(map);
+		User user = userMapper.login(map);
 		return user;
 	}
 
 	@Override
-	public UUser findUserByEmail(String email) {
+	public User findUserByEmail(String email) {
 		return userMapper.findUserByEmail(email);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Pagination<UUser> findByPage(Map<String, Object> resultMap,Integer pageNo, Integer pageSize) {
+	public Pagination<User> findByPage(Map<String, Object> resultMap,Integer pageNo, Integer pageSize) {
 		return super.findPage(resultMap, pageNo, pageSize);
 	}
 
@@ -115,7 +115,7 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 	public Map<String, Object> updateForbidUserById(Long id, Long status) {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		try {
-			UUser user = selectByPrimaryKey(id);
+			User user = selectByPrimaryKey(id);
 			user.setStatus(status);
 			updateByPrimaryKeySelective(user);
 			
@@ -140,7 +140,7 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 	}
 
 	@Override
-	public List<URoleBo> selectRoleByUserId(Long id) {
+	public List<RoleBo> selectRoleByUserId(Long id) {
 //		return userMapper.selectRoleByUserId(id);
 		return userMapper.selectRoleByUserId2(id);
 	}
@@ -166,7 +166,7 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 				for (String rid : idArray) {
 					//这里严谨点可以判断，也可以不判断。这个{@link StringUtils 我是重写了的} 
 					if(StringUtils.isNotBlank(rid)){
-						UUserRole entity = new UUserRole(userId,new Long(rid));
+						UserRole entity = new UserRole(userId,new Long(rid));
 						count += userRoleMapper.insertSelective(entity);
 					}
 				}

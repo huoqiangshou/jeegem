@@ -2,10 +2,10 @@ package com.jeegem.permission.bo;
 
 import java.io.Serializable;
 
-import com.jeegem.common.model.URole;
+import com.jeegem.common.model.Role;
 import com.jeegem.common.utils.StringUtils;
 
-public class URoleBo extends URole implements Serializable{
+public class RoleBo extends Role implements Serializable{
 	private static final long serialVersionUID = 1L;
 	/**
 	 * 用户ID (用String， 考虑多个ID，现在只有一个ID)

@@ -13,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.core.mybatis.page.Pagination;
-import com.jeegem.permission.bo.URoleBo;
+import com.jeegem.permission.bo.RoleBo;
 import com.jeegem.permission.bo.UserRoleAllocationBo;
 import com.jeegem.permission.service.PermissionService;
-import com.jeegem.user.service.UUserService;
+import com.jeegem.user.service.UserService;
 /**
  * 
  * 开发团队：jeegem <p>
@@ -41,7 +41,7 @@ import com.jeegem.user.service.UUserService;
 @RequestMapping("role")
 public class UserRoleAllocationController extends BaseController {
 	@Autowired
-	UUserService userService;
+	UserService userService;
 	@Autowired
 	PermissionService permissionService;
 	/**
@@ -67,8 +67,8 @@ public class UserRoleAllocationController extends BaseController {
 	 */
 	@RequestMapping(value="selectRoleByUserId")
 	@ResponseBody
-	public List<URoleBo> selectRoleByUserId(Long id){
-		List<URoleBo> bos = userService.selectRoleByUserId(id);
+	public List<RoleBo> selectRoleByUserId(Long id){
+		List<RoleBo> bos = userService.selectRoleByUserId(id);
 		return bos;
 	}
 	/**

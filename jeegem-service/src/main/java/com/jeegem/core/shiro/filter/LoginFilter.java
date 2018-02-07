@@ -8,7 +8,7 @@ import javax.servlet.ServletResponse;
 
 import org.apache.shiro.web.filter.AccessControlFilter;
 
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.core.shiro.token.manager.TokenManager;
 /**
@@ -36,7 +36,7 @@ public class LoginFilter  extends AccessControlFilter {
 	protected boolean isAccessAllowed(ServletRequest request,
 			ServletResponse response, Object mappedValue) throws Exception {
 		
-		UUser token = TokenManager.getToken();
+		User token = TokenManager.getToken();
 		
 		if(null != token || isLoginRequest(request, response)){// && isEnabled()
             return Boolean.TRUE;

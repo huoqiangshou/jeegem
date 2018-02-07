@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
-import com.jeegem.common.model.UPermission;
+import com.jeegem.common.model.Permission;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.permission.service.PermissionService;
@@ -53,7 +53,7 @@ public class PermissionController extends BaseController {
 	@RequestMapping(value="index")
 	public ModelAndView index(String findContent,ModelMap modelMap,Integer pageNo){
 		modelMap.put("findContent", findContent);
-		Pagination<UPermission> permissions = permissionService.findPage(modelMap,pageNo,pageSize);
+		Pagination<Permission> permissions = permissionService.findPage(modelMap,pageNo,pageSize);
 		return new ModelAndView("permission/index","page",permissions);
 	}
 	/**
@@ -63,9 +63,9 @@ public class PermissionController extends BaseController {
 	 */
 	@RequestMapping(value="addPermission",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> addPermission(UPermission psermission){
+	public Map<String,Object> addPermission(Permission psermission){
 		try {
-			UPermission entity = permissionService.insertSelective(psermission);
+			Permission entity = permissionService.insertSelective(psermission);
 			resultMap.put("status", 200);
 			resultMap.put("entity", entity);
 		} catch (Exception e) {

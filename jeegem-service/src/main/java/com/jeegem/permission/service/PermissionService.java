@@ -4,29 +4,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.jeegem.common.model.UPermission;
+import com.jeegem.common.model.Permission;
 import com.jeegem.core.mybatis.page.Pagination;
-import com.jeegem.permission.bo.UPermissionBo;
+import com.jeegem.permission.bo.PermissionBo;
 
 public interface PermissionService {
 
 	int deleteByPrimaryKey(Long id);
 
-	UPermission insert(UPermission record);
+	Permission insert(Permission record);
 
-    UPermission insertSelective(UPermission record);
+    Permission insertSelective(Permission record);
 
-    UPermission selectByPrimaryKey(Long id);
+    Permission selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(UPermission record);
+    int updateByPrimaryKeySelective(Permission record);
 
-    int updateByPrimaryKey(UPermission record);
+    int updateByPrimaryKey(Permission record);
 
 	Map<String, Object> deletePermissionById(String ids);
 
-	Pagination<UPermission> findPage(Map<String,Object> resultMap, Integer pageNo,
+	Pagination<Permission> findPage(Map<String,Object> resultMap, Integer pageNo,
 			Integer pageSize);
-	List<UPermissionBo> selectPermissionById(Long id);
+	List<PermissionBo> selectPermissionById(Long id);
 
 	Map<String, Object> addPermission2Role(Long roleId,String ids);
 

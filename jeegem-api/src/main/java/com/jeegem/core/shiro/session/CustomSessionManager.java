@@ -12,7 +12,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.common.utils.StringUtils;
 import com.jeegem.core.shiro.CustomShiroSessionDAO;
@@ -84,8 +84,8 @@ public class CustomSessionManager {
 				SimplePrincipalCollection spc = (SimplePrincipalCollection)obj;
 				//判断用户，匹配用户ID。
 				obj = spc.getPrimaryPrincipal();
-				if(null != obj && obj instanceof UUser){
-					UUser user = (UUser)obj;
+				if(null != obj && obj instanceof User){
+					User user = (User)obj;
 					//比较用户ID，符合即加入集合
 					if(null != user && idset.contains(user.getId())){
 						list.add(spc);
@@ -122,9 +122,9 @@ public class CustomSessionManager {
 			 * return new SimpleAuthenticationInfo(user,user.getPswd(), getName());的user 对象。
 			 */
 			obj = spc.getPrimaryPrincipal();
-			if(null != obj && obj instanceof UUser){
+			if(null != obj && obj instanceof User){
 				//存储session + user 综合信息
-				UserOnlineBo userBo = new UserOnlineBo((UUser)obj);
+				UserOnlineBo userBo = new UserOnlineBo((User)obj);
 				//最后一次和系统交互的时间
 				userBo.setLastAccess(session.getLastAccessTime());
 				//主机的ip地址

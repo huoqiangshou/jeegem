@@ -25,7 +25,7 @@ import net.sf.json.JSONObject;
  * @version 1.0,2016年5月25日 <br/>
  * 
  */
-public class URole  implements Serializable{
+public class Role  implements Serializable{
 	private static final long serialVersionUID = 1L;
     private Long id;
     /**角色名称*/
@@ -33,7 +33,7 @@ public class URole  implements Serializable{
     /**角色类型*/
     private String type;
     //***做 role --> permission 一对多处理
-    private List<UPermission> permissions = new LinkedList<UPermission>();
+    private List<Permission> permissions = new LinkedList<Permission>();
     
     public Long getId() {
         return id;
@@ -55,11 +55,11 @@ public class URole  implements Serializable{
         return type;
     }
 
-    public List<UPermission> getPermissions() {
+    public List<Permission> getPermissions() {
 		return permissions;
 	}
 
-	public void setPermissions(List<UPermission> permissions) {
+	public void setPermissions(List<Permission> permissions) {
 		this.permissions = permissions;
 	}
 

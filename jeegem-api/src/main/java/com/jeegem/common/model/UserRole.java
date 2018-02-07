@@ -9,7 +9,7 @@ import net.sf.json.JSONObject;
  * 
  * <p>
  * 
- * 角色{@link URole}和 权限{@link UPermission}中间表
+ * 用户{@link User} 和角色 {@link Role} 中间表
  * 
  * <p>
  * 
@@ -23,33 +23,33 @@ import net.sf.json.JSONObject;
  * @version 1.0,2016年5月25日 <br/>
  * 
  */
-public class URolePermission  implements Serializable{
+public class UserRole  implements Serializable{
 	private static final long serialVersionUID = 1L;
-	/**{@link URole.id}*/
+	 /**{@link User.id}*/
+    private Long uid;
+    /**{@link Role.id}*/
     private Long rid;
-    /**{@link UPermission.id}*/
-    private Long pid;
 
-    public URolePermission() {
-	}
-    public URolePermission(Long rid,Long pid) {
+    public UserRole(Long uid,Long rid) {
+    	this.uid = uid;
     	this.rid = rid;
-    	this.pid = pid;
+	}
+    public UserRole() {
     }
+    public Long getUid() {
+        return uid;
+    }
+
+    public void setUid(Long uid) {
+        this.uid = uid;
+    }
+
     public Long getRid() {
         return rid;
     }
 
     public void setRid(Long rid) {
         this.rid = rid;
-    }
-
-    public Long getPid() {
-        return pid;
-    }
-
-    public void setPid(Long pid) {
-        this.pid = pid;
     }
     public String toString(){
     	return JSONObject.fromObject(this).toString();

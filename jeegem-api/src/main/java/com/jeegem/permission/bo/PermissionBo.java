@@ -2,7 +2,7 @@ package com.jeegem.permission.bo;
 
 import java.io.Serializable;
 
-import com.jeegem.common.model.UPermission;
+import com.jeegem.common.model.Permission;
 import com.jeegem.common.utils.StringUtils;
 
 /**
@@ -11,7 +11,7 @@ import com.jeegem.common.utils.StringUtils;
  * @author jeegem
  *
  */
-public class UPermissionBo extends UPermission implements Serializable {
+public class PermissionBo extends Permission implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/**
 	 * 是否勾选

@@ -24,7 +24,7 @@ import net.sf.json.JSONObject;
  * @version 1.0,2016年5月25日 <br/>
  * 
  */
-public class UUser implements Serializable{
+public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	//0:禁止登录
 	public static final Long _0 = new Long(0);
@@ -46,8 +46,8 @@ public class UUser implements Serializable{
     
     
     
-    public UUser() {}
-    public UUser(UUser user) {
+    public User() {}
+    public User(User user) {
 		this.id = user.getId();
 		this.nickname = user.getNickname();
 		this.email = user.getEmail();

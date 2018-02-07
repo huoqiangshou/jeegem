@@ -1,13 +1,9 @@
 package com.jeegem.user.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
-import net.sf.json.JSONObject;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,13 +13,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.core.shiro.token.manager.TokenManager;
-import com.jeegem.permission.bo.UPermissionBo;
-import com.jeegem.permission.service.PermissionService;
 import com.jeegem.user.manager.UserManager;
-import com.jeegem.user.service.UUserService;
+import com.jeegem.user.service.UserService;
+
+import net.sf.json.JSONObject;
 
 /**
  * 
@@ -51,7 +47,7 @@ import com.jeegem.user.service.UUserService;
 public class UserCoreController extends BaseController {
 
 	@Resource
-	UUserService userService;
+	UserService userService;
 	/**
 	 * 个人资料
 	 * @return
@@ -83,7 +79,7 @@ public class UserCoreController extends BaseController {
 		//根据当前登录的用户帐号 + 老密码，查询。
 		String email = TokenManager.getToken().getEmail();
 				pswd = UserManager.md5Pswd(email, pswd);
-		UUser	user = userService.login(email, pswd);
+		User	user = userService.login(email, pswd);
 		
 		if("admin".equals(email)){
 			resultMap.put("status", 300);
@@ -113,7 +109,7 @@ public class UserCoreController extends BaseController {
 	 */
 	@RequestMapping(value="updateSelf",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> updateSelf(UUser entity){
+	public Map<String,Object> updateSelf(User entity){
 		try {
 			userService.updateByPrimaryKeySelective(entity);
 			resultMap.put("status", 200);
@@ -135,9 +131,9 @@ public class UserCoreController extends BaseController {
 	public ModelAndView updateProfile(){
 		ModelAndView mav = new ModelAndView("user/updateSelf.ftl");
 		
-		UUser u = TokenManager.getToken();
+		User u = TokenManager.getToken();
 		
-		UUser user = userService.findUserByEmail(u.getEmail());
+		User user = userService.findUserByEmail(u.getEmail());
 		
 		mav.addObject("user", user);
 		

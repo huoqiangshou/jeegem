@@ -17,11 +17,11 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 import com.jeegem.core.shiro.token.manager.TokenManager;
 import com.jeegem.permission.service.PermissionService;
 import com.jeegem.permission.service.RoleService;
-import com.jeegem.user.service.UUserService;
+import com.jeegem.user.service.UserService;
 
 
 /**
@@ -46,7 +46,7 @@ import com.jeegem.user.service.UUserService;
 public class SampleRealm extends AuthorizingRealm {
 
 	@Autowired
-	UUserService userService;
+	UserService userService;
 	@Autowired
 	PermissionService permissionService;
 	@Autowired
@@ -62,13 +62,13 @@ public class SampleRealm extends AuthorizingRealm {
 			AuthenticationToken authcToken) throws AuthenticationException {
 		
 		ShiroToken token = (ShiroToken) authcToken;
-		UUser user = userService.login(token.getUsername(),token.getPswd());
+		User user = userService.login(token.getUsername(),token.getPswd());
 		if(null == user){
 			throw new AccountException("帐号或密码不正确！");
 		/**
 		 * 如果用户的status为禁用。那么就抛出<code>DisabledAccountException</code>
 		 */
-		}else if(UUser._0.equals(user.getStatus())){
+		}else if(User._0.equals(user.getStatus())){
 			throw new DisabledAccountException("帐号已经禁止登录！");
 		}else{
 			//更新登录时间 last login time

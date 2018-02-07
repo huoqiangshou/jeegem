@@ -25,7 +25,7 @@ import net.sf.json.JSONObject;
  * @version 1.0,2016年5月25日 <br/>
  * 
  */
-public class UPermission implements Serializable {
+public class Permission implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	/** 操作的url */

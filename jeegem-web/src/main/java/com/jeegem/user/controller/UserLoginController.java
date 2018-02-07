@@ -6,8 +6,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import net.sf.json.JSONObject;
-
 import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.web.util.SavedRequest;
 import org.apache.shiro.web.util.WebUtils;
@@ -19,13 +17,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.common.utils.StringUtils;
 import com.jeegem.common.utils.VerifyCodeUtils;
 import com.jeegem.core.shiro.token.manager.TokenManager;
 import com.jeegem.user.manager.UserManager;
-import com.jeegem.user.service.UUserService;
+import com.jeegem.user.service.UserService;
+
+import net.sf.json.JSONObject;
 
 /**
  * 
@@ -53,7 +53,7 @@ import com.jeegem.user.service.UUserService;
 public class UserLoginController extends BaseController {
 
 	@Resource
-	UUserService userService;
+	UserService userService;
 	
 	/**
 	 * 登录跳转
@@ -100,7 +100,7 @@ public class UserLoginController extends BaseController {
 	 */
 	@RequestMapping(value="subRegister",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> subRegister(String vcode,UUser entity){
+	public Map<String,Object> subRegister(String vcode,User entity){
 		resultMap.put("status", 400);
 		if(!VerifyCodeUtils.verifyCode(vcode)){
 			resultMap.put("message", "验证码不正确！");
@@ -108,7 +108,7 @@ public class UserLoginController extends BaseController {
 		}
 		String email =  entity.getEmail();
 		
-		UUser user = userService.findUserByEmail(email);
+		User user = userService.findUserByEmail(email);
 		if(null != user){
 			resultMap.put("message", "帐号|Email已经存在！");
 			return resultMap;
@@ -119,7 +119,7 @@ public class UserLoginController extends BaseController {
 		//把密码md5
 		entity = UserManager.md5Pswd(entity);
 		//设置有效
-		entity.setStatus(UUser._1);
+		entity.setStatus(User._1);
 		
 		entity = userService.insert(entity);
 		LoggerUtils.fmtDebug(getClass(), "注册插入完毕！", JSONObject.fromObject(entity).toString());
@@ -138,7 +138,7 @@ public class UserLoginController extends BaseController {
 	 */
 	@RequestMapping(value="submitLogin",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> submitLogin(UUser entity,Boolean rememberMe,HttpServletRequest request){
+	public Map<String,Object> submitLogin(User entity,Boolean rememberMe,HttpServletRequest request){
 		
 		try {
 			entity = TokenManager.login(entity,rememberMe);

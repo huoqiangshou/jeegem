@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.jeegem.common.model.URole;
+import com.jeegem.common.model.Role;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.permission.bo.RolePermissionAllocationBo;
 
@@ -12,17 +12,17 @@ public interface RoleService {
 
 	int deleteByPrimaryKey(Long id);
 
-    int insert(URole record);
+    int insert(Role record);
 
-    int insertSelective(URole record);
+    int insertSelective(Role record);
 
-    URole selectByPrimaryKey(Long id);
+    Role selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(URole record);
+    int updateByPrimaryKeySelective(Role record);
 
-    int updateByPrimaryKey(URole record);
+    int updateByPrimaryKey(Role record);
 
-	Pagination<URole> findPage(Map<String, Object> resultMap, Integer pageNo,
+	Pagination<Role> findPage(Map<String, Object> resultMap, Integer pageNo,
 			Integer pageSize);
 
 	Map<String, Object> deleteRoleById(String ids);
@@ -32,7 +32,7 @@ public interface RoleService {
 	//根据用户ID查询角色（role），放入到Authorization里。
 	Set<String> findRoleByUserId(Long userId);
 
-	List<URole> findNowAllPermission();
+	List<Role> findNowAllPermission();
 	//初始化数据
 	void initData();
 	

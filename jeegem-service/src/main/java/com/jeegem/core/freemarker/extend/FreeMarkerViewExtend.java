@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 
-import com.jeegem.common.model.UUser;
+import com.jeegem.common.model.User;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.core.shiro.token.manager.TokenManager;
 import com.jeegem.core.statics.Constant;
@@ -22,7 +22,7 @@ public class FreeMarkerViewExtend extends FreeMarkerView {
 		}
 		model.put(Constant.CONTEXT_PATH, request.getContextPath());
 		model.putAll(Ferrmarker.initMap);
-		UUser token = TokenManager.getToken();
+		User token = TokenManager.getToken();
 		//String ip = IPUtils.getIP(request);
 		if(TokenManager.isLogin()){
 			model.put("token", token);//登录的token
