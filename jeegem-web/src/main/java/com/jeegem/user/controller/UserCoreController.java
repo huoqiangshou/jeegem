@@ -1,11 +1,13 @@
 package com.jeegem.user.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
 import net.sf.json.JSONObject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,8 @@ import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.model.UUser;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.core.shiro.token.manager.TokenManager;
+import com.jeegem.permission.bo.UPermissionBo;
+import com.jeegem.permission.service.PermissionService;
 import com.jeegem.user.manager.UserManager;
 import com.jeegem.user.service.UUserService;
 
@@ -54,18 +58,6 @@ public class UserCoreController extends BaseController {
 	 */
 	@RequestMapping(value="index",method=RequestMethod.GET)
 	public ModelAndView userIndex(String opt){
-		ModelAndView mav = new ModelAndView("user/index");
-		
-		mav.addObject("opt", opt);
-		return mav;
-	}
-	
-	/**
-	 * 个人资料
-	 * @return
-	 */
-	@RequestMapping(value="index2",method=RequestMethod.GET)
-	public ModelAndView userIndex2(String opt){
 		ModelAndView mav = new ModelAndView("user/index");
 		
 		mav.addObject("opt", opt);

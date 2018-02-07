@@ -1,18 +1,18 @@
 package com.jeegem.user.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.core.mybatis.page.Pagination;
+import com.jeegem.permission.bo.UPermissionBo;
 import com.jeegem.permission.bo.URoleBo;
 import com.jeegem.permission.bo.UserRoleAllocationBo;
 import com.jeegem.permission.service.PermissionService;
@@ -66,7 +66,7 @@ public class UserRoleAllocation2Controller extends BaseController {
 	 * @param findContent
 	 * @return
 	 */
-	@RequestMapping(value="chooseRole")
+	@RequestMapping(value="chooseRole",method=RequestMethod.GET)
 	public ModelAndView chooseRole(Long id){
 		List<URoleBo> roles = userService.selectRoleByUserId(id);
 		

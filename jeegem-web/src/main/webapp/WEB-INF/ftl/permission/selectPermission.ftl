@@ -36,12 +36,8 @@
     <!-- Wrap all page content here -->
     <div id="wrap">
 
-      
-
-
       <!-- Make page fluid -->
       <div class="row">
-        
 
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
@@ -58,7 +54,6 @@
             </div>
           </div>
           <!-- Branding end -->
-
 
           <!-- .nav-collapse -->
           <div class="navbar-collapse">
@@ -80,8 +75,6 @@
             <!-- Quick Actions -->
             <@_top.top 1/>
             <!-- /Quick Actions -->
-
-
 
             <!-- Sidebar -->
             <@_left.user  3 34/>
@@ -120,7 +113,7 @@
             <!-- row -->
             <div class="row">
               <!-- col 6 -->
-              <div class="col-md-12">
+              <div class="col-md-5">
                 <!-- tile -->
                 <section class="tile color transparent-black">
                   <!-- tile header -->
@@ -133,17 +126,10 @@
                   <!-- tile body -->
                   <div class="tile-body nopadding">
                     
-                    <form class="form-horizontal" method="post" action="${basePath}/permission/index.shtml" id="formId" role="form">
+                    <form class="form-horizontal" method="post" action="${basePath}/permission/allocation.shtml" id="formId" role="form">
+                    <input type="hidden" id="selectRoleId" value="${roleId}" />
                     <div >
-                        <div class="col-sm-3">
-                          <input type="text" name="findContent" class="form-control" id="findContent" value="${findContent?default('')}"   placeholder="输入角色类型 / 角色名称">
-                        </div>
-						
-						<button type="button" class="btn  btn-amethyst margin-bottom-20" id="searchRole">Search。。。</button>
-						<@shiro.hasPermission name="/permission/clearPermissionByRoleIds.shtml">
-				         	<button type="button" class="btn  btn-amethyst margin-bottom-20" id="deleteAll">清空角色权限</button>
-				        </@shiro.hasPermission>
-						
+						<button type="button" class="btn  btn-amethyst margin-bottom-20" id="savePermission">Save</button>
                     </div>
 					
                     <table class="table">
@@ -155,75 +141,28 @@
                               <label for="checkAll"></label>
                             </div>
                           </th>
-                            <th >角色名称</th>
-							<th >角色类型</th>
-							<th >拥有的权限</th>
-							<th >操作</th>
+							<th >权限名称</th>
                         </tr>
                       </thead>
-                      <tbody>
-                      <#if page?exists && page.list?size gt 0 >
-							<#list page.list as it>
+                      <tbody >
+                      <#if permissionBos?exists && permissionBos?size gt 0 >
+							<#list permissionBos as it>
                         <tr>
                           <td>
                           	<div class="checkbox check-transparent">
-                              <input type="checkbox" value="${it.id}" check='box'  id="chck${it.id}"/>
+                              <input type="checkbox" value="${it.id}" check='box'  id="chck${it.id}" <#if it.check> checked='checked' </#if>/>
                               <label for="chck${it.id}"></label>
                             </div>
                           </td>
                           <td>${it.name}</td>
-						  <td>${it.type}</td>
-						  <td permissionIds="${it.permissionIds?default('')}" width="40%">${it.permissionNames?default('-')}</td>
-                          <td>
-                          		<@shiro.hasPermission name="/permission/addPermission2Role.shtml">
-										<a href="javascript:selectPermissionById(${it.id});">选择权限</a>
-										<a href="/permission/selectPermissionById.shtml?id=${it.id}">选择权限</a>
-						        </@shiro.hasPermission>
-						  </td>
                         </tr>
                         </#list>
-						<#else>
-							<tr>
-								<td colspan="4">没有找到权限</td>
-							</tr>
+						
 						</#if>
                       </tbody>
                     </table>
                     
-                    <#if page?exists>
-                    <div class="row bg-transparent-white-1">  
-                      
-                      <div class="col-sm-10 text-right sm-center">
-						<ul class="pagination pagination-lg pagination-custom">
-                            ${page.jeeGemPageHtml}
-                          </ul>
-                      </div>
-					  
-                    </div>
-                    </#if>
 					</form>
-					
-				<#--弹框-->
-			<div class="modal fade bs-example-modal-sm"  id="selectPermission" tabindex="-1" role="dialog" aria-labelledby="selectPermissionLabel">
-			  <div class="modal-dialog modal-sm" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="selectPermissionLabel">添加权限</h4>
-			      </div>
-			      <div class="modal-body">
-			        <form id="boxRoleForm">
-			          loading...
-			        </form>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="button" onclick="selectPermission();" class="btn btn-primary">Save</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			<#--/弹框-->
 					
                   </div>
                 
@@ -697,109 +636,41 @@
       
     })
 
-			so.init(function(){
-				//初始化全选。
-				so.checkBoxInit('#checkAll','[check=box]');
-				<@shiro.hasPermission name="/permission/clearPermissionByRoleIds.shtml">
-				//全选
-				so.id('deleteAll').on('click',function(){
-					var checkeds = $('[check=box]:checked');
-					if(!checkeds.length){
-						return layer.msg('请选择要清除的角色。',so.default),!0;
-					}
-					var array = [];
-					checkeds.each(function(){
-						array.push(this.value);
+			
+      		 $(function(){
+      		 
+      		 	
+      		 	
+      		 	$("#savePermission").click(function(){
+      		 	
+					var checked = $("input[check='box']:checked");
+					var ids=[],names=[];
+					$.each(checked,function(){
+						ids.push(this.value);
+						names.push($.trim($(this).attr('name')));
 					});
-					return deleteById(array);
-				});
-				</@shiro.hasPermission>
-			});
-			<@shiro.hasPermission name="/permission/clearPermissionByRoleIds.shtml">
-			<#--根据ID数组清空角色的权限-->
-			function deleteById(ids){
-				var index = layer.confirm("确定清除这"+ ids.length +"个角色的权限？",function(){
-					var load = layer.load();
-					$.post('${basePath}/permission/clearPermissionByRoleIds.shtml',{roleIds:ids.join(',')},function(result){
-						layer.close(load);
-						if(result && result.status != 200){
-							return layer.msg(result.message,so.default),!0;
-						}else{
-							layer.msg(result.message);
+					
+					$("#loader").fadeIn()
+					$(".mask").fadeIn()
+					
+					var index = layer.confirm("确定操作？",function(){
+						
+						$.post('${basePath}/permission/addPermission2Role.shtml',{ids:ids.join(','),roleId:$('#selectRoleId').val()},function(result){
+							$("#loader").fadeOut()
+							$(".mask").fadeOut()
+							
+							if(result && result.status != 200){
+								return layer.msg(result.message,so.default),!1;
+							}
+							layer.msg('添加成功。');
 							setTimeout(function(){
 								$('#formId').submit();
 							},1000);
-						}
-					},'json');
-					layer.close(index);
-				});
-			}
-			</@shiro.hasPermission>
-			<@shiro.hasPermission name="/permission/addPermission2Role.shtml">
-			<#--选择权限后保存-->
-			function selectPermission(){
-				var checked = $("#boxRoleForm  :checked");
-				var ids=[],names=[];
-				$.each(checked,function(){
-					ids.push(this.id);
-					names.push($.trim($(this).attr('name')));
-				});
-				var index = layer.confirm("确定操作？",function(){
-					<#--loding-->
-					var load = layer.load();
-					$.post('${basePath}/permission/addPermission2Role.shtml',{ids:ids.join(','),roleId:$('#selectRoleId').val()},function(result){
-						layer.close(load);
-						if(result && result.status != 200){
-							return layer.msg(result.message,so.default),!1;
-						}
-						layer.msg('添加成功。');
-						setTimeout(function(){
-							$('#formId').submit();
-						},1000);
-					},'json');
-				});
-			}
-			/*
-			*根据角色ID选择权限，分配权限操作。
-			*/
-			function selectPermissionById(id){
-				var load = layer.load();
-				$.post("${basePath}/permission/selectPermissionById.shtml",{id:id},function(result){
-					layer.close(load);
-					if(result && result.length){
-						var html =[];
-						html.push('<div class="checkbox"><label><input type="checkbox"  selectAllBox="">全选</label></div>');
-						$.each(result,function(){
-							html.push("<div class='checkbox'><label>");
-							html.push("<input type='checkbox' selectBox='' id='");
-							html.push(this.id);
-							html.push("'");
-							if(this.check){
-								html.push(" checked='checked'");
-							}
-							html.push("name='");
-							html.push(this.name);
-							html.push("'/>");
-							html.push(this.name);
-							html.push('</label></div>');
-						});
-						//初始化全选。
-						return so.id('boxRoleForm').html(html.join('')),
-						so.checkBoxInit('[selectAllBox]','[selectBox]'),
-						$('#selectPermission').modal(),$('#selectRoleId').val(id),!1;
-					}else{
-						return layer.msg('没有获取到权限数据，请先添加权限数据。',so.default);
-					}
-				},'json');
-			}
-			</@shiro.hasPermission>
-
-      		 $(function(){
-      		 		$("#searchRole").click(function(){
-      		 			console.log(1)
-      		 			$("#formId").submit()
-      		 		
-      		 		});
+						},'json');
+					});
+	      		 	
+	      		 	});
+      		 
       		 })
       		
     </script>

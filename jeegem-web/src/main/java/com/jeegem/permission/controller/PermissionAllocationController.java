@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -66,12 +67,16 @@ public class PermissionAllocationController extends BaseController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value="selectPermissionById")
-	@ResponseBody
-	public List<UPermissionBo> selectPermissionById(Long id){
+	@RequestMapping(value="selectPermissionById",method=RequestMethod.GET)
+	public ModelAndView selectPermissionById(Long id){
+		ModelAndView mav = new ModelAndView("permission/selectPermission");
 		List<UPermissionBo> permissionBos = permissionService.selectPermissionById(id);
-		return permissionBos;
+		mav.addObject("permissionBos", permissionBos);
+		mav.addObject("roleId", id);
+		
+		return mav;
 	}
+	
 	/**
 	 * 操作角色的权限
 	 * @param roleId 	角色ID

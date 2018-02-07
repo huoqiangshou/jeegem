@@ -21,9 +21,12 @@ public class UPermissionBo extends UPermission implements Serializable {
 	 * role Id
 	 */
 	private String roleId;
-
+	
+	private String permissionId;
+	
 	public boolean isCheck(){
-		return StringUtils.equals(roleId,marker);
+//		return StringUtils.equals(roleId,marker);
+		return StringUtils.isNotBlank(roleId) && StringUtils.isNotBlank(permissionId);
 	}
 	public String getMarker() {
 		return marker;
@@ -37,6 +40,12 @@ public class UPermissionBo extends UPermission implements Serializable {
 	}
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
+	}
+	public String getPermissionId() {
+		return permissionId;
+	}
+	public void setPermissionId(String permissionId) {
+		this.permissionId = permissionId;
 	}
 	
 }

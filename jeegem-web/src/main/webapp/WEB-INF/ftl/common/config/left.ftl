@@ -80,17 +80,21 @@
                       </li>
                       </@shiro.hasPermission>
                       
-                      <li>
-                        <a href="tiles.html">
-                          <i class="fa fa-caret-right"></i> Tiles
+                      <@shiro.hasPermission name="/permission/index.shtml">
+                      <li class="${(index2==33)?string('active',' ')}">
+                        <a href="${basePath}/permission/index.shtml">
+                          <i class="fa fa-caret-right"></i> 权限列表
                         </a>
                       </li>
-                      <li>
-                        <a href="portlets.html">
-                         <i class="fa fa-caret-right"></i> Portlets
-                          <span class="label label-greensea">new</span>
+                      </@shiro.hasPermission>
+                      
+                      <@shiro.hasPermission name="/permission/allocation.shtml">
+                      <li class="${(index2==34)?string('active',' ')}">
+                        <a href="${basePath}/permission/allocation.shtml">
+                          <i class="fa fa-caret-right"></i> 权限分配
                         </a>
                       </li>
+                      </@shiro.hasPermission>
                       
                     </ul>
                   </li>
