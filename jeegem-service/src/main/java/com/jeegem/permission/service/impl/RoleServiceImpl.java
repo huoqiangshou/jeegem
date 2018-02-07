@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.jeegem.common.dao.URoleMapper;
 import com.jeegem.common.dao.URolePermissionMapper;
 import com.jeegem.common.dao.UUserMapper;
+import com.jeegem.common.model.UPermission;
 import com.jeegem.common.model.URole;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.core.mybatis.BaseMybatisDao;
@@ -123,5 +124,5 @@ public class RoleServiceImpl extends BaseMybatisDao<URoleMapper> implements Role
 	public void initData() {
 		roleMapper.initData();
 	}
-	
+
 }

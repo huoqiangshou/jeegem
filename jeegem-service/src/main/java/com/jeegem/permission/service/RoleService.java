@@ -35,4 +35,6 @@ public interface RoleService {
 	List<URole> findNowAllPermission();
 	//初始化数据
 	void initData();
+	
+	
 }

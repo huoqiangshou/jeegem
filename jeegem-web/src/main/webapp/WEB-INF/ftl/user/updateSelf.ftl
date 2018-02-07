@@ -45,76 +45,14 @@
       <div class="row">
         
         <!-- Fixed navbar -->
-        <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
-
-          <!-- Branding -->
-          <div class="navbar-header col-md-2">
-            <a class="navbar-brand" href="index.html">
-              <strong>MIN</strong>IMAL
-            </a>
-            <div class="sidebar-collapse">
-              <a href="#">
-                <i class="fa fa-bars"></i>
-              </a>
-            </div>
-          </div>
-          <!-- Branding end -->
-
-
-          <!-- .nav-collapse -->
-          <div class="navbar-collapse">
-                        
-            <!-- Page refresh -->
-            <ul class="nav navbar-nav refresh">
-              <li class="divided">
-                <a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
-              </li>
-            </ul>
-            <!-- /Page refresh -->
-
-            <!-- Search -->
-            <div class="search" id="main-search">
-              <i class="fa fa-search"></i> <input type="text" placeholder="Search...">
-            </div>
-            <!-- Search end -->
-
-            <!-- Quick Actions -->
-				<@_top.top 1/>
-            <!-- /Quick Actions -->
-
-            <!-- Sidebar -->
-            <@_left.user 1 2 />
-
-            <!-- Sidebar end -->
-
-          </div>
-          <!--/.nav-collapse -->
-
-        </div>
+        <@_navbar.navbar  1 2/>
         <!-- Fixed navbar end -->
         
         <!-- Page content -->
         <div id="content" class="col-md-12">
           
-
           <!-- page header -->
-          <div class="pageheader">
-            
-
-            <h2><i class="fa fa-thumb-tack" style="line-height: 48px;padding-left: 1px;"></i> 资料修改 </h2>
-            
-
-            <div class="breadcrumbs">
-              <ol class="breadcrumb">
-                <li>所在位置</li>
-                <li><a href="${basePath}/">JeeGem</a></li>
-                <li><a href="${basePath}/user/index.shtml">个人中心</a></li>
-                <li class="active" >资料修改</li>
-              </ol>
-            </div>
-
-
-          </div>
+          <@_pageHeader.pageHeader  '个人中心' '资料修改'/>
           <!-- /page header -->
 
           <!-- content main container -->

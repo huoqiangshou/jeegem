@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>Minimal 1.3 - Typography</title>
+    <title>Minimal 1.3 - Nestable Lists</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="assets\js\vendor\videobackground\css\jquery.videobackground.css">
     <link rel="stylesheet" href="assets\css\vendor\bootstrap-checkbox.css">
     <link rel="stylesheet" href="assets\css\vendor\bootstrap\bootstrap-dropdown-multilevel.css">
+
+    <link rel="stylesheet" href="assets\js\vendor\nestable\css\style.css">
 
     <link href="assets\css\minimal.css" rel="stylesheet">
 
@@ -33,12 +35,20 @@
     <!-- Wrap all page content here -->
     <div id="wrap">
 
+      
+
 
       <!-- Make page fluid -->
       <div class="row">
         
+
+
+
+
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
+          
+
 
           <!-- Branding -->
           <div class="navbar-header col-md-2">
@@ -430,7 +440,7 @@
                     </ul>
                   </li>
 
-                  <li class="dropdown open active">
+                  <li class="dropdown active open">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <i class="fa fa-pencil"></i> Interface <b class="fa fa-plus dropdown-plus"></b>
                     </a>
@@ -440,7 +450,7 @@
                           <i class="fa fa-caret-right"></i> UI Elements
                         </a>
                       </li>
-                      <li class="active">
+                      <li>
                         <a href="typography.html">
                           <i class="fa fa-caret-right"></i> Typography
                         </a>
@@ -456,7 +466,7 @@
                           <span class="label label-greensea">new</span>
                         </a>
                       </li>
-                      <li>
+                      <li class="active">
                         <a href="nestable.html">
                           <i class="fa fa-caret-right"></i> Nestable Lists
                           <span class="label label-greensea">new</span>
@@ -775,7 +785,7 @@
           <div class="pageheader">
             
 
-            <h2><i class="fa fa-font"></i> Typography <span>// Place subtitle here...</span></h2>
+            <h2><i class="fa fa-list" style="line-height: 48px;padding-left: 1px;"></i> Nestable Lists <span>// Place subtitle here...</span></h2>
             
 
             <div class="breadcrumbs">
@@ -783,7 +793,7 @@
                 <li>You are here</li>
                 <li><a href="index.html">Minimal</a></li>
                 <li><a href="ui-elements.html">Interface</a></li>
-                <li class="active">Typography</li>
+                <li class="active">Nestable Lists</li>
               </ol>
             </div>
 
@@ -802,331 +812,22 @@
 
 
 
-            <!-- row -->
-            <div class="row">
+            <menu id="nestable-menu" class="text-right">
+              <button type="button" data-action="expand-all" class="btn btn-primary">Expand All</button>
+              <button type="button" data-action="collapse-all" class="btn btn-danger">Collapse All</button>
+            </menu>
 
-              <!-- col 3 -->
-              <div class="col-lg-3 col-md-6">
-              
-
-                
-                <!-- tile -->
-                <section class="tile transparent">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header transparent">
-                    <h1><strong>Normal</strong> Headings</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body color transparent-black rounded-corners">
-                        
-                    <h1>h1. Heading</h1>
-                    <h2>h2. Heading</h2>
-                    <h3>h3. Heading</h3>
-                    <h4>h4. Heading</h4>
-                    <h5>h5. Heading</h5>
-                    <h6>h6. Heading</h6>
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-
-              </div>
-              <!-- /col 3 -->
-
-              <!-- col 3 -->
-              <div class="col-lg-3 col-md-6">
-              
-
-                
-                <!-- tile -->
-                <section class="tile transparent">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header transparent">
-                    <h1><strong>Sans-Serif</strong> Headings</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body color transparent-black rounded-corners">
-
-                    <h1 class="sans-serif">h1. Heading</h1>
-                    <h2 class="sans-serif">h2. Heading</h2>
-                    <h3 class="sans-serif">h3. Heading</h3>
-                    <h4 class="sans-serif">h4. Heading</h4>
-                    <h5 class="sans-serif">h5. Heading</h5>
-                    <h6 class="sans-serif">h6. Heading</h6>            
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-
-              </div>
-              <!-- /col 3 -->
-
-
-              <!-- col 3 -->
-              <div class="col-lg-3 col-md-6">
-              
-
-                
-                <!-- tile -->
-                <section class="tile transparent">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header transparent">
-                    <h1><strong>Filled</strong> Headings</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body color transparent-black rounded-corners">
-                        
-                    <h1 class="filled slategray">h1. Heading</h1>
-                    <h2 class="filled greensea sans-serif">h2. Heading</h2>
-                    <h5 class="filled redbrown">h5. Heading</h5>
-                    <h6 class="filled drank sans-serif">h6. Heading</h6>
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-
-              </div>
-              <!-- /col 3 -->
-
-              <!-- col 3 -->
-              <div class="col-lg-3 col-md-6">
-              
-
-                
-                <!-- tile -->
-                <section class="tile transparent">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header transparent">
-                    <h1><strong>Colored</strong> Headings</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body color transparent-white rounded-corners">
-
-                    <h1 class="color-greensea">h1. Heading</h1>
-                    <h2 class="color-red">h2. Heading</h2>
-                    <h3 class="color-drank">h3. Heading</h3>
-                    <h4 class="color-slategray">h4. Heading</h4>
-                    <h5 class="color-blue">h5. Heading</h5>
-                    <h6 class="color-green">h6. Heading</h6>            
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-
-              </div>
-              <!-- /col 3 -->
-
-
-              
-            </div>
-            <!-- /row -->
 
 
 
             <!-- row -->
             <div class="row">
 
-              <!-- col 4 -->
-              <div class="col-md-4">
-              
-
-                
-                <!-- tile -->
-                <section class="tile color transparent-black">
 
 
+              <!-- col 6 -->
+              <div class="col-md-6">
 
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Text</strong> Emphasis</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-
-                    <h4 class="filled">De-Emphasizing</h4>
-                    <p class="filled">
-                      <small>This line of text is meant to be treated as fine print.</small>
-                    </p>
-
-                    <h4 class="filled">Bold</h4>
-                    <p class="filled">
-                      The following snippet of text is <strong>rendered as bold text</strong>.
-                    </p>
-
-                    <h4 class="filled">Italics</h4>
-                    <p class="filled">
-                      The following snippet of text is <em>rendered as italicized text</em>.
-                    </p>  
-
-                    <h4>Emphasis Classes</h4> 
-                    <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-                    <p class="color-red">Etiam porta sem malesuada magna mollis euismod.</p>
-                    <p class="color-cyan">Donec ullamcorper nulla non metus auctor fringilla.</p>
-                    <p class="color-green">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>
-                    <p class="color-orange">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-                    <p class="color-amethyst">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-                    <p class="thin">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-                    <p class="uppercase">Etiam porta sem malesuada magna mollis euismod.</p>
-                    <p class="italic">Donec ullamcorper nulla non metus auctor fringilla.</p>
-                    <p class="bold">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p> 
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Text</strong> Abbreviations</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-
-                    <h5>Default Abbreviation</h5>
-                    <div class="well transparent-black">An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</div>
-                    <h5>Little Smaller Text Abbreviation</h5>
-                    <div class="well transparent-black"><abbr title="HyperText Markup Language" class="initialism">HTML</abbr> is the best thing since sliced bread.</div>
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Text</strong> Alignment</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-
-                    <p class="text-left">Left aligned text.</p>
-                    <p class="text-center">Center aligned text.</p>
-                    <p class="text-right">Right aligned text.</p>
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
 
 
 
@@ -1134,10 +835,9 @@
                 <section class="tile color transparent-white">
 
 
-
                   <!-- tile header -->
                   <div class="tile-header">
-                    <h1><strong>Address</strong> Types</h1>
+                    <h1><strong>Nestable</strong> List 1</h1>
                     <div class="controls">
                       <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
                       <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
@@ -1146,187 +846,39 @@
                   </div>
                   <!-- /tile header -->
 
+
+
                   <!-- tile body -->
                   <div class="tile-body">
-
-                    <h4>Normal</h4>
-                    <address>
-                      <strong>Twitter, Inc.</strong><br>
-                      795 Folsom Ave, Suite 600<br>
-                      San Francisco, CA 94107<br>
-                      <abbr title="Phone">P:</abbr> (123) 456-7890
-                    </address>
-                     
-                    <address>
-                      <strong>Full Name</strong><br>
-                      <a href="mailto:#">first.last@example.com</a>
-                    </address>
-
-                    <h4>Filled</h4>
-                    <address class="filled addon">
-                      <strong>Twitter, Inc.</strong><br>
-                      795 Folsom Ave, Suite 600<br>
-                      San Francisco, CA 94107<br>
-                      <abbr title="Phone">P:</abbr> (123) 456-7890
-                      <i class="fa fa-map-marker pull-right"></i>
-                    </address>
-                     
-                    <address class="filled filled-append blue">
-                      <strong>Full Name</strong><br>
-                      <a href="mailto:#">first.last@example.com</a>
-                    </address>
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Horizontal</strong> Description</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    
+                    <div class="dd transparent-black" id="nestable">
+                      <ol class="dd-list">
+                        <li class="dd-item" data-id="1">
+                          <div class="dd-handle">Item 1</div>
+                        </li>
+                        <li class="dd-item" data-id="2">
+                          <div class="dd-handle">Item 2</div>
+                          <ol class="dd-list">
+                            <li class="dd-item" data-id="3"><div class="dd-handle">Item 3</div></li>
+                            <li class="dd-item" data-id="4"><div class="dd-handle">Item 4</div></li>
+                            <li class="dd-item" data-id="9"><div class="dd-handle">Item 9</div></li>
+                            <li class="dd-item" data-id="10"><div class="dd-handle">Item 10</div></li>
+                          </ol>
+                        </li>
+                        <li class="dd-item" data-id="11">
+                          <div class="dd-handle">Item 11</div>
+                        </li>
+                        <li class="dd-item" data-id="12">
+                          <div class="dd-handle">Item 12</div>
+                        </li>
+                      </ol>
                     </div>
-                  </div>
-                  <!-- /tile header -->
 
-                  <!-- tile body -->
-                  <div class="tile-body">
-
-                    <h4>Normal</h4>
-                    <dl class="dl-horizontal">
-                      <dt>Description lists</dt>
-                      <dd>A description list is perfect for defining terms.</dd>
-                      <dt>Euismod</dt>
-                      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-                      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                      <dt>Malesuada porta</dt>
-                      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                    </dl>
-
-                    <h4>Filled</h4>
-                    <dl class="dl-horizontal filled green">
-                      <dt>Description lists</dt>
-                      <dd>A description list is perfect for defining terms.</dd>
-                      <dt>Euismod</dt>
-                      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-                      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                      <dt>Malesuada porta</dt>
-                      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                    </dl>
+                    
 
                   </div>
                   <!-- /tile body -->
-                  
                 
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Vertical</strong> Description</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-
-                    <h4>Normal</h4>
-                    <dl>
-                      <dt>Description lists</dt>
-                      <dd>A description list is perfect for defining terms.</dd>
-                      <dt>Euismod</dt>
-                      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-                      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                      <dt>Malesuada porta</dt>
-                      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                    </dl>
-
-                    <h4>Filled</h4>
-                    <dl class="filled">
-                      <dt>Description lists</dt>
-                      <dd>A description list is perfect for defining terms.</dd>
-                      <dt>Euismod</dt>
-                      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-                      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                      <dt>Malesuada porta</dt>
-                      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                    </dl>
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
-
-                </section>
-                <!-- /tile -->
-
-
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Text</strong> Colors</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-
-                    <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-                    <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
-                    <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
-                    <p class="text-info">Aenean eu leo quam. Pellentesque ornare sem lacinia quam.</p>
-                    <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-                    <p class="color-red">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-                    <p class="color-green">Etiam porta sem malesuada magna mollis euismod.</p>
-                    <p class="color-cyan">Donec ullamcorper nulla non metus auctor fringilla.</p>
-                    <p class="color-orange">Aenean eu leo quam. Pellentesque ornare sem lacinia quam.</p>
-                    <p class="color-amethyst">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-
-                  </div>
-                  <!-- /tile body -->
-                  
-                
-
 
                 </section>
                 <!-- /tile -->
@@ -1335,21 +887,25 @@
 
 
               </div>
-              <!-- /col 4 -->
+              <!-- /col 6 -->
 
-              <!-- col 8 -->
-              <div class="col-md-8">
-              
+
+
+
+
+              <!-- col 6 -->
+              <div class="col-md-6">
+
+
 
                 
                 <!-- tile -->
                 <section class="tile color transparent-black">
 
 
-
                   <!-- tile header -->
                   <div class="tile-header">
-                    <h1><strong>Paragraph</strong> Types</h1>
+                    <h1><strong>Nestable</strong> List 2</h1>
                     <div class="controls">
                       <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
                       <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
@@ -1358,51 +914,61 @@
                   </div>
                   <!-- /tile header -->
 
+
+
                   <!-- tile body -->
                   <div class="tile-body">
+                    
+                    <div class="dd transparent-white" id="nestable2">
+                      <ol class="dd-list">
+                        <li class="dd-item" data-id="13">
+                          <div class="dd-handle">Item 13</div>
+                        </li>
+                        <li class="dd-item" data-id="14">
+                          <div class="dd-handle">Item 14</div>
+                        </li>
+                        <li class="dd-item" data-id="15">
+                          <div class="dd-handle">Item 15</div>
+                          <ol class="dd-list">
+                            <li class="dd-item" data-id="16"><div class="dd-handle">Item 16</div></li>
+                            <li class="dd-item" data-id="17"><div class="dd-handle">Item 17</div></li>
+                            <li class="dd-item" data-id="18"><div class="dd-handle">Item 18</div></li>
+                          </ol>
+                        </li>
+                      </ol>
+                    </div>
 
-                    <h4><strong>Normal</strong> Paragraph</h4>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                    <h4><strong>Lead</strong> Paragraph</h4>
-                    <p class="lead">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                    <h5 class="filled">Filled Paragraph</h5>
-                    <p class="filled">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                    <h5 class="filled greensea">Filled Paragraph Greensea</h5>
-                    <p class="filled greensea">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                    <h5 class="filled slategray">Filled Paragraph Slategray</h5>
-                    <p class="filled slategray">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                    <h5 class="filled redbrown">Filled Paragraph Redbrown</h5>
-                    <p class="filled redbrown">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                    <h5 class="filled orange">Filled Paragraph Orange</h5>
-                    <p class="filled orange">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                    <h5 class="filled blue">Filled Paragraph Blue</h5>
-                    <p class="filled blue">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                    <br><textarea id="nestable2-output" class="form-control"></textarea>
 
                   </div>
                   <!-- /tile body -->
-                  
                 
 
-
                 </section>
                 <!-- /tile -->
 
 
-                <!-- tile -->
-                <section class="tile color transparent-black">
 
+
+              </div>
+              <!-- /col 6 -->
+
+
+
+
+              <!-- col 12 -->
+              <div class="col-md-12">
+
+
+
+                
+                <!-- tile -->
+                <section class="tile">
 
 
                   <!-- tile header -->
                   <div class="tile-header">
-                    <h1><strong>Blockquotes</strong> Types</h1>
+                    <h1><strong>Nestable</strong> List 3</h1>
                     <div class="controls">
                       <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
                       <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
@@ -1411,366 +977,207 @@
                   </div>
                   <!-- /tile header -->
 
+
+
                   <!-- tile body -->
                   <div class="tile-body">
-
-                    <h4><strong>Default</strong> blockquote</h4>
-                    <blockquote>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    </blockquote>
                     
-                    <h4><strong>Blockquote</strong> with source</h4>
-                    <blockquote>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                      <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-                    </blockquote>
-                    
-                    <h4 class="text-right"><strong>Blockquote</strong> with source pulled-right</h4>
-                    <blockquote class="pull-right">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                      <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-                    </blockquote>
+                    <div class="dd" id="nestable3">
+                      <ol class="dd-list">
 
-                    <div class="clearfix"></div>
+                        <li class="dd-item dd3-item dd-heading" data-id="1">
+                          
+                          <div class="dd-handle dd3-handle">Drag</div>
+                          <div class="dd3-content">
+                            <strong>Personal Information</strong> (Heading)
+                            <div class="controls">
+                              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                          </div>
 
-                    <h5 class="filled">Default blockquote</h5>
-                    <blockquote class="filled">
-                        <p><i class="fa fa-quote-left pull-left"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    </blockquote>
-
-                    <h5 class="filled green">Blockquote with source</h5>
-                    <blockquote class="filled green">
-                        <p><i class="fa fa-quote-left pull-left"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-                    </blockquote>
-
-                    <h5 class="filled red text-right">Blockquote with source pulled-right</h5>
-                    <blockquote class="filled red text-right">
-                        <p><i class="fa fa-quote-right pull-right"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-                    </blockquote>
-
-                  </div>
-                  <!-- /tile body -->
-
-                </section>
-                <!-- /tile -->
-
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Code</strong> Types</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-                    <h4><strong>Html</strong> Code</h4>
-<pre class="prettyprint lang-html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;body&gt;
-
-&lt;h1&gt;My First Heading&lt;/h1&gt;
-
-&lt;p&gt;My first paragraph.&lt;/p&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
-                  <h4><strong>CSS</strong> Code</h4>
-<pre class="prettyprint lang-css">
-html,
-body {
-    height: auto;
-    font-family: 'Open Sans', sans-serif;
-}
-
-body {
-    background: #f3f3f3;
-    overflow-x: hidden;
-    position: relative;
-}
-</pre>
-                  <h4><strong>JavaScript</strong> Code</h4>
-<pre class="prettyprint lang-js">
-$(function(){
-    
-  //generate pie charts
-  $('.easypiechart').easyPieChart();
-
-  //generate actual pie charts
-  $('.pie-chart').easyPieChart();
-
-})
-</pre>
-                  </div>
-                  <!-- /tile body -->
-
-
-                </section>
-                <!-- /tile -->
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Predefined</strong> List</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-                    <div class="row">
-
-                      <div class="col-md-3 col-sm-6">
-                        <p class="small-bold uppercase">Ordered List</p>
-                        <ol>
-                          <li>List item</li>
-                          <li>List item</li>
-                          <li>List item</li>
-                          <li>List item</li>
-                          <li>List item</li>
-                        </ol>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                         <p class="small-bold uppercase">Unordered List</p>
-                          <ul>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                          </ul>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                         <p class="small-bold uppercase">Unstyled List</p>
-                          <ul class="list-unstyled">
-                            <li>List item</li>
-                            <li>List item
-                              <ul>
-                                <li>List item</li>
-                                <li>List item</li>
-                              </ul>
+                          <ol class="dd-list">
+                            
+                            <li class="dd-item dd3-item dd-field" data-id="4">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>First Name</strong> (First Name)
+                                <div class="controls">
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                </div>
+                              </div>
                             </li>
-                            <li>List item</li>
-                          </ul>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                         <p class="small-bold uppercase">Inline List</p>
-                          <ul class="list-inline">
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                          </ul>
-                      </div>
 
+                            <li class="dd-item dd3-item dd-field" data-id="5">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>Last Name</strong> (Last Name)
+                                <div class="controls">
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                </div>
+                              </div>
+                            </li>
+
+                            <li class="dd-item dd3-item dd-field" data-id="6">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>Gender</strong> (Gender)
+                                <div class="controls">
+                                  
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  
+                                  <a href="#" data-toggle="dropdown" data-placement="top" title="" data-original-title="Edit Choices" class="dropdown-toggle"><i class="fa fa-cog"></i></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><input type="text" placeholder="Add new choice..."></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                      <a href="#">Male</a>
+                                      <div class="controls">
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <a href="#">Female</a>
+                                      <div class="controls">
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                      </div>
+                                    </li>
+                                  </ul>
+
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+
+                                </div>
+                              </div>
+                            </li>
+
+                            <li class="dd-item dd3-item dd-field" data-id="6">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>Birthday</strong> (Birthdate)
+                                <div class="controls">
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                </div>
+                              </div>
+                            </li>
+
+                          </ol>
+
+                        </li>
+
+                        <li class="dd-item dd3-item dd-heading" data-id="2">
+                          
+                          <div class="dd-handle dd3-handle">Drag</div>
+                          <div class="dd3-content">
+                            <strong>Contact Information</strong> (Heading)
+                            <div class="controls">
+                              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                          </div>
+
+                          <ol class="dd-list">
+                            
+                            <li class="dd-item dd3-item dd-field" data-id="4">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>Website</strong> (Website)
+                                <div class="controls">
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                </div>
+                              </div>
+                            </li>
+
+                            <li class="dd-item dd3-item dd-field" data-id="5">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>Twitter</strong> (Twitter)
+                                <div class="controls">
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                </div>
+                              </div>
+                            </li>
+
+                            <li class="dd-item dd3-item dd-field" data-id="6">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>Facebook</strong> (Facebook)
+                                <div class="controls">
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                </div>
+                              </div>
+                            </li>
+
+                            <li class="dd-item dd3-item dd-field" data-id="6">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>AIM</strong> (AIM)
+                                <div class="controls">
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                </div>
+                              </div>
+                            </li>
+
+                          </ol>
+
+                        </li>
+
+                        <li class="dd-item dd3-item dd-heading" data-id="3">
+
+                          <div class="dd-handle dd3-handle">Drag</div>
+                          <div class="dd3-content">
+                            <strong>Personal Detail</strong> (Heading)
+                            <div class="controls">
+                              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                          </div>
+                         
+                          <ol class="dd-list">
+                            
+                            <li class="dd-item dd3-item dd-field" data-id="4">
+                              <div class="dd-handle dd3-handle">Drag</div>
+                              <div class="dd3-content">
+                                <strong>About Me</strong> (About Me)
+                                <div class="controls">
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                </div>
+                              </div>
+                            </li>
+
+                          </ol>
+
+                        </li>
+                      </ol>
                     </div>
+
                   </div>
                   <!-- /tile body -->
-
+                
 
                 </section>
                 <!-- /tile -->
 
-                <!-- tile -->
-                <section class="tile color transparent-black">
 
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Custom</strong> List</h1>
-                    <span class="note"><strong>ul</strong> with class <em>list-type arrow/circle/check/caret</em></span>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-                    <div class="row">
-
-                      <div class="col-md-3 col-sm-6">
-                        <p class="small-bold uppercase">List type arrow</p>
-                        <ul class="list-type arrow">
-                          <li>List item</li>
-                          <li>List item</li>
-                          <li>List item</li>
-                          <li>List item</li>
-                          <li>List item</li>
-                        </ul>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                         <p class="small-bold uppercase">List type circle</p>
-                          <ul class="list-type circle">
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                          </ul>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                         <p class="small-bold uppercase">List type check</p>
-                          <ul class="list-type check">
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                          </ul>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                         <p class="small-bold uppercase">List type caret-right</p>
-                          <ul class="list-type caret-right">
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                            <li>List item</li>
-                          </ul>
-                      </div>
-
-                    </div>
-                  </div>
-                  <!-- /tile body -->
-
-
-                </section>
-                <!-- /tile -->
-
-
-                <!-- tile -->
-                <section class="tile color transparent-black">
-
-
-
-                  <!-- tile header -->
-                  <div class="tile-header">
-                    <h1><strong>Custom</strong> List</h1>
-                    <span class="note"><strong>ul</strong> with class <em>fa-ul</em></span>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
-                  </div>
-                  <!-- /tile header -->
-
-                  <!-- tile body -->
-                  <div class="tile-body">
-                    <div class="row">
-
-                      <div class="col-md-3 col-sm-6">
-                        <p class="small-bold uppercase">List type check</p>
-                        <ul class="fa-ul">
-                          <li><i class="fa-li fa fa-check-square"></i>List item</li>
-                          <li><i class="fa-li fa fa-check-square"></i>List item
-                            <ul class="fa-ul">
-                              <li><i class="fa-li fa fa-check-square"></i>List item</li>
-                              <li><i class="fa-li fa fa-check-square"></i>List item</li>
-                              <li><i class="fa-li fa fa-check-square"></i>List item</li>
-                            </ul>
-                          </li>
-                          <li><i class="fa-li fa fa-check-square"></i>List item</li>
-                        </ul>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                        <p class="small-bold uppercase">List type spinner</p>
-                        <ul class="fa-ul">
-                          <li><i class="fa-li fa fa-spinner fa-spin"></i>List item</li>
-                          <li><i class="fa-li fa fa-spinner fa-spin"></i>List item
-                            <ul class="fa-ul">
-                              <li><i class="fa-li fa fa-spinner fa-spin"></i>List item</li>
-                              <li><i class="fa-li fa fa-spinner fa-spin"></i>List item</li>
-                              <li><i class="fa-li fa fa-spinner fa-spin"></i>List item</li>
-                            </ul>
-                          </li>
-                          <li><i class="fa-li fa fa-spinner fa-spin"></i>List item</li>
-                        </ul>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                        <p class="small-bold uppercase">List type square</p>
-                        <ul class="fa-ul">
-                          <li><i class="fa-li fa fa-square"></i>List item</li>
-                          <li><i class="fa-li fa fa-square"></i>List item
-                            <ul class="fa-ul">
-                              <li><i class="fa-li fa fa-square"></i>List item</li>
-                              <li><i class="fa-li fa fa-square"></i>List item</li>
-                              <li><i class="fa-li fa fa-square"></i>List item</li>
-                            </ul>
-                          </li>
-                          <li><i class="fa-li fa fa-square"></i>List item</li>
-                        </ul>
-                      </div>
-                      
-                      <div class="col-md-3 col-sm-6">
-                        <p class="small-bold uppercase">List type cross</p>
-                        <ul class="fa-ul">
-                          <li><i class="fa-li fa fa-times"></i>List item</li>
-                          <li><i class="fa-li fa fa-times"></i>List item
-                            <ul class="fa-ul">
-                              <li><i class="fa-li fa fa-times"></i>List item</li>
-                              <li><i class="fa-li fa fa-times"></i>List item</li>
-                              <li><i class="fa-li fa fa-times"></i>List item</li>
-                            </ul>
-                          </li>
-                          <li><i class="fa-li fa fa-times"></i>List item</li>
-                        </ul>
-                      </div>
-
-                    </div>
-                  </div>
-                  <!-- /tile body -->
-
-
-                </section>
-                <!-- /tile -->
 
 
               </div>
-              <!-- /col 8 -->
-
+              <!-- /col 12 -->
 
 
               
             </div>
             <!-- /row -->
-
-
-
+          
 
 
           </div>
@@ -2216,11 +1623,63 @@ $(function(){
     <script type="text/javascript" src="assets\js\vendor\videobackground\jquery.videobackground.js"></script>
     <script type="text/javascript" src="assets\js\vendor\blockui\jquery.blockUI.js"></script>
 
+    <script src="assets\js\vendor\nestable\jquery.nestable.js"></script>
+
     <script src="assets\js\minimal.min.js"></script>
 
     <script>
     $(function(){
 
+      var updateOutput = function(e)
+      {
+        var list   = e.length ? e : $(e.target),
+          output = list.data('output');
+        if (window.JSON) {
+          output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+        } else {
+          output.val('JSON browser support required for this demo.');
+        }
+      };
+
+      // activate Nestable for list 1
+      $('#nestable').nestable({
+        group: 1
+      })
+      .on('change', updateOutput);
+      
+      // activate Nestable for list 2
+      $('#nestable2').nestable({
+        group: 1
+      })
+      .on('change', updateOutput);
+
+      // output initial serialised data
+      updateOutput($('#nestable').data('output', $('#nestable-output')));
+      updateOutput($('#nestable2').data('output', $('#nestable2-output')));
+
+      $('#nestable-menu').on('click', function(e)
+      {
+        var target = $(e.target),
+          action = target.data('action');
+        if (action === 'expand-all') {
+          $('.dd').nestable('expandAll');
+        }
+        if (action === 'collapse-all') {
+          $('.dd').nestable('collapseAll');
+        }
+      });
+      
+      $('#nestable3').nestable();
+
+      //show tooltips
+      $('.dd3-content .controls a').tooltip();
+
+      $('.dd3-content .dropdown-menu input').click(function(e) {
+        // Avoid following the href location when clicking
+        e.preventDefault(); 
+        // Avoid having the menu to close when clicking
+        e.stopPropagation();
+      });
       
     })
       

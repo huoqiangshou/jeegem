@@ -97,8 +97,14 @@ public class RoleController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value="mypermission",method=RequestMethod.GET)
-	public ModelAndView mypermission(){
-		return new ModelAndView("permission/mypermission");
+	public ModelAndView mypermission(Long userId){
+		
+		List<URole> rolePermissions = this.roleService.findNowAllPermission();
+		
+		ModelAndView mav = new ModelAndView("permission/mypermission");
+		mav.addObject("rolePermissions", rolePermissions);
+		
+		return mav;
 	}
 	/**
 	 * 我的权限 bootstrap tree data

@@ -40,71 +40,14 @@
       <div class="row">
 
         <!-- Fixed navbar -->
-        <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
-
-          <!-- Branding -->
-          <div class="navbar-header col-md-2">
-            <a class="navbar-brand" href="index.html">
-              <strong>MIN</strong>IMAL
-            </a>
-            <div class="sidebar-collapse">
-              <a href="#">
-                <i class="fa fa-bars"></i>
-              </a>
-            </div>
-          </div>
-          <!-- Branding end -->
-
-          <!-- .nav-collapse -->
-          <div class="navbar-collapse">
-                        
-            <!-- Page refresh -->
-            <ul class="nav navbar-nav refresh">
-              <li class="divided">
-                <a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
-              </li>
-            </ul>
-            <!-- /Page refresh -->
-
-            <!-- Search -->
-            <div class="search" id="main-search">
-              <i class="fa fa-search"></i> <input type="text" placeholder="Search...">
-            </div>
-            <!-- Search end -->
-
-            <!-- Quick Actions -->
-            <@_top.top 1/>
-            <!-- /Quick Actions -->
-
-            <!-- Sidebar -->
-            <@_left.user  3 34/>
-                  
-            <!-- Sidebar end -->
-
-          </div>
-          <!--/.nav-collapse -->
-
-        </div>
+        <@_navbar.navbar  3 34/>
         <!-- Fixed navbar end -->
         
         <!-- Page content -->
         <div id="content" class="col-md-12">
           
           <!-- page header -->
-          <div class="pageheader">
-
-            <h2><i class="fa fa-puzzle-piece" style="line-height: 48px;padding-left: 5px;"></i> Tables <span>// Place subtitle here...</span></h2>
-            
-            <div class="breadcrumbs">
-              <ol class="breadcrumb">
-                <li>You are here</li>
-                <li><a href="index.html">Minimal</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <li class="active">Bootstrap Tables</li>
-              </ol>
-            </div>
-
-          </div>
+          <@_pageHeader.pageHeader  '权限管理' '选择权限'/>
           <!-- /page header -->
 
           <!-- content main container -->
@@ -118,7 +61,7 @@
                 <section class="tile color transparent-black">
                   <!-- tile header -->
                   <div class="tile-header">
-                    <h1><strong>Basic</strong> Example</h1>
+                    <h1><strong>选择权限</strong> </h1>
                     
                   </div>
                   <!-- /tile header -->

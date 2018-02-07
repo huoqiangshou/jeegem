@@ -1,31 +1,64 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-	<head>
-		<meta charset="utf-8" />
-		<title>被拒绝的请求，你没有权限</title>
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-		<link   rel="icon" href="${basePath}/favicon.ico" type="image/x-icon" />
-		<link   rel="shortcut icon" href="${basePath}/favicon.ico" />
-		<link href="${basePath}/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>
-		<link href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>
-		<script  src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
-		<script  src="${basePath}/js/common/layer/layer.js"></script>
-		<script  src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script >
-		</script>
-	</head>
-	<body data-target="#one" data-spy="scroll">
-		
-		<@_top.top 0/>
-		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
-			<div class="row">
-				<div class="col-md-12">
-					<h2>系统提示</h2>
-					<hr>
-					<p>被拒绝的请求，你没有权限。请重新登录或者联系管理员！</p>
-				</div>
-			</div><#--/row-->
-		</div>
-			
-	</body>
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>被拒绝的请求，你没有权限</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/ico" href="assets/images/favicon.ico">
+    <!-- Bootstrap -->
+    <link href="${basePath}/resources/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="${basePath}/resources/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${basePath}/resources/assets/css/vendor/bootstrap-checkbox.css">
+    <link rel="stylesheet" href="${basePath}/resources/assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
+
+    <link href="${basePath}/resources/assets/css/minimal.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="${basePath}/common/html5shiv.js"></script>
+      <script src="${basePath}/resources/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="bg-1">
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Make page fluid -->
+      <div class="row">
+        
+        <!-- Page content -->
+        <div id="content" class="col-md-12 full-page error">
+
+          <div class="search">
+            <input type="text" class="form-control" placeholder="Search...">
+          </div><!-- /input-group -->
+
+
+          <div class="inside-block">
+
+            <img src="${basePath}/resources/assets/images/logo-big.png" alt="" class="logo">
+          
+            <h1 class="error">提示 <strong>你没有权限</strong></h1>
+            <p class="lead"><span class="overline">哈哈</span>, 你没有权限!</p>
+            <p>建议 :-(</p>
+
+            <div class="controls">
+              <button class="btn btn-cyan"><i class="fa fa-refresh"></i> 操作其他功能</button>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- /Page content -->  
+
+      </div>
+
+    </div>
+    <!-- Wrap all page content end -->
+
+  </body>
 </html>
+      

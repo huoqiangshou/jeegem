@@ -40,70 +40,14 @@
       <div class="row">
         
         <!-- Fixed navbar -->
-        <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
-          <!-- Branding -->
-          <div class="navbar-header col-md-2">
-            <a class="navbar-brand" href="${basePath}/index.html">
-              <strong>JEE</strong>GEM
-            </a>
-            <div class="sidebar-collapse">
-              <a href="#">
-                <i class="fa fa-bars"></i>
-              </a>
-            </div>
-          </div>
-          <!-- Branding end -->
-
-          <!-- .nav-collapse -->
-          <div class="navbar-collapse">
-                        
-            <!-- Page refresh -->
-            <ul class="nav navbar-nav refresh">
-              <li class="divided">
-                <a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
-              </li>
-            </ul>
-            <!-- /Page refresh -->
-
-            <!-- Search -->
-            <div class="search" id="main-search">
-              <i class="fa fa-search"></i> <input type="text" placeholder="Search...">
-            </div>
-            <!-- Search end -->
-
-            <!-- Quick Actions -->
-            <@_top.top 1/>
-            <!-- /Quick Actions -->
-
-            <!-- Sidebar -->
-            <@_left.user  1 1/>
-
-            <!-- Sidebar end -->
-
-          </div>
-          <!--/.nav-collapse -->
-
-        </div>
+       	<@_navbar.navbar  1 1/>
+        <!-- Fixed navbar end-->
         
         <!-- Page content -->
         <div id="content" class="col-md-12">
           
           <!-- page header -->
-          <div class="pageheader">
-			
-            <h2><i class="fa fa-puzzle-piece" style="line-height: 48px;padding-left: 5px;"></i> 个人资料</h2>
-			
-            <div class="breadcrumbs">
-              <ol class="breadcrumb">
-                <li>所在位置</li>
-                <li><a href="${basePath}/">JeeGem</a></li>
-                <li><a href="${basePath}/user/index.shtml">个人中心</a></li>
-                <li class="active">个人资料</li>
-              </ol>
-            </div>
-
-
-          </div>
+          <@_pageHeader.pageHeader  '个人中心' '个人资料'/>
           <!-- /page header -->
           
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.jeegem.common.model.UPermission;
 import com.jeegem.common.model.URole;
 
 public interface URoleMapper {
@@ -24,4 +25,7 @@ public interface URoleMapper {
 	List<URole> findNowAllPermission(Map<String, Object> map);
 	
 	void initData();
+	
+	List<UPermission> findPermissionByUserId(Long userId);
+	
 }
