@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.model.Permission;
 import com.jeegem.common.utils.LoggerUtils;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.permission.service.PermissionService;
 /**
@@ -54,7 +55,10 @@ public class PermissionController extends BaseController {
 	public ModelAndView index(String findContent,ModelMap modelMap,Integer pageNo){
 		modelMap.put("findContent", findContent);
 		Pagination<Permission> permissions = permissionService.findPage(modelMap,pageNo,pageSize);
-		return new ModelAndView("permission/index","page",permissions);
+		ModelAndView mav = new JeeGemModelAndView("permission/index.ftl");
+		mav.addObject("page",permissions);
+		
+		return mav;
 	}
 	/**
 	 * 权限添加

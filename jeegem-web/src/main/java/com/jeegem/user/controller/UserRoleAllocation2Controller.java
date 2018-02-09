@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.permission.bo.RoleBo;
 import com.jeegem.permission.bo.UserRoleAllocationBo;
@@ -55,7 +56,7 @@ public class UserRoleAllocation2Controller extends BaseController {
 		modelMap.put("findContent", findContent);
 		Pagination<UserRoleAllocationBo> boPage = userService.findUserAndRole(modelMap,pageNo,pageSize);
 		modelMap.put("page", boPage);
-		return new ModelAndView("role/allocation");
+		return new JeeGemModelAndView("role/allocation.ftl");
 	}
 	
 	/**
@@ -69,7 +70,7 @@ public class UserRoleAllocation2Controller extends BaseController {
 	public ModelAndView chooseRole(Long id){
 		List<RoleBo> roles = userService.selectRoleByUserId(id);
 		
-		ModelAndView mav = new ModelAndView("role/chooseRole");
+		ModelAndView mav = new JeeGemModelAndView("role/chooseRole.ftl");
 		mav.addObject("roles", roles);
 		mav.addObject("userRoleId", id);
 		return mav;

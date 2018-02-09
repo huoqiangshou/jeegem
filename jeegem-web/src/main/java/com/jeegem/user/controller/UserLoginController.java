@@ -21,6 +21,7 @@ import com.jeegem.common.model.User;
 import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.common.utils.StringUtils;
 import com.jeegem.common.utils.VerifyCodeUtils;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.shiro.token.manager.TokenManager;
 import com.jeegem.user.manager.UserManager;
 import com.jeegem.user.service.UserService;
@@ -62,7 +63,7 @@ public class UserLoginController extends BaseController {
 	@RequestMapping(value="login")
 	public ModelAndView login(){
 		
-		return new ModelAndView("user/login");
+		return new JeeGemModelAndView("user/login.ftl");
 	}
 	/**
 	 * 注册跳转
@@ -71,7 +72,7 @@ public class UserLoginController extends BaseController {
 	@RequestMapping(value="register",method=RequestMethod.GET)
 	public ModelAndView register(){
 		
-		return new ModelAndView("user/register");
+		return new JeeGemModelAndView("user/register.ftl");
 	}
 	
 	/**

@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.model.User;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.core.shiro.session.CustomSessionManager;
 import com.jeegem.user.bo.UserOnlineBo;
@@ -61,7 +62,9 @@ public class MemberController extends BaseController {
 		map.put("findContent", findContent);
 		Pagination<User> page = userService.findByPage(map,pageNo,pageSize);
 		map.put("page", page);
-		return new ModelAndView("member/list");
+		ModelAndView mv = new JeeGemModelAndView("member/list.ftl");
+		
+		return mv;
 	}
 	
 	/**
@@ -71,7 +74,9 @@ public class MemberController extends BaseController {
 	@RequestMapping(value="online")
 	public ModelAndView online(){
 		List<UserOnlineBo> list = customSessionManager.getAllUser();
-		return new ModelAndView("member/online","list",list);
+		ModelAndView mv = new JeeGemModelAndView("member/online");
+		mv.addObject("list",list);
+		return mv;
 	}
 	/**
 	 * 在线用户详情
@@ -80,7 +85,7 @@ public class MemberController extends BaseController {
 	@RequestMapping(value="onlineDetails/{sessionId}",method=RequestMethod.GET)
 	public ModelAndView onlineDetails(@PathVariable("sessionId")String sessionId){
 		UserOnlineBo bo = customSessionManager.getSession(sessionId);
-		return new ModelAndView("member/onlineDetails","bo",bo);
+		return new JeeGemModelAndView("member/onlineDetails","bo",bo);
 	}
 	/**
 	 * 改变Session状态

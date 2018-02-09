@@ -210,6 +210,7 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 		return page;
 
 	}
+	
 	/**
 	 * 重载减少参数DEFAULT_SQL_ID, "findCount"
 	 * 
@@ -219,9 +220,10 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 * @return
 	 */
 	public Pagination findPage(Map<String, Object> params, Integer pageNo,Integer pageSize) {
-
+		
 		return findPage(DEFAULT_SQL_ID, DEFAULT_COUNT_SQL_ID, params, pageNo, pageSize);
 	}
+	
 	/**
 	 * 组装
 	 * @param sql

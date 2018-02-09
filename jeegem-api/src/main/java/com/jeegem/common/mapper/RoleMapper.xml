@@ -84,6 +84,7 @@
     	<result column="url" property="url" jdbcType="VARCHAR" />
   	</collection>
   </resultMap>
+  
   <!-- 根据用户ID，查询所有权限 -->
   <select id="findNowAllPermission" resultMap="findNowAllPermission_resultMap">
 	select ur.id,ur.name,ur.type ,up.id pid,up.url,up.name pname 
@@ -92,10 +93,8 @@
 		left join jeegem_role_permission urp on urp.rid = ur.id
 		left join jeegem_permission up on up.id = urp.pid
   </select>
-   <!-- Mybatis 一对多 Demo  end -->
-   
-   
-   
+    
+  <!-- Mybatis 一对多 Demo  end -->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />

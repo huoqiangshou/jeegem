@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.utils.MathUtil;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.user.bo.SubmitDto;
 
 @Controller
@@ -39,7 +40,9 @@ public class DemoTestSubmitController extends BaseController {
 		session.setAttribute(URL_PART, urlPart);
 		//页面显示
 		map.put("urlPart", urlPart);
-		return new ModelAndView("demo/index");
+		ModelAndView mav = new JeeGemModelAndView("demo/index.ftl");
+		
+		return mav;
 	}
 	/**
 	 * 提交

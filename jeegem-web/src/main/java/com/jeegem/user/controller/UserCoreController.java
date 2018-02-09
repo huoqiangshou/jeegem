@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.model.User;
 import com.jeegem.common.utils.LoggerUtils;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.shiro.token.manager.TokenManager;
 import com.jeegem.user.manager.UserManager;
 import com.jeegem.user.service.UserService;
@@ -54,7 +55,7 @@ public class UserCoreController extends BaseController {
 	 */
 	@RequestMapping(value="index",method=RequestMethod.GET)
 	public ModelAndView userIndex(String opt){
-		ModelAndView mav = new ModelAndView("user/index");
+		ModelAndView mav = new JeeGemModelAndView("user/index.ftl");
 		
 		mav.addObject("opt", opt);
 		return mav;
@@ -67,7 +68,7 @@ public class UserCoreController extends BaseController {
 	 */
 	@RequestMapping(value="{page}",method=RequestMethod.GET)
 	public ModelAndView toPage(@PathVariable("page")String page){
-		return new ModelAndView(String.format("user/%s", page));
+		return new JeeGemModelAndView(String.format("user/%s", page));
 	}
 	/**
 	 * 密码修改
@@ -129,7 +130,7 @@ public class UserCoreController extends BaseController {
 	@RequestMapping(value="updateProfile",method=RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView updateProfile(){
-		ModelAndView mav = new ModelAndView("user/updateSelf.ftl");
+		ModelAndView mav = new JeeGemModelAndView("user/updateSelf.ftl");
 		
 		User u = TokenManager.getToken();
 		

@@ -23,6 +23,7 @@ import com.jeegem.common.utils.VerifyCodeUtils;
 import com.jeegem.common.utils.vcode.Captcha;
 import com.jeegem.common.utils.vcode.GifCaptcha;
 import com.jeegem.common.utils.vcode.SpecCaptcha;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.shiro.token.manager.TokenManager;
 import com.jeegem.permission.service.RoleService;
 
@@ -46,7 +47,7 @@ public class CommonController extends BaseController {
 	 */
 	@RequestMapping("404")
 	public ModelAndView _404(HttpServletRequest request){
-		ModelAndView view = new ModelAndView("common/404");
+		ModelAndView view = new JeeGemModelAndView("common/404.ftl");
 		return view;
 	}
 	/**
@@ -56,7 +57,7 @@ public class CommonController extends BaseController {
 	 */
 	@RequestMapping("500")
 	public ModelAndView _500(HttpServletRequest request){
-		ModelAndView view = new ModelAndView("common/500");
+		ModelAndView view = new JeeGemModelAndView("common/500.ftl");
 		
 		Throwable t = (Throwable)request.getAttribute("javax.servlet.error.exception");
 		String defaultMessage = "未知" ;
@@ -169,7 +170,10 @@ public class CommonController extends BaseController {
 	@RequestMapping(value="www/open/goto",method=RequestMethod.GET)
 	public ModelAndView _goto(String url){
 		
-		return new ModelAndView("www/go_to","url",url);
+		ModelAndView mav = new JeeGemModelAndView("www/go_to.ftl");
+		mav.addObject("url", url);
+		
+		return mav;
 	}
 	/**
 	 * 踢出页面
@@ -183,7 +187,7 @@ public class CommonController extends BaseController {
 		if(StringUtils.isBlank(request.getHeader("Referer"))){
 			return redirect("/");
 		}
-		return new ModelAndView("common/kicked_out");
+		return new JeeGemModelAndView("common/kicked_out.ftl");
 	}
 	/**
 	 * 没有权限提示页面
@@ -191,10 +195,10 @@ public class CommonController extends BaseController {
 	 */
 	@RequestMapping(value="unauthorized",method=RequestMethod.GET)
 	public ModelAndView unauthorized(){
-		return new ModelAndView("common/unauthorized");
+		return new JeeGemModelAndView("common/unauthorized.ftl");
 	}
 	@RequestMapping(value="shiro",method=RequestMethod.GET)
 	public ModelAndView shiro(){
-		return new ModelAndView("shiro");
+		return new JeeGemModelAndView("shiro.ftl");
 	}
 }

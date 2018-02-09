@@ -55,23 +55,23 @@ public class RoleServiceImpl extends BaseMybatisDao<RoleMapper> implements RoleS
 	public int updateByPrimaryKey(Role record) {
 		return roleMapper.updateByPrimaryKey(record);
 	}
-
+	
 	@Override
 	public int updateByPrimaryKeySelective(Role record) {
 		return roleMapper.updateByPrimaryKeySelective(record);
 	}
-
 	
 	@Override
-	public Pagination<Role> findPage(Map<String, Object> resultMap,
-			Integer pageNo, Integer pageSize) {
+	public Pagination<Role> findPage(Map<String, Object> resultMap,Integer pageNo, Integer pageSize) {
 		return super.findPage(resultMap, pageNo, pageSize);
 	}
+	
 	@Override
 	public Pagination<RolePermissionAllocationBo> findRoleAndPermissionPage(
 			Map<String, Object> resultMap, Integer pageNo, Integer pageSize) {
 		return super.findPage("findRoleAndPermission", "findCount", resultMap, pageNo, pageSize);
 	}
+	
 	@Override
 	public Map<String, Object> deleteRoleById(String ids) {
 		Map<String,Object> resultMap = new HashMap<String,Object>();

@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.model.Role;
 import com.jeegem.common.utils.LoggerUtils;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.permission.service.RoleService;
 import com.jeegem.user.manager.UserManager;
@@ -60,8 +61,12 @@ public class RoleController extends BaseController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		Pagination<Role> role = roleService.findPage(modelMap,tpn,pageSize);
-		return new ModelAndView("role/index","page",role);
+		
+		ModelAndView mav = new JeeGemModelAndView("role/index.ftl");
+		mav.addObject("page",role);
+		return mav;
 	}
 	/**
 	 * 角色添加
@@ -101,7 +106,7 @@ public class RoleController extends BaseController {
 		
 		List<Role> rolePermissions = this.roleService.findNowAllPermission();
 		
-		ModelAndView mav = new ModelAndView("permission/mypermission");
+		ModelAndView mav = new JeeGemModelAndView("permission/mypermission.ftl");
 		mav.addObject("rolePermissions", rolePermissions);
 		
 		return mav;
