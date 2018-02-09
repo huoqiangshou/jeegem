@@ -8,6 +8,7 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jeegem.common.dao.RoleMapper;
 import com.jeegem.common.dao.RolePermissionMapper;
@@ -21,6 +22,7 @@ import com.jeegem.permission.bo.RolePermissionAllocationBo;
 import com.jeegem.permission.service.RoleService;
 
 @Service
+@Transactional(readOnly = true)
 @SuppressWarnings("unchecked")
 public class RoleServiceImpl extends BaseMybatisDao<RoleMapper> implements RoleService {
 
@@ -31,16 +33,19 @@ public class RoleServiceImpl extends BaseMybatisDao<RoleMapper> implements RoleS
 	@Autowired
 	RolePermissionMapper rolePermissionMapper;
 
+	@Transactional(readOnly = false)
 	@Override
 	public int deleteByPrimaryKey(Long id) {
 		return roleMapper.deleteByPrimaryKey(id);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public int insert(Role record) {
 		return roleMapper.insert(record);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public int insertSelective(Role record) {
 		return roleMapper.insertSelective(record);
@@ -51,11 +56,13 @@ public class RoleServiceImpl extends BaseMybatisDao<RoleMapper> implements RoleS
 		return roleMapper.selectByPrimaryKey(id);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public int updateByPrimaryKey(Role record) {
 		return roleMapper.updateByPrimaryKey(record);
 	}
 	
+	@Transactional(readOnly = false)
 	@Override
 	public int updateByPrimaryKeySelective(Role record) {
 		return roleMapper.updateByPrimaryKeySelective(record);
@@ -72,6 +79,7 @@ public class RoleServiceImpl extends BaseMybatisDao<RoleMapper> implements RoleS
 		return super.findPage("findRoleAndPermission", "findCount", resultMap, pageNo, pageSize);
 	}
 	
+	@Transactional(readOnly = false)
 	@Override
 	public Map<String, Object> deleteRoleById(String ids) {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
@@ -116,6 +124,7 @@ public class RoleServiceImpl extends BaseMybatisDao<RoleMapper> implements RoleS
 		map.put("userId", TokenManager.getUserId());
 		return roleMapper.findNowAllPermission(map);
 	}
+	
 	/**
 	 * 每20分钟执行一次
 	 */

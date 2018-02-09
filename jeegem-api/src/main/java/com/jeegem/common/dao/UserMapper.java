@@ -25,4 +25,16 @@ public interface UserMapper {
 
 	List<RoleBo> selectRoleByUserId2(Long id);
 
+	/**
+	 * @param params
+	 * @return
+	 */
+	List<User> getPageList(Map<String, Object> params);
+
+	/**
+	 * @param params
+	 * @return
+	 */
+	Integer getTotalCount(Map<String, Object> params);
+
 }

@@ -2,7 +2,10 @@ package com.jeegem.core.mybatis.page;
 
 public class SimplePage implements Paginable {
 	public static final int DEF_COUNT = 20;
-
+	protected int totalCount = 0;
+	protected int pageSize = 10;
+	protected int pageNo = 1;
+	
 	public SimplePage() {
 	}
 
@@ -92,9 +95,7 @@ public class SimplePage implements Paginable {
 		}
 	}
 
-	protected int totalCount = 0;
-	protected int pageSize = 20;
-	protected int pageNo = 1;
+	
 
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;

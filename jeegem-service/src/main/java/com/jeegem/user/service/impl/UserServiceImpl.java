@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 
 import com.jeegem.common.dao.UserMapper;
@@ -23,6 +24,7 @@ import com.jeegem.permission.bo.UserRoleAllocationBo;
 import com.jeegem.user.service.UserService;
 
 @Service
+@Transactional(readOnly = true)
 public class UserServiceImpl extends BaseMybatisDao<UserMapper> implements UserService {
 	/***
 	 * 用户手动操作Session
@@ -33,18 +35,21 @@ public class UserServiceImpl extends BaseMybatisDao<UserMapper> implements UserS
 	UserMapper userMapper;
 	@Autowired
 	UserRoleMapper userRoleMapper;
-
+	
+	@Transactional(readOnly = false)
 	@Override
 	public int deleteByPrimaryKey(Long id) {
 		return userMapper.deleteByPrimaryKey(id);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public User insert(User entity) {
 		userMapper.insert(entity);
 		return entity;
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public User insertSelective(User entity) {
 		userMapper.insertSelective(entity);
@@ -56,11 +61,13 @@ public class UserServiceImpl extends BaseMybatisDao<UserMapper> implements UserS
 		return userMapper.selectByPrimaryKey(id);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public int updateByPrimaryKey(User entity) {
 		return userMapper.updateByPrimaryKey(entity);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public int updateByPrimaryKeySelective(User entity) {
 		return userMapper.updateByPrimaryKeySelective(entity);
@@ -86,6 +93,7 @@ public class UserServiceImpl extends BaseMybatisDao<UserMapper> implements UserS
 		return super.findPage(resultMap, pageNo, pageSize);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public Map<String, Object> deleteUserById(String ids) {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
@@ -111,6 +119,7 @@ public class UserServiceImpl extends BaseMybatisDao<UserMapper> implements UserS
 		return resultMap;
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public Map<String, Object> updateForbidUserById(Long id, Long status) {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
@@ -183,6 +192,7 @@ public class UserServiceImpl extends BaseMybatisDao<UserMapper> implements UserS
 		return resultMap;
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public Map<String, Object> deleteRoleByUserIds(String userIds) {
 
@@ -198,6 +208,18 @@ public class UserServiceImpl extends BaseMybatisDao<UserMapper> implements UserS
 		}
 		return resultMap;
 	
+	}
+	
+	/**
+	 * 
+	 * @see com.jeegem.user.service.UserService#queryForPages(java.util.Map)
+	 */
+	@Override
+	public Pagination<User> queryForPages(Map<String, Object> params) {
+		
+		
+		
+		return null;
 	}
 	
 	

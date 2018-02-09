@@ -20,6 +20,7 @@ import com.jeegem.common.utils.LoggerUtils;
 import com.jeegem.common.utils.StringUtils;
 import com.jeegem.core.mybatis.page.MysqlDialect;
 import com.jeegem.core.mybatis.page.Pagination;
+
 @SuppressWarnings( { "unchecked" ,"rawtypes"})
 public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 

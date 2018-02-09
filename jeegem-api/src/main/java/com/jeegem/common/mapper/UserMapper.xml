@@ -13,22 +13,81 @@
   <sql id="Base_Column_List" >
     id, nickname, email, pswd, create_time, last_login_time,status
   </sql>
+  
+  <sql id="orderStatement">
+  	  <if test="orderBy != null and orderType != null">
+      	ORDER BY ${orderBy} ${orderType}
+      </if>
+  </sql>
+  
+  <sql id="limitStatement">
+  	  <if test="pageNo != null and pageSize != null">
+      	LIMIT #{pageNo},#{pageSize} 
+      </if>
+  </sql>
+  
   <sql id="limit_sql">
   	   <if test="page_sql != null and page_sql != ''">
       	${page_sql}
       </if>
   </sql>
   
-  <sql id="where_all">
+  <sql id="whereStatement">
   	<where>
-  	<if test="findContent != null and findContent !='' " >
-        and (
-        LOWER(nickname) like  LOWER(CONCAT("%",#{findContent,jdbcType=VARCHAR},"%")) or
-        LOWER(email) like  LOWER(CONCAT("%",#{findContent,jdbcType=VARCHAR},"%"))
-        )
-      </if>
+  		<if test="id !=null and id !=''">
+  			id=#{id,jdbcType=BIGINT}	
+  		</if>
+  		
+  		<if test="nickname !=null and nickname !=''">
+  			nickname=#{nickname,jdbcType=VARCHAR}	
+  		</if>
+  		
+  		<if test="email !=null and email !=''">
+  			email=#{email,jdbcType=VARCHAR}	
+  		</if>
+  		
+  		<if test="pswd !=null and pswd !=''">
+  			pswd=#{pswd,jdbcType=VARCHAR}	
+  		</if>
+  		
+  		<if test="createTime !=null and createTime !=''">
+  			create_time=#{createTime,jdbcType=TIMESTAMP}	
+  		</if>
+  		
+  		<if test="lastLoginTime !=null and lastLoginTime !=''">
+  			last_login_time=#{lastLoginTime,jdbcType=TIMESTAMP}	
+  		</if>
+  		
       </where>
   </sql>
+  
+  <sql id="where_all">
+  	<where>
+  		<if test="findContent != null and findContent !='' " >
+	        and (
+	        LOWER(nickname) like  LOWER(CONCAT("%",#{findContent,jdbcType=VARCHAR},"%")) or
+	        LOWER(email) like  LOWER(CONCAT("%",#{findContent,jdbcType=VARCHAR},"%"))
+	        )
+      	</if>
+      </where>
+  </sql>
+  
+  <!-- 分页查询数据 -->
+  <select id="getPageList" resultMap="BaseResultMap" parameterType="map">
+  	 SELECT
+     <include refid="Base_Column_List" />
+     FROM JEEGEM_USER
+     <include refid="whereStatement"/>
+     <include refid="limitStatement" />
+     <include refid="orderStatement" />
+  </select>
+  
+  <!-- 分页查询数据总量 -->
+  <select id="getTotalCount" parameterType="map" resultType="Integer">
+ 	 select count(id) from  jeegem_user
+  	<include refid="whereStatement" />
+  </select>
+  
   <select id="findAll" resultMap="BaseResultMap" >
   	 select 
     <include refid="Base_Column_List" />
@@ -36,11 +95,11 @@
     <include refid="where_all"/>
     <include refid="limit_sql" />
   </select>
+  
   <select id="findCount" resultMap="BaseResultMap" >
  	 select count(id) from  jeegem_user
   	<include refid="where_all" />
   </select>
-  
   
   <!-- 用户权限分配的分页查询 -->
   <select id="findUserAndRole" resultType="com.jeegem.permission.bo.UserRoleAllocationBo">

@@ -43,4 +43,10 @@ public interface UserService {
 	Map<String, Object> addRole2User(Long userId, String ids);
 
 	Map<String, Object> deleteRoleByUserIds(String userIds);
+
+	/**分页查询
+	 * @param params
+	 * @return
+	 */
+	Pagination<User> queryForPages(Map<String, Object> params);
 }

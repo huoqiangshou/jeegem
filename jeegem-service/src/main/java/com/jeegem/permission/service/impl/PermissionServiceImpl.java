@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jeegem.common.dao.PermissionMapper;
 import com.jeegem.common.dao.RolePermissionMapper;
@@ -22,6 +23,7 @@ import com.jeegem.core.shiro.token.manager.TokenManager;
 import com.jeegem.permission.bo.PermissionBo;
 import com.jeegem.permission.service.PermissionService;
 @Service
+@Transactional(readOnly = true)
 public class PermissionServiceImpl extends BaseMybatisDao<PermissionMapper> implements PermissionService {
 
 	@Autowired
@@ -33,17 +35,20 @@ public class PermissionServiceImpl extends BaseMybatisDao<PermissionMapper> impl
 	@Autowired
 	UserRoleMapper userRoleMapper;
 	
+	@Transactional(readOnly = false)
 	@Override
 	public int deleteByPrimaryKey(Long id) {
 		return permissionMapper.deleteByPrimaryKey(id);
 	}
-
+	
+	@Transactional(readOnly = false)
 	@Override
 	public Permission insert(Permission record) {
 		permissionMapper.insert(record);
 		return record;
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public Permission insertSelective(Permission record) {
 		//添加权限
@@ -58,16 +63,19 @@ public class PermissionServiceImpl extends BaseMybatisDao<PermissionMapper> impl
 		return permissionMapper.selectByPrimaryKey(id);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public int updateByPrimaryKey(Permission record) {
 		return permissionMapper.updateByPrimaryKey(record);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public int updateByPrimaryKeySelective(Permission record) {
 		return permissionMapper.updateByPrimaryKeySelective(record);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public Map<String, Object> deletePermissionById(String ids) {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
@@ -119,6 +127,7 @@ public class PermissionServiceImpl extends BaseMybatisDao<PermissionMapper> impl
 		return permissionMapper.selectPermissionById(id);
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public Map<String, Object> addPermission2Role(Long roleId, String ids) {
 		//先删除原有的。
@@ -169,6 +178,7 @@ public class PermissionServiceImpl extends BaseMybatisDao<PermissionMapper> impl
 		
 	}
 
+	@Transactional(readOnly = false)
 	@Override
 	public Map<String, Object> deleteByRids(String roleIds) {
 		Map<String,Object> resultMap = new HashMap<String, Object>();
