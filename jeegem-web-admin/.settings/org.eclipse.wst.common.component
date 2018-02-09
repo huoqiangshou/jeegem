@@ -10,7 +10,7 @@
         <dependent-module archiveName="jeegem-service-v1.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeegem-service/jeegem-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="java-output-path" value="/jeegem-web-admin/target/classes"/>
         <property name="context-root" value="jeegem-web-admin"/>
+        <property name="java-output-path" value="/jeegem-web-admin/target/classes"/>
     </wb-module>
 </project-modules>
