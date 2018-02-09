@@ -7,28 +7,12 @@
     <artifactId>jeegem</artifactId>
     <version>v1.0.1</version>
   </parent>
-  <groupId>jeegem-web-admin</groupId>
-  <artifactId>jeegem-web-admin</artifactId>
+  <groupId>jeegem-web-cms</groupId>
+  <artifactId>jeegem-web-cms</artifactId>
   <packaging>war</packaging>
-  <name>jeegem-web-admin</name>
+  <name>jeegem-web-cms</name>
   <url>http://maven.apache.org</url>
-  
-  
   <dependencies>
-  
-  	<dependency>
-  		<groupId>jeegem</groupId>
-  		<artifactId>jeegem-api</artifactId>
-  		<version>v1.0.1</version>
-  	</dependency>
-  	
-	<dependency>
-  		<groupId>jeegem</groupId>
-  		<artifactId>jeegem-service</artifactId>
-  		<version>v1.0.1</version>
-  	</dependency>
-  
-  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -36,9 +20,8 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
-  <build>
-  <finalName>jeegem-web-admin</finalName>
+ <build>
+  <finalName>jeegem-web-cms</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

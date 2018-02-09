@@ -58,11 +58,11 @@
             <div class="row">
 
               <!-- col 6 -->
-              <div class="col-md-6">
+              <div class="col-md-12">
 
                 <!-- tile -->
                 <section class="tile color transparent-black">
-
+				<form method="post" action="" id="formId" class="form-inline">
                   <div class="tile-header">
                     <h1><strong>资料</strong> 列表</h1>
                   </div>
@@ -85,7 +85,13 @@
 							<#list page.list as item>
 		                        <tr>
 		                          <td>${item_index+1}</td>
-		                          <td>${item.nickname?default('未设置')}</td>
+		                          <td>
+									  <div class="form-group">
+				                        <div class="col-sm-8">
+				                          <input type="text" class="form-control" id="${item.id}" onblur="changeNickName(this)" value="${item.nickname?default('未设置')}"/>
+				                        </div>
+				                      </div>
+				                  </td>
 		                          <td>${item.email?default('未设置')}</td>
 		                          <td>${item.createTime?string('yyyy-MM-dd HH:mm')}</td>
 		                          <td>${item.lastLoginTime?string('yyyy-MM-dd HH:mm')}</td>
@@ -101,23 +107,29 @@
                       	</#if>
                       </tbody>
                     </table>
+                    
+					<#if page?exists>
+	                  <!-- tile footer -->
+	                  <div class="tile-footer bg-transparent-white-2 rounded-bottom-corners">
+	                    <div class="row">  
+	                      
+	                      <div class="col-sm-10 text-right">
+	                        <ul class="pagination pagination-xs nomargin pagination-custom">
+	                          ${page.jeeGemPageHtml}
+	                        </ul>
+	                      </div>
+						  
+	                    </div>
+                  		</div>
+                  </#if>
+                    
                   </div>
+                  </form>
                 </section>
 
 
               </div>
 
-              <div class="col-md-6">
-
-
-
-              </div>
-
-              <div class="col-md-12">
-                
-                
-
-              </div>
 
               
             </div>
@@ -563,6 +575,13 @@
 	<script baseUrl="${basePath}" src="${basePath}/js/user.login.js"></script>
 	
     <script>
+    
+    function changeNickName(obj){
+			$.post('${basePath}/user/updateByAjax.shtml',{"nickname":obj.value,"id":obj.id},function(result){
+				
+			},'json');
+    }
+    
     $(function(){
 
       //check all checkboxes

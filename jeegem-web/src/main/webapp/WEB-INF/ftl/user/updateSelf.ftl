@@ -92,6 +92,20 @@
                         </div>
                       </div>
                      
+                      <div class="form-group">
+                        <label for="colorpicker-rgb" class="col-sm-4 control-label">File Upload field</label>
+                        <div class="col-sm-8">
+                          <div class="input-group">
+                            <span class="input-group-btn">
+                              <span class="btn btn-primary btn-file">
+                                <i class="fa fa-upload"></i><input type="file" multiple="" name="userPhoto">
+                              </span>
+                            </span>
+                            <input type="text" class="form-control" readonly="">
+                          </div>
+                        </div>
+                      </div>
+                     
                       <div class="form-group form-footer">
                         <div class="col-sm-offset-4 col-sm-8">
                           <button type="submit" class="btn btn-primary">提交</button>

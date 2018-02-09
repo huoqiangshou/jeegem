@@ -29,38 +29,40 @@ import com.jeegem.core.mybatis.page.Pagination;
  * @version JeeGem V3.0
  */
 public abstract class BaseService<T> {
-	
+
 	/**
 	 * 查询分页具体数据
+	 * 
 	 * @return
 	 */
 	public abstract List<T> getPageList(Map<String, Object> params);
-	
+
 	/**
 	 * 查询分页数据总量
+	 * 
 	 * @return
 	 */
 	public abstract int getTotalCount(Map<String, Object> params);
-	
+
 	/**
 	 * 查询分页
+	 * 
 	 * @param params
 	 * @return
 	 */
-	public Pagination<T> pagination(Map<String,Object> params){
-		
+	public Pagination<T> pagination(Map<String, Object> params) {
+
 		Pagination<T> page = new Pagination<>();
 		page.setList(getPageList(params));
-		
+
 		page.setTotalCount(getTotalCount(params));
-		
-		int pageNo = params.get("pageNo")==null ? 1:Integer.valueOf(params.get("pageNo").toString());
-		
+
+		int pageNo = params.get("pageNo") == null ? 1 : Integer.valueOf(params.get("pageNo").toString());
+
 		page.setPageNo(pageNo);
-		
+
 		return page;
-		
+
 	}
-	
-	
+
 }

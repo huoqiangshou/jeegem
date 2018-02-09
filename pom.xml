@@ -10,8 +10,9 @@
 	<description>jeegem</description>
 	<modules>
 		<module>jeegem-api</module>
-		<module>jeegem-web</module>
 		<module>jeegem-service</module>
+		<module>jeegem-web-admin</module>
+		<module>jeegem-web-cms</module>
 	</modules>
 
 	<properties>
@@ -141,16 +142,38 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
+
+		<!-- logback+slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.16</version>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.2.3</version>
+			<type>jar</type>
+		</dependency>
+
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.logback-extensions</groupId>
+			<artifactId>logback-ext-spring</artifactId>
+			<version>0.1.4</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>

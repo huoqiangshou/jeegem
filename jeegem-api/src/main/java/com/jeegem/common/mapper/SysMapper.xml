@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jeegem.common.dao.SysConfigMapper">
+	<resultMap id="BaseResultMap" type="com.jeegem.common.model.SysConfig">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+		<result column="key" property="key" jdbcType="VARCHAR" />
+		<result column="value" property="value" jdbcType="VARCHAR" />
+		<result column="comment" property="comment" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,addTime,key,value,comment
+	</sql>
+
+	<!-- 排序通用SQL -->
+	<sql id="orderStatement">
+		<if test="orderBy != null and orderType != null">
+			ORDER BY ${orderBy} ${orderType}
+		</if>
+	</sql>
+
+	<!-- 分页通用SQL -->
+	<sql id="limitStatement">
+		<if test="pageNo != null and pageSize != null">
+			LIMIT #{pageNo},#{pageSize}
+		</if>
+	</sql>
+
+	<!-- 更新通用SQL -->
+	<sql id="updateStatement">
+		<if test="nickname != null">
+			addTime = #{addTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="email != null">
+			key = #{key,jdbcType=VARCHAR},
+		</if>
+		<if test="pswd != null">
+			value = #{value,jdbcType=VARCHAR},
+		</if>
+		<if test="createTime != null">
+			comment = #{comment,jdbcType=VARCHAR},
+		</if>
+	</sql>
+
+	<!-- 判断通用SQL -->
+	<sql id="whereStatement">
+		<where>
+			<if test="id !=null and id !=''">
+				addTime=#{addTime,jdbcType=TIMESTAMP}
+			</if>
+
+			<if test="nickname !=null and nickname !=''">
+				key=#{key,jdbcType=VARCHAR}
+			</if>
+
+			<if test="email !=null and email !=''">
+				value=#{value,jdbcType=VARCHAR}
+			</if>
+
+			<if test="pswd !=null and pswd !=''">
+				comment=#{comment,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</sql>
+
+	<!-- 分页查询数据 -->
+	<select id="getPageList" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_USER
+		<include refid="whereStatement" />
+		<include refid="limitStatement" />
+		<include refid="orderStatement" />
+	</select>
+
+	<!-- 分页查询数据总量 -->
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		SELECT COUNT(ID) FROM JEEGEM_SYSCONFIG
+		<include refid="whereStatement" />
+	</select>
+
+	<!-- 根据ID更新 -->
+	<update id="updateById" parameterType="com.jeegem.common.model.User">
+		UPDATE JEEGEM_SYSCONFIG
+		<set>
+			<include refid="updateStatement" />
+		</set>
+		WHERE ID = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<!-- 根据ID获取 -->
+	<select id="selectById" resultType="com.jeegem.common.model.User" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_SYSCONFIG
+		where ID = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<!-- 根据属性名、操作符、值来查询  返回集合-->
+	<select id="selectObjByProperty" resultType="com.jeegem.common.model.User" resultMap="BaseResultMap" parameterType="map">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM JEEGEM_SYSCONFIG
+		WHERE 1 = 1 
+		<if test="operation_property != null and operation_symbol !=null and operation_value !=null">
+				AND ${operation_property} <![CDATA[ ${operation_symbol} ]]> #{operation_value}
+		</if>
+	</select>
+	
+	<!-- 获取所有数据-->
+	<select id="getAllDatas" resultType="com.jeegem.common.model.User" resultMap="BaseResultMap" >
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM JEEGEM_SYSCONFIG
+	</select>
+	
+</mapper>

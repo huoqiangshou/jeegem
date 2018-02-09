@@ -24,17 +24,25 @@ public interface UserMapper {
 	User findUserByEmail(String email);
 
 	List<RoleBo> selectRoleByUserId2(Long id);
-
+	
 	/**
+	 * 获取分页数据
 	 * @param params
 	 * @return
 	 */
 	List<User> getPageList(Map<String, Object> params);
-
+	
 	/**
+	 * 获取分页数据总量
 	 * @param params
 	 * @return
 	 */
 	Integer getTotalCount(Map<String, Object> params);
+	
+	/**
+	 * 根据ID更新
+	 * @param user
+	 */
+	int updateById(User user);
 
 }

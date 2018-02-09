@@ -3,6 +3,7 @@ package com.jeegem.user.controller;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -104,13 +105,14 @@ public class UserCoreController extends BaseController {
 		}
 		return resultMap;
 	}
+	
 	/**
 	 * 个人资料修改保存
 	 * @return
 	 */
 	@RequestMapping(value="updateSelf",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> updateSelf(User entity){
+	public Map<String,Object> updateSelf(HttpServletRequest request,User entity){
 		try {
 			userService.updateByPrimaryKeySelective(entity);
 			resultMap.put("status", 200);

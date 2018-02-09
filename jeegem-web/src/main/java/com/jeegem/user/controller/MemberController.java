@@ -44,6 +44,9 @@ import com.jeegem.user.service.UserService;
 @Scope(value="prototype")
 @RequestMapping("member")
 public class MemberController extends BaseController {
+	
+	
+	
 	/***
 	 * 用户手动操作Session
 	 * */
@@ -74,7 +77,7 @@ public class MemberController extends BaseController {
 	@RequestMapping(value="online")
 	public ModelAndView online(){
 		List<UserOnlineBo> list = customSessionManager.getAllUser();
-		ModelAndView mv = new JeeGemModelAndView("member/online");
+		ModelAndView mv = new JeeGemModelAndView("member/online.ftl");
 		mv.addObject("list",list);
 		return mv;
 	}
@@ -85,7 +88,7 @@ public class MemberController extends BaseController {
 	@RequestMapping(value="onlineDetails/{sessionId}",method=RequestMethod.GET)
 	public ModelAndView onlineDetails(@PathVariable("sessionId")String sessionId){
 		UserOnlineBo bo = customSessionManager.getSession(sessionId);
-		return new JeeGemModelAndView("member/onlineDetails","bo",bo);
+		return new JeeGemModelAndView("member/onlineDetails.ftl","bo",bo);
 	}
 	/**
 	 * 改变Session状态

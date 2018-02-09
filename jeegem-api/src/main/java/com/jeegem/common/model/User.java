@@ -43,10 +43,11 @@ public class User implements Serializable{
     private Date lastLoginTime;
     /**1:有效，0:禁止登录*/
     private Long status;
-    
-    
+    /** 用户头像 */
+    private String photo;
     
     public User() {}
+    
     public User(User user) {
 		this.id = user.getId();
 		this.nickname = user.getNickname();
@@ -109,7 +110,13 @@ public class User implements Serializable{
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
     }
-    public String toString(){
+    public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	public String toString(){
     	return JSONObject.fromObject(this).toString();
     }
 }

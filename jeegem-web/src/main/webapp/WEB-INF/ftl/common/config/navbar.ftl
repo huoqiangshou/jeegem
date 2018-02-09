@@ -364,7 +364,7 @@
                         </a>
                       </li>
                       <li class="${(child==2)?string('active',' ')}">
-                        <a href="${basePath}/user/updateSelf.shtml">
+                        <a href="${basePath}/user/updateProfile.shtml">
                           <i class="fa fa-caret-right"></i> 资料修改
                         </a>
                       </li>

@@ -31,10 +31,19 @@ import com.jeegem.core.mybatis.page.Pagination;
 public interface UserService {
 
 	/**
+	 * 查询分页
+	 * 
 	 * @param params
 	 * @return
 	 */
 	Pagination<User> queryForPages(Map<String, Object> params);
-	
-	
+
+	/**
+	 * 根据ID更新
+	 * 
+	 * @param user
+	 * @return 返回更新数量
+	 */
+	int updateById(User user);
+
 }

@@ -132,7 +132,7 @@
                     </table>
                     
                     <#if page?exists>
-                    <div class="row bg-transparent-white-1">  
+                    <div class="row bg-transparent-white-1 ">  
                       
                       <div class="col-sm-10 text-right sm-center">
 						<ul class="pagination pagination-lg pagination-custom">

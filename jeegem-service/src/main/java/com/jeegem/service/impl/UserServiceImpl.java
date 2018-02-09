@@ -75,6 +75,15 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 		return userMapper.getTotalCount(params);
 	}
 
+	/** 
+	 * @see com.jeegem.service.UserService#updateById(com.jeegem.common.model.User)
+	 */
+	@Transactional(readOnly = false)
+	@Override
+	public int updateById(User user) {
+		return userMapper.updateById(user);
+	}
+
 }
 
 

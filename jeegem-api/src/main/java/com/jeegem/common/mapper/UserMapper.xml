@@ -9,9 +9,10 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="BIGINT" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, nickname, email, pswd, create_time, last_login_time,status
+    id, nickname, email, pswd, create_time, last_login_time,status,photo
   </sql>
   
   <sql id="orderStatement">
@@ -24,6 +25,31 @@
   	  <if test="pageNo != null and pageSize != null">
       	LIMIT #{pageNo},#{pageSize} 
       </if>
+  </sql>
+  
+  <sql id="updateStatement">
+  	<if test="nickname != null" >
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="pswd != null" >
+        pswd = #{pswd,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=BIGINT}
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=BIGINT}
+      </if>
+      
   </sql>
   
   <sql id="limit_sql">
@@ -58,6 +84,10 @@
   			last_login_time=#{lastLoginTime,jdbcType=TIMESTAMP}	
   		</if>
   		
+  		<if test="photo !=null and photo !=''">
+  			photo=#{photo,jdbcType=VARCHAR}	
+  		</if>
+  		
       </where>
   </sql>
   
@@ -87,6 +117,15 @@
  	 select count(id) from  jeegem_user
   	<include refid="whereStatement" />
   </select>
+  
+  <update id="updateById" parameterType="com.jeegem.common.model.User" >
+    UPDATE JEEGEM_USER
+    <set >
+	    <include refid="updateStatement" />
+    </set>
+    WHERE ID = #{id,jdbcType=BIGINT}
+  </update>
+  
   
   <select id="findAll" resultMap="BaseResultMap" >
   	 select 
@@ -176,10 +215,10 @@
   </delete>
   <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.User" >
     insert into jeegem_user (id, nickname, email, 
-      pswd, create_time, last_login_time,status
+      pswd, create_time, last_login_time,status,photo
       )
     values (#{id,jdbcType=BIGINT}, #{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{pswd,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP},#{status,jdbcType=BIGINT}
+      #{pswd,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP},#{status,jdbcType=BIGINT},#{photo,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeegem.common.model.User" >
@@ -206,6 +245,9 @@
       <if test="status != null" >
         status,
       </if>
+      <if test="photo != null" >
+        photo,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -228,6 +270,9 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=BIGINT}
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR}
       </if>
     </trim>
   </insert>
@@ -252,6 +297,9 @@
       <if test="status != null" >
         status = #{status,jdbcType=BIGINT},
       </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -262,7 +310,8 @@
       pswd = #{pswd,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=BIGINT}
+      status = #{status,jdbcType=BIGINT},
+      photo = #{photo,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

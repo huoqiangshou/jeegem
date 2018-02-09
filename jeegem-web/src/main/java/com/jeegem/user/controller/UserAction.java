@@ -1,5 +1,8 @@
 package com.jeegem.user.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.collect.Maps;
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.model.User;
+import com.jeegem.common.utils.UploadUtils;
 import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.service.UserService;
@@ -54,7 +58,7 @@ public class UserAction extends BaseController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/user/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/list")
 	public ModelAndView userIndex(HttpServletRequest request,HttpServletResponse response,String pageNo) {
 		ModelAndView mv = new JeeGemModelAndView("user/list.ftl");
 		
@@ -68,7 +72,34 @@ public class UserAction extends BaseController {
 		return mv;
 	}
 	
-	
+	/**
+	 * 更新操作
+	 * 
+	 * @return 返回更新数量
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/user/updateByAjax",method=RequestMethod.POST)
+	public void updateByAjax(HttpServletRequest request,HttpServletResponse response,User user) throws Exception {
+		
+		
+		String saveFilePathName = request.getSession().getServletContext().getRealPath("/")+"upload";
+		
+		Map<String,Object> map = UploadUtils.saveFileToServer(request, "userPhoto", saveFilePathName, null, null);
+		
+		user.setPhoto(saveFilePathName +File.separator + map.get("fileName"));
+		int ret = this.userService.updateById(user);
+		
+		response.setContentType("text/plain");
+		response.setHeader("Cache-Control", "no-cache");
+		response.setCharacterEncoding("UTF-8");
+		
+		try {
+			PrintWriter writer = response.getWriter();
+			writer.print(ret);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
