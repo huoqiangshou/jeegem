@@ -193,7 +193,6 @@ public class UserLoginController extends BaseController {
 			resultMap.put("status", 200);
 		} catch (Exception e) {
 			resultMap.put("status", 500);
-			logger.error("errorMessage:" + e.getMessage());
 			LoggerUtils.fmtError(getClass(), e, "退出出现错误，%s。", e.getMessage());
 		}
 		return resultMap;

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.log4j.Logger;
+
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -42,7 +42,6 @@ public class BaseController {
 	
 	protected int pageNo =1;
 	public static  int pageSize = 10;
-	protected final static Logger logger = Logger.getLogger(BaseController.class);
 	protected Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 	public static String URL404 =  "/404.html";
 	

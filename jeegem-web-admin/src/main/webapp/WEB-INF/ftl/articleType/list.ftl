@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>JeeGem - 我的权限</title>
+    <title>${token.nickname} ---个人中心</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-
+	
     <link rel="icon" type="image/ico" href="${basePath}/resources/assets/images/favicon.ico">
     <!-- Bootstrap -->
     <link href="${basePath}/resources/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="${basePath}/resources/assets/css/vendor/bootstrap-checkbox.css">
     <link rel="stylesheet" href="${basePath}/resources/assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
 
-    <link rel="stylesheet" href="${basePath}/resources/assets/js/vendor/nestable/css/style.css">
+    <link rel="stylesheet" href="${basePath}/resources/assets/js/vendor/chosen/css/chosen.min.css">
+    <link rel="stylesheet" href="${basePath}/resources/assets/js/vendor/chosen/css/chosen-bootstrap.css">
 
     <link href="${basePath}/resources/assets/css/minimal.css" rel="stylesheet">
 
@@ -38,103 +39,92 @@
       <!-- Make page fluid -->
       <div class="row">
         
-
         <!-- Fixed navbar -->
-        <@_navbar.navbar  1 4/>
-        <!-- Fixed navbar end -->
+       	<@_navbar.navbar  4 41/>
+        <!-- Fixed navbar end-->
         
         <!-- Page content -->
         <div id="content" class="col-md-12">
-			
+          
           <!-- page header -->
-          <@_pageHeader.pageHeader  '个人中心' '我的权限'/>
+          <@_pageHeader.pageHeader  '个人中心' '个人资料'/>
           <!-- /page header -->
-			
+          
+
           <!-- content main container -->
           <div class="main">
-
-            <menu id="nestable-menu" class="text-left">
-              <button type="button" data-action="expand-all" class="btn btn-primary">展开</button>
-              <button type="button" data-action="collapse-all" class="btn btn-danger">合上</button>
-            </menu>
 
             <!-- row -->
             <div class="row">
 
               <!-- col 6 -->
-              <div class="col-md-6">
+              <div class="col-md-12">
 
                 <!-- tile -->
-                <section class="tile color transparent-white">
-
-                  <!-- tile header -->
+                <section class="tile color transparent-black">
+				<form method="post" action="" id="formId" class="form-inline">
                   <div class="tile-header">
-                    <h1><strong>Nestable</strong> List 1</h1>
-                    <div class="controls">
-                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
-                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                    </div>
+                    <h1><strong>资料</strong> 列表</h1>
                   </div>
-                  <!-- /tile header -->
 
-
-                  <!-- tile body -->
-                  <div class="tile-body">
+                  <div class="tile-body nopadding">
                     
-                    <div class="dd transparent-black" id="nestable">
-                      <ol class="dd-list">
-                        <#if rolePermissions?exists && rolePermissions?size gt 0 >
-	                        
-	                        <#list rolePermissions as it>
-	                        <#if it?exists>
-	                        <li class="dd-item" data-id="${it.id}">
-	                          <div class="dd-handle">${it.name}</div>
-		                          <#if it.permissions?exists && it.permissions?size gt 0 >
-		                          <ol class="dd-list">
-			                          <#list it.permissions as perm>
-			                            <li class="dd-item" data-id="${perm.id}"><div class="dd-handle">${perm.name}</div></li>
-			                            
-			                          </#list>
-		                          </ol>
-		                          </#if>
-	                        </li>
-	                        </#if>
-	                        </#list>
-	                        
-                        <#else>
-                        <li class="dd-item" >没有任何权限</li>
-                        </#if>
-                      </ol>
-                    </div>
-
-
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>序号</th>
+                          <th>类型名称</th>
+                          <th>排序序号</th>
+                          <th>SEO关键字</th>
+                          <th>SEO描述</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <#if page?exists && page.list?size gt 0 >
+							<#list page.list as item>
+		                        <tr>
+		                          <td>${item_index+1}</td>
+		                          <td>${item.typeName?default('未设置')}</td>
+		                          <td>${item.sequence?default('未设置')}</td>
+		                          <td>${item.keywords}</td>
+		                          <td>${item.description}</td>
+		                        </tr>
+	                      	</#list>
+                      	</#if>
+                      </tbody>
+                    </table>
+                    
+					<#if page?exists>
+	                  <!-- tile footer -->
+	                  <div class="tile-footer bg-transparent-white-2 rounded-bottom-corners">
+	                    <div class="row">  
+	                      
+	                      <div class="col-sm-10 text-right">
+	                        <ul class="pagination pagination-xs nomargin pagination-custom">
+	                          ${page.jeeGemPageHtml}
+	                        </ul>
+	                      </div>
+						  
+	                    </div>
+                  		</div>
+                  </#if>
+                    
                   </div>
-                  <!-- /tile body -->
-                
-
+                  </form>
                 </section>
-                <!-- /tile -->
-
-
 
 
               </div>
-              <!-- /col 6 -->
 
 
               
             </div>
-            <!-- /row -->
-          
 
 
           </div>
-          <!-- /content container -->
 
         </div>
         <!-- Page content end -->
-
 
         <div id="mmenu" class="right-panel">
           <!-- Nav tabs -->
@@ -532,13 +522,25 @@
           </div><!-- tab-content -->
         </div>
 
+
+
+
+
+
       </div>
       <!-- Make page fluid-->
+
+
+
 
     </div>
     <!-- Wrap all page content end -->
 
+
+
     <section class="videocontent" id="video"></section>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="${basePath}/resources/jquery/jquery.js"></script>
@@ -553,46 +555,40 @@
     <script type="text/javascript" src="${basePath}/resources/assets/js/vendor/videobackground/jquery.videobackground.js"></script>
     <script type="text/javascript" src="${basePath}/resources/assets/js/vendor/blockui/jquery.blockUI.js"></script>
 
-    <script src="${basePath}/resources/assets/js/vendor/nestable/jquery.nestable.js"></script>
+    <script src="${basePath}/resources/assets/js/vendor/chosen/chosen.jquery.min.js"></script>
 
-    <script src="${basePath}/resources/assets/js/minimal.min.js"></script>
-
+    <script src="${basePath}/resources/assets/js/minimal.js"></script>
+	<script baseUrl="${basePath}" src="${basePath}/js/user.login.js"></script>
+	
     <script>
+    
+    function changeNickName(obj){
+			$.post('${basePath}/user/updateByAjax.shtml',{"nickname":obj.value,"id":obj.id},function(result){
+				
+			},'json');
+    }
+    
     $(function(){
 
-      var updateOutput = function(e)
-      {
-        var list   = e.length ? e : $(e.target),
-          output = list.data('output');
-        if (window.JSON) {
-          output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
-        } else {
-          output.val('JSON browser support required for this demo.');
-        }
-      };
-
-      // activate Nestable for list 1
-      $('#nestable').nestable({
-        group: 1
-      })
-      .on('change', updateOutput);
-      
-      // output initial serialised data
-      updateOutput($('#nestable').data('output', $('#nestable-output')));
-
-      $('#nestable-menu').on('click', function(e)
-      {
-        var target = $(e.target),
-          action = target.data('action');
-        if (action === 'expand-all') {
-          $('.dd').nestable('expandAll');
-        }
-        if (action === 'collapse-all') {
-          $('.dd').nestable('collapseAll');
-        }
+      //check all checkboxes
+      $('table thead input[type="checkbox"]').change(function () {
+        $(this).parents('table').find('tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'));
       });
-      
-      
+
+      // sortable table
+      $('.table.table-sortable th.sortable').click(function() {
+        var o = $(this).hasClass('sort-asc') ? 'sort-desc' : 'sort-asc';
+        $(this).parents('table').find('th.sortable').removeClass('sort-asc').removeClass('sort-desc');
+        $(this).addClass(o);
+      });
+
+      //chosen select input
+      $(".chosen-select").chosen({disable_search_threshold: 10});
+
+      //check toggling
+      $('.check-toggler').on('click', function(){
+        $(this).toggleClass('checked');
+      })
       
     })
       

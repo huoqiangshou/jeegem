@@ -59,7 +59,7 @@ public class PermissionAllocationController extends BaseController {
 		modelMap.put("findContent", findContent);
 		Pagination<RolePermissionAllocationBo> boPage = roleService.findRoleAndPermissionPage(modelMap,pageNo,pageSize);
 		modelMap.put("page", boPage);
-		return new ModelAndView("permission/allocation");
+		return new ModelAndView("permission/allocation.ftl");
 	}
 	
 	/**

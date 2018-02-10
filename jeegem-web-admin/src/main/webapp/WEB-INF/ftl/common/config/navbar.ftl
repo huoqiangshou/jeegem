@@ -442,8 +442,22 @@
                   </li>
 				</@shiro.hasAnyRoles>
 					 
-                  
-
+				<li class="dropdown ${(parent==4)?string('open active',' ')}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-desktop"></i> CMS管理 <b class="fa fa-plus dropdown-plus"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li class="${(child==41)?string('active',' ')}">
+                        <a href="${basePath}/articleType/list.shtml">
+                          <i class="fa fa-caret-right"></i> 类别管理
+                        </a>
+                      </li>
+                      <li>
+                        <a href="calendar.html">
+                          <i class="fa fa-caret-right"></i> Calendar
+                        </a>
+                      </li>
+                    </li>                
                     </ul>
                   </li>
 

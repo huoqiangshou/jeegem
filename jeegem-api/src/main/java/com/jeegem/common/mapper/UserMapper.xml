@@ -118,6 +118,7 @@
   	<include refid="whereStatement" />
   </select>
   
+  <!-- 根据ID更新 -->
   <update id="updateById" parameterType="com.jeegem.common.model.User" >
     UPDATE JEEGEM_USER
     <set >

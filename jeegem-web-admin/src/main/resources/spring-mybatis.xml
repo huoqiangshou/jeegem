@@ -20,7 +20,7 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	<bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">
+	<bean id="log-filter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
     	<property name="resultSetLogEnabled" value="true" />
 	</bean>
 	

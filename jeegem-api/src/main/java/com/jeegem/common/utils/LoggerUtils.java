@@ -1,6 +1,8 @@
 package com.jeegem.common.utils;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 
  * 开发团队：jeegem <p>
@@ -24,7 +26,7 @@ public class LoggerUtils {
 	/**
 	 * 是否开启Debug
 	 */
-	public static boolean isDebug =  Logger.getLogger(LoggerUtils.class).isDebugEnabled();
+	public static boolean isDebug =  LoggerFactory.getLogger(LoggerUtils.class).isDebugEnabled();
 	
 	/**
 	 * Debug 输出
@@ -33,7 +35,7 @@ public class LoggerUtils {
 	 */
 	public static void debug(Class<? extends Object> clazz ,String message){
 		if(!isDebug)return ;
-		Logger logger = Logger.getLogger(clazz);
+		Logger logger = LoggerFactory.getLogger(clazz);
 		logger.debug(message);
 	}
 	/**
@@ -59,7 +61,7 @@ public class LoggerUtils {
 	 * @param e			异常类
 	 */
 	public static void error(Class<? extends Object> clazz ,String message,Exception e){
-		Logger logger = Logger.getLogger(clazz);
+		Logger logger = LoggerFactory.getLogger(clazz);
 		if(null == e){
 			logger.error(message);
 			return ;
