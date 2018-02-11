@@ -47,4 +47,33 @@ public class ArticleTypeServiceImpl extends BaseService<ArticleType> implements 
 		return articleTypeMapper.updateById(articleType);
 	}
 
+	/**
+	 * @see com.jeegem.service.ArticleTypeService#save(com.jeegem.common.model.ArticleType)
+	 */
+	@Transactional(readOnly = false)
+	@Override
+	public int save(ArticleType articleType) {
+		return articleTypeMapper.save(articleType);
+	}
+
+	/**
+	 * @see com.jeegem.service.ArticleTypeService#deleteByIds(java.util.List)
+	 */
+	@Transactional(readOnly = false)
+	@Override
+	public int deleteByIds(Map<String, Object> params) {
+
+		return articleTypeMapper.deleteByIds(params);
+	}
+
+	/**
+	 * 
+	 * @see com.jeegem.service.ArticleTypeService#getArcicleTypeById(java.lang.Long)
+	 */
+	@Override
+	public ArticleType getArcicleTypeById(Long id) {
+
+		return articleTypeMapper.getArcicleTypeById(id);
+	}
+
 }

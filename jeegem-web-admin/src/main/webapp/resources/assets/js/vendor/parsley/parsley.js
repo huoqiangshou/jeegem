@@ -27,8 +27,7 @@ function(d) {
             mincheck: "You must select at least %s choices.",
             maxcheck: "You must select %s choices or less.",
             rangecheck: "You must select between %s and %s choices.",
-            equalto: "This value should be the same.",
-            remote: "验证码不对吧。。。."
+            equalto: "This value should be the same."
         };
         this.init(a)
     };

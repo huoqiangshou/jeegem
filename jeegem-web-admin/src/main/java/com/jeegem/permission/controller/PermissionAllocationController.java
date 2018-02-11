@@ -69,7 +69,7 @@ public class PermissionAllocationController extends BaseController {
 	 */
 	@RequestMapping(value="selectPermissionById",method=RequestMethod.GET)
 	public ModelAndView selectPermissionById(Long id){
-		ModelAndView mav = new ModelAndView("permission/selectPermission");
+		ModelAndView mav = new ModelAndView("permission/selectPermission.ftl");
 		List<PermissionBo> permissionBos = permissionService.selectPermissionById(id);
 		mav.addObject("permissionBos", permissionBos);
 		mav.addObject("roleId", id);

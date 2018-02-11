@@ -3,7 +3,8 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jeegem.common.dao.ArticleTypeMapper">
-
+	
+	<!-- 通用属性结果集Map -->
 	<resultMap type="com.jeegem.common.model.ArticleType" id="BaseResultMap">
 		<result property="id" column="id" jdbcType="BIGINT" />
 		<result property="typeName" column="typeName" jdbcType="VARCHAR" />
@@ -11,10 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="keywords" column="keywords" jdbcType="VARCHAR" />
 		<result property="description" column="description" jdbcType="VARCHAR" />
 	</resultMap>
+	
+	<!-- column属性列 -->
 	<sql id="Base_Column_List">
 		id, typeName, sequence, keywords, description
 	</sql>
-
+	
+	<!-- where条件判断 -->
 	<sql id="whereStatement">
 		<where>
 			<if test="id !=null and id !=''">
@@ -39,6 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</sql>
 	
+	<!-- update条件判断 -->
 	<sql id="updateStatement">
 		<if test="typeName != null">
 			typeName = #{typeName,jdbcType=VARCHAR},
@@ -54,12 +59,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</sql>
 	
+	<!-- 分页limit -->
 	<sql id="limitStatement">
 		<if test="pageNo != null and pageSize != null">
 			LIMIT #{pageNo},#{pageSize}
 		</if>
 	</sql>
 	
+	<!-- 集合排序 -->
 	<sql id="orderStatement">
 		<if test="orderBy != null and orderType != null">
 			ORDER BY ${orderBy} ${orderType}
@@ -92,5 +99,62 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE ID = #{id,jdbcType=BIGINT}
 	</update>
 
+	<!-- 新增文章类型 -->
+	<insert id="save" keyProperty="id" keyColumn="id"
+		useGeneratedKeys="true" parameterType="com.jeegem.common.model.ArticleType">
+		INSERT INTO JEEGEM_ARTICLETYPE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="typeName != null">
+				typeName,
+			</if>
+			<if test="sequence != null">
+				sequence,
+			</if>
+			<if test="keywords != null">
+				keywords,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="typeName != null">
+				#{typeName,jdbcType=VARCHAR},
+			</if>
+			<if test="sequence != null">
+				#{sequence,jdbcType=INTEGER},
+			</if>
+			<if test="keywords != null">
+				#{keywords,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据ID集合批量删除 -->
+	<delete id="deleteByIds" parameterType="java.util.Map">
+		DELETE FROM JEEGEM_ARTICLETYPE WHERE ID in
+		<foreach item="item" index="index" collection="ids" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 根据ID查询 -->
+	<select id="getArcicleTypeById" resultMap="BaseResultMap"
+		parameterType="com.jeegem.common.model.ArticleType">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_ARTICLETYPE
+		WHERE ID = #{id,jdbcType=BIGINT}
+	</select>
 
 </mapper> 

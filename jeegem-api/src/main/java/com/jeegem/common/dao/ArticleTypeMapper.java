@@ -53,4 +53,27 @@ public interface ArticleTypeMapper {
 	 * @param articleType
 	 */
 	int updateById(ArticleType articleType);
+
+	/**
+	 * 新增文章类型
+	 * 
+	 * @param articleType
+	 * @return
+	 */
+	int save(ArticleType articleType);
+
+	/**
+	 * 删除文章类型
+	 * 
+	 * @param params
+	 * @return
+	 */
+	int deleteByIds(Map<String, Object> params);
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	ArticleType getArcicleTypeById(Long id);
 }

@@ -47,4 +47,28 @@ public interface ArticleTypeService {
 	 */
 	int updateById(ArticleType articleType);
 
+	/**
+	 * 新增文章类型
+	 * 
+	 * @param articleType
+	 * @return
+	 */
+	int save(ArticleType articleType);
+
+	/**
+	 * 根据ID集合删除数据
+	 * 
+	 * @param params
+	 * @return
+	 */
+	int deleteByIds(Map<String, Object> params);
+
+	/**
+	 * 根据ID获取文章类型
+	 * 
+	 * @param id
+	 * @return
+	 */
+	ArticleType getArcicleTypeById(Long id);
+
 }

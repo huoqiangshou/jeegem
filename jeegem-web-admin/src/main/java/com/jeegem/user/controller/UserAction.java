@@ -48,51 +48,50 @@ import com.jeegem.service.UserService;
 @Controller
 @Scope(value = "prototype")
 public class UserAction extends BaseController {
-	
+
 	@Autowired
 	@Qualifier("jeegemUserService")
-	UserService userService;
-	
+	private UserService userService;
+
 	/**
 	 * 用户
 	 * 
 	 * @return
 	 */
 	@RequestMapping(value = "/user/list")
-	public ModelAndView userIndex(HttpServletRequest request,HttpServletResponse response,String pageNo) {
+	public ModelAndView userIndex(HttpServletRequest request, HttpServletResponse response, String pageNo) {
 		ModelAndView mv = new JeeGemModelAndView("user/list.ftl");
-		
-		Map<String,Object> params = Maps.newHashMap();
+
+		Map<String, Object> params = Maps.newHashMap();
 		params.put("pageNo", pageNo);
-		
+
 		Pagination<User> page = userService.queryForPages(params);
-		
+
 		mv.addObject("page", page);
-		
+
 		return mv;
 	}
-	
+
 	/**
 	 * 更新操作
 	 * 
 	 * @return 返回更新数量
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	@RequestMapping(value = "/user/updateByAjax",method=RequestMethod.POST)
-	public void updateByAjax(HttpServletRequest request,HttpServletResponse response,User user) throws Exception {
-		
-		
-		String saveFilePathName = request.getSession().getServletContext().getRealPath("/")+"upload";
-		
-		Map<String,Object> map = UploadUtils.saveFileToServer(request, "userPhoto", saveFilePathName, null, null);
-		
-		user.setPhoto(saveFilePathName +File.separator + map.get("fileName"));
+	@RequestMapping(value = "/user/updateByAjax", method = RequestMethod.POST)
+	public void updateByAjax(HttpServletRequest request, HttpServletResponse response, User user) throws Exception {
+
+		String saveFilePathName = request.getSession().getServletContext().getRealPath("/") + "upload";
+
+		Map<String, Object> map = UploadUtils.saveFileToServer(request, "userPhoto", saveFilePathName, null, null);
+
+		user.setPhoto(saveFilePathName + File.separator + map.get("fileName"));
 		int ret = this.userService.updateById(user);
-		
+
 		response.setContentType("text/plain");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		try {
 			PrintWriter writer = response.getWriter();
 			writer.print(ret);
@@ -102,20 +101,4 @@ public class UserAction extends BaseController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

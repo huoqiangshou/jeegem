@@ -30,7 +30,7 @@
 	<bean name="api" class="com.jeegem.core.tags.APITemplateModel"></bean>
 	<bean name="springContextUtil" class="com.jeegem.common.utils.SpringContextUtil" scope="singleton"></bean>
 	
-	<!-- 这个一定得有，注意了，如果其他配置也有需要这个，已经配置了，那不必了 -->
+	<!-- 用于返回json串、xml格式内容,主要是做ajax请求配合@ResponseBody用 -->
 	<mvc:annotation-driven  />
 	
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">  
