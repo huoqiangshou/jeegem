@@ -369,7 +369,7 @@
                         </a>
                       </li>
                       <li class="${(child==3)?string('active',' ')}">
-                        <a href="${basePath}/user/updatePswd.shtml">
+                        <a href="${basePath}/user/updatePassword.shtml">
                           <i class="fa fa-caret-right"></i> 密码修改
                         </a>
                       </li>
@@ -452,9 +452,9 @@
                           <i class="fa fa-caret-right"></i> 类别管理
                         </a>
                       </li>
-                      <li>
-                        <a href="calendar.html">
-                          <i class="fa fa-caret-right"></i> Calendar
+                      <li class="${(child==42)?string('active',' ')}">
+                        <a href="${basePath}/articleType/addArticle.shtml">
+                          <i class="fa fa-caret-right"></i> 发布文章
                         </a>
                       </li>
                     </li>                

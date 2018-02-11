@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.collect.Maps;
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.model.ArticleType;
-import com.jeegem.common.model.User;
 import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.service.ArticleTypeService;

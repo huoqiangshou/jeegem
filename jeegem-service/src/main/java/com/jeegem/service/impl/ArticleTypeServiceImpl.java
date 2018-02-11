@@ -76,4 +76,15 @@ public class ArticleTypeServiceImpl extends BaseService<ArticleType> implements 
 		return articleTypeMapper.getArcicleTypeById(id);
 	}
 
+	/** 
+	 * @see com.jeegem.service.ArticleTypeService#getAll()
+	 */
+	@Override
+	public List<ArticleType> getAll() {
+		
+		this.articleTypeMapper.getAll();
+		
+		return null;
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.jeegem.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.jeegem.common.model.ArticleType;
@@ -70,5 +71,12 @@ public interface ArticleTypeService {
 	 * @return
 	 */
 	ArticleType getArcicleTypeById(Long id);
-
+	
+	
+	/**
+	 * 查询所有数据
+	 * @return
+	 */
+	List<ArticleType> getAll();
+	
 }

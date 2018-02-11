@@ -76,4 +76,10 @@ public interface ArticleTypeMapper {
 	 * @return
 	 */
 	ArticleType getArcicleTypeById(Long id);
+	
+	/**
+	 * 查询所有数据
+	 * @return
+	 */
+	List<ArticleType> getAll();
 }

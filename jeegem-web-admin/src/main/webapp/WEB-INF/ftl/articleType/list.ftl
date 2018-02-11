@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>${token.nickname} ---个人中心</title>
+    <title>${token.nickname} ---类目管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 	
@@ -48,7 +48,7 @@
         <div id="content" class="col-md-12">
           
           <!-- page header -->
-          <@_pageHeader.pageHeader  '个人中心' '个人资料'/>
+          <@_pageHeader.pageHeader  '文章管理' '类目管理'/>
           <!-- /page header -->
           
 

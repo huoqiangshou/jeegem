@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jeegem.common.dao.ArticleTypeMapper">
-	
+
 	<!-- 通用属性结果集Map -->
 	<resultMap type="com.jeegem.common.model.ArticleType" id="BaseResultMap">
 		<result property="id" column="id" jdbcType="BIGINT" />
@@ -12,12 +12,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="keywords" column="keywords" jdbcType="VARCHAR" />
 		<result property="description" column="description" jdbcType="VARCHAR" />
 	</resultMap>
-	
+
 	<!-- column属性列 -->
 	<sql id="Base_Column_List">
 		id, typeName, sequence, keywords, description
 	</sql>
-	
+
 	<!-- where条件判断 -->
 	<sql id="whereStatement">
 		<where>
@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</sql>
-	
+
 	<!-- update条件判断 -->
 	<sql id="updateStatement">
 		<if test="typeName != null">
@@ -58,14 +58,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			description = #{description,jdbcType=VARCHAR},
 		</if>
 	</sql>
-	
+
 	<!-- 分页limit -->
 	<sql id="limitStatement">
 		<if test="pageNo != null and pageSize != null">
 			LIMIT #{pageNo},#{pageSize}
 		</if>
 	</sql>
-	
+
 	<!-- 集合排序 -->
 	<sql id="orderStatement">
 		<if test="orderBy != null and orderType != null">
@@ -155,6 +155,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="Base_Column_List" />
 		FROM JEEGEM_ARTICLETYPE
 		WHERE ID = #{id,jdbcType=BIGINT}
+	</select>
+
+	<!-- 查询所有数据 -->
+	<select id="getAll" resultMap="BaseResultMap"
+		parameterType="com.jeegem.common.model.ArticleType">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_ARTICLETYPE
 	</select>
 
 </mapper> 
