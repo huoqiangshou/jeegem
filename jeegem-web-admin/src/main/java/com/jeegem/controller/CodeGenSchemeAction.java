@@ -1,4 +1,4 @@
-package com.jeegem.user.controller;
+package com.jeegem.controller;
 
 import java.util.List;
 import java.util.Map;

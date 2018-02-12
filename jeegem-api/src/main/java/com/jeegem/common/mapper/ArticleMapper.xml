@@ -15,14 +15,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="recommend" column="recommend" jdbcType="INTEGER" />
 		<result property="slide" column="slide" jdbcType="INTEGER" />
 		<result property="slideImage" column="slideImage" jdbcType="INTEGER" />
-		<association property="articleType" column="typeId" select="com.jeegem.common.dao.ArticleTypeMapper.getArcicleTypeById" />
+		<result property="keyWords" column="keyWords" jdbcType="VARCHAR" />
+		<association property="articleType" column="typeId"
+			select="com.jeegem.common.dao.ArticleTypeMapper.getArcicleTypeById" />
 	</resultMap>
-	
+
 	<!-- column属性列 -->
 	<sql id="Base_Column_List">
-		id, title, addTime, content, summary , titleColor,click,recommend,slide,slideImage,typeId
+		id, title, addTime, content, summary ,titleColor,click,recommend,slide,slideImage,keyWords,typeId
 	</sql>
-	
+
 	<!-- where条件判断 -->
 	<sql id="whereStatement">
 		<where>
@@ -30,38 +32,171 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				id=#{id,jdbcType=BIGINT}
 			</if>
 
-			<if test="typeName !=null and typeName !=''">
-				typeName=#{typeName,jdbcType=VARCHAR}
+			<if test="title !=null and title !=''">
+				title=#{title,jdbcType=VARCHAR}
 			</if>
 
-			<if test="sequence !=null and sequence !=''">
-				sequence=#{sequence,jdbcType=INTEGER}
+			<if test="addTime !=null and addTime !=''">
+				addTime=#{addTime,jdbcType=TIMESTAMP}
 			</if>
 
-			<if test="keywords !=null and keywords !=''">
-				keywords=#{keywords,jdbcType=VARCHAR}
+			<if test="content !=null and content !=''">
+				content=#{content,jdbcType=VARCHAR}
 			</if>
 
-			<if test="description !=null and description !=''">
-				description=#{description,jdbcType=VARCHAR}
+			<if test="summary !=null and summary !=''">
+				summary=#{summary,jdbcType=VARCHAR}
+			</if>
+			<if test="titleColor !=null and titleColor !=''">
+				titleColor=#{titleColor,jdbcType=VARCHAR}
+			</if>
+			<if test="click !=null and click !=''">
+				click=#{click,jdbcType=VARCHAR}
+			</if>
+			<if test="recommend !=null and recommend !=''">
+				recommend=#{recommend,jdbcType=VARCHAR}
+			</if>
+			<if test="slide !=null and slide !=''">
+				slide=#{slide,jdbcType=VARCHAR}
+			</if>
+			<if test="slideImage !=null and slideImage !=''">
+				slideImage=#{slideImage,jdbcType=VARCHAR}
+			</if>
+			<if test="keyWords !=null and keyWords !=''">
+				keyWords=#{keyWords,jdbcType=VARCHAR}
+			</if>
+			<if test="articleType.id !=null and articleType.id !=''">
+				typeId=#{articleType.id,jdbcType=VARCHAR}
 			</if>
 		</where>
 	</sql>
-
+	
 	<!-- update条件判断 -->
 	<sql id="updateStatement">
-		<if test="typeName != null">
-			typeName = #{typeName,jdbcType=VARCHAR},
-		</if>
-		<if test="sequence != null">
-			sequence = #{sequence,jdbcType=INTEGER},
-		</if>
-		<if test="keywords != null">
-			keywords = #{keywords,jdbcType=VARCHAR},
-		</if>
-		<if test="description != null">
-			description = #{description,jdbcType=VARCHAR},
-		</if>
+			<if test="title !=null and title !=''">
+				title=#{title,jdbcType=VARCHAR},
+			</if>
+
+			<if test="addTime !=null and addTime !=''">
+				addTime=#{addTime,jdbcType=TIMESTAMP},
+			</if>
+
+			<if test="content !=null and content !=''">
+				content=#{content,jdbcType=VARCHAR},
+			</if>
+
+			<if test="summary !=null and summary !=''">
+				summary=#{summary,jdbcType=VARCHAR},
+			</if>
+			<if test="titleColor !=null and titleColor !=''">
+				titleColor=#{titleColor,jdbcType=VARCHAR},
+			</if>
+			<if test="click !=null and click !=''">
+				click=#{click,jdbcType=VARCHAR},
+			</if>
+			<if test="recommend !=null and recommend !=''">
+				recommend=#{recommend,jdbcType=VARCHAR},
+			</if>
+			<if test="slide !=null and slide !=''">
+				slide=#{slide,jdbcType=VARCHAR},
+			</if>
+			<if test="slideImage !=null and slideImage !=''">
+				slideImage=#{slideImage,jdbcType=VARCHAR},
+			</if>
+			<if test="keyWords !=null and keyWords !=''">
+				keyWords=#{keyWords,jdbcType=VARCHAR},
+			</if>
+			<if test="articleType.id !=null and articleType.id !=''">
+				typeId=#{articleType.id,jdbcType=VARCHAR},
+			</if>
+	</sql>
+
+	<!-- save条件判断 -->
+	<sql id="saveStatement">
+			<if test="id != null">
+				id,
+			</if>
+			
+			<if test="title !=null and title !=''">
+				title,
+			</if>
+
+			<if test="addTime !=null and addTime !=''">
+				addTime,
+			</if>
+
+			<if test="content !=null and content !=''">
+				content,
+			</if>
+
+			<if test="summary !=null and summary !=''">
+				summary,
+			</if>
+			<if test="titleColor !=null and titleColor !=''">
+				titleColor,
+			</if>
+			<if test="click !=null and click !=''">
+				click,
+			</if>
+			<if test="recommend !=null and recommend !=''">
+				recommend,
+			</if>
+			<if test="slide !=null and slide !=''">
+				slide,
+			</if>
+			<if test="slideImage !=null and slideImage !=''">
+				slideImage,
+			</if>
+			<if test="keyWords !=null and keyWords !=''">
+				keyWords,
+			</if>
+			<if test="articleType.id !=null and articleType.id !=''">
+				typeId,
+			</if>
+	</sql>
+
+	<!-- save Values -->
+	<sql id="saveValuesStatement">
+			<if test="id !=null and id !=''">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			
+			<if test="title !=null and title !=''">
+				#{title,jdbcType=VARCHAR},
+			</if>
+
+			<if test="addTime !=null and addTime !=''">
+				#{addTime,jdbcType=TIMESTAMP},
+			</if>
+
+			<if test="content !=null and content !=''">
+				#{content,jdbcType=VARCHAR},
+			</if>
+
+			<if test="summary !=null and summary !=''">
+				#{summary,jdbcType=VARCHAR},
+			</if>
+			<if test="titleColor !=null and titleColor !=''">
+				#{titleColor,jdbcType=VARCHAR},
+			</if>
+			<if test="click !=null and click !=''">
+				#{click,jdbcType=VARCHAR},
+			</if>
+			<if test="recommend !=null and recommend !=''">
+				#{recommend,jdbcType=VARCHAR},
+			</if>
+			<if test="slide !=null and slide !=''">
+				#{slide,jdbcType=VARCHAR},
+			</if>
+			<if test="slideImage !=null and slideImage !=''">
+				#{slideImage,jdbcType=VARCHAR},
+			</if>
+			<if test="keyWords !=null and keyWords !=''">
+				#{keyWords,jdbcType=VARCHAR},
+			</if>
+			<if test="articleType.id !=null and articleType.id !=''">
+				#{articleType.id,jdbcType=VARCHAR},
+			</if>
 	</sql>
 
 	<!-- 分页limit -->
@@ -83,7 +218,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="map">
 		SELECT
 		<include refid="Base_Column_List" />
-		FROM JEEGEM_ARTICLETYPE
+		FROM JEEGEM_ARTICLE
 		<include refid="whereStatement" />
 		<include refid="limitStatement" />
 		<include refid="orderStatement" />
@@ -91,62 +226,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 分页查询数据总量 -->
 	<select id="getTotalCount" parameterType="map" resultType="Integer">
-		SELECT COUNT(ID) FROM JEEGEM_ARTICLETYPE
+		SELECT COUNT(ID) FROM JEEGEM_ARTICLE
 		<include refid="whereStatement" />
 	</select>
 
 	<!-- 根据ID更新 -->
-	<update id="updateById" parameterType="com.jeegem.common.model.ArticleType">
-		UPDATE JEEGEM_ARTICLETYPE
+	<update id="updateById" parameterType="com.jeegem.common.model.Article">
+		UPDATE JEEGEM_ARTICLE
 		<set>
 			<include refid="updateStatement" />
 		</set>
 		WHERE ID = #{id,jdbcType=BIGINT}
 	</update>
 
-	<!-- 新增文章类型 -->
+	<!-- 新增文章 -->
 	<insert id="save" keyProperty="id" keyColumn="id"
-		useGeneratedKeys="true" parameterType="com.jeegem.common.model.ArticleType">
-		INSERT INTO JEEGEM_ARTICLETYPE
+		useGeneratedKeys="true" parameterType="com.jeegem.common.model.Article">
+		INSERT INTO JEEGEM_ARTICLE
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				id,
-			</if>
-			<if test="typeName != null">
-				typeName,
-			</if>
-			<if test="sequence != null">
-				sequence,
-			</if>
-			<if test="keywords != null">
-				keywords,
-			</if>
-			<if test="description != null">
-				description,
-			</if>
+			<include refid="saveStatement" />
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				#{id,jdbcType=BIGINT},
-			</if>
-			<if test="typeName != null">
-				#{typeName,jdbcType=VARCHAR},
-			</if>
-			<if test="sequence != null">
-				#{sequence,jdbcType=INTEGER},
-			</if>
-			<if test="keywords != null">
-				#{keywords,jdbcType=VARCHAR},
-			</if>
-			<if test="description != null">
-				#{description,jdbcType=VARCHAR},
-			</if>
+			<include refid="saveValuesStatement" />
 		</trim>
 	</insert>
 
 	<!-- 根据ID集合批量删除 -->
 	<delete id="deleteByIds" parameterType="java.util.Map">
-		DELETE FROM JEEGEM_ARTICLETYPE WHERE ID in
+		DELETE FROM JEEGEM_ARTICLE WHERE ID in
 		<foreach item="item" index="index" collection="ids" open="("
 			separator="," close=")">
 			#{item}
@@ -155,14 +262,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 根据ID查询 -->
 	<select id="getArcicleTypeById" resultMap="BaseResultMap"
-		parameterType="com.jeegem.common.model.ArticleType">
+		parameterType="com.jeegem.common.model.Article">
 		SELECT
 		<include refid="Base_Column_List" />
-		FROM JEEGEM_ARTICLETYPE
+		FROM JEEGEM_ARTICLE
 		WHERE ID = #{id,jdbcType=BIGINT}
 	</select>
 
-	
-	
-	
 </mapper> 

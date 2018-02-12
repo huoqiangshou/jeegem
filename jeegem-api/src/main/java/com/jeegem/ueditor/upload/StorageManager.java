@@ -9,10 +9,10 @@ import java.io.InputStream;
 
 import org.apache.commons.io.FileUtils;
 
+import com.jeegem.common.utils.CommUtil;
 import com.jeegem.ueditor.define.AppInfo;
 import com.jeegem.ueditor.define.BaseState;
 import com.jeegem.ueditor.define.State;
-import com.jeegem.ueditor.utils.CommUtil;
 
 public class StorageManager {
 	public static final int BUFFER_SIZE = 8192;

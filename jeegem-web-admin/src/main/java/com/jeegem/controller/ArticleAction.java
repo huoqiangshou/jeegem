@@ -1,6 +1,9 @@
-package com.jeegem.user.controller;
+package com.jeegem.controller;
 
+import java.io.File;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,11 +13,14 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
 import com.jeegem.common.model.Article;
 import com.jeegem.common.model.ArticleType;
+import com.jeegem.common.utils.CommUtil;
 import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.service.ArticleService;
 import com.jeegem.service.ArticleTypeService;
@@ -73,12 +79,30 @@ public class ArticleAction extends BaseController {
 	 * 文章类型
 	 * 
 	 * @return
+	 * @throws Exception 
+	 * @throws IllegalStateException 
 	 */
 	@RequestMapping(value = "/article/save", method = RequestMethod.POST)
-	public String save(HttpServletRequest request, HttpServletResponse response, Article article) {
-
-		this.articleService.save(article);
-
+	public String save(HttpServletRequest request, HttpServletResponse response, @RequestParam("slideImageFile") MultipartFile slideImageFile,Article article) throws IllegalStateException, Exception {
+		if(!slideImageFile.isEmpty()){
+			String filePath=System.getProperty("JeeGem.root");
+			
+			String imageName=UUID.randomUUID().toString()+".jpg";
+			File file = new File(filePath+"upload/JeeGem/"+imageName);
+			slideImageFile.transferTo(file);
+			article.setSlideImage(imageName);
+			
+			CommUtil.uploadToSFTPServer(file.getAbsolutePath().replace(file.getName(),""), file.getName());
+			
+		}
+		
+		article.setAddTime(new Date()); // 设置当前日期为最新发布日期
+		if(article.getId()==null){  // 添加
+			articleService.save(article);
+		}else{  // 修改
+			articleService.updateById(article);
+		}
+		
 		return "redirect:/articleType/list.shtml";
 	}
 

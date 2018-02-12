@@ -1,4 +1,4 @@
-package com.jeegem.ueditor.utils;
+package com.jeegem.common.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +48,7 @@ public class CommUtil {
 		String pwd = prop.getProperty("sftp.password");
 		
 		SFtpUtil.connect(ip, Integer.valueOf(port), username, pwd);
-		String serverFolder = srcDir.substring(srcDir.indexOf("static"));
+		String serverFolder = srcDir.substring(srcDir.indexOf("upload"));
 		
 		SFtpUtil.upload(prop.getProperty("server.folder")+serverFolder, srcDir + File.separator + fileName);
 	}

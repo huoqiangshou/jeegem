@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
+import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.permission.bo.PermissionBo;
 import com.jeegem.permission.bo.RolePermissionAllocationBo;
@@ -59,7 +60,7 @@ public class PermissionAllocationController extends BaseController {
 		modelMap.put("findContent", findContent);
 		Pagination<RolePermissionAllocationBo> boPage = roleService.findRoleAndPermissionPage(modelMap,pageNo,pageSize);
 		modelMap.put("page", boPage);
-		return new ModelAndView("permission/allocation.ftl");
+		return new JeeGemModelAndView("permission/allocation.ftl");
 	}
 	
 	/**

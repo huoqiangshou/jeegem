@@ -19,11 +19,20 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring.xml</param-value>
 	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>JeeGem.root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>logbackConfigLocation</param-name>
+		<!-- classpath是指 WEB-INF文件夹下的classes目录 -->
+		<param-value>classpath:logback.xml</param-value>
+	</context-param>
+
 	<filter>
 		<description>字符集过滤器</description>
 		<filter-name>encodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
-		</filter-class>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
 			<description>字符集编码</description>
 			<param-name>encoding</param-name>
@@ -36,8 +45,7 @@
 	</filter-mapping>
 	<filter>
 		<filter-name>shiroFilter</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy
-		</filter-class>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>shiroFilter</filter-name>
@@ -45,26 +53,22 @@
 	</filter-mapping>
 	<listener>
 		<description>spring监听器</description>
-		<listener-class>org.springframework.web.context.ContextLoaderListener
-		</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>org.springframework.web.util.IntrospectorCleanupListener
-		</listener-class>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 	<context-param>
 		<param-name>logbackConfigLocation</param-name>
 		<param-value>classpath:logback.xml</param-value>
 	</context-param>
 	<listener>
-		<listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener
-		</listener-class>
+		<listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
 	</listener>
 	<servlet>
 		<description>spring mvc servlet</description>
 		<servlet-name>springMvc</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet
-		</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<description>spring mvc 配置文件</description>
 			<param-name>contextConfigLocation</param-name>
@@ -78,8 +82,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>ViewStatusMessages</servlet-name>
-		<servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet
-		</servlet-class>
+		<servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ViewStatusMessages</servlet-name>

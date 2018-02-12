@@ -82,9 +82,8 @@ public class ArticleTypeServiceImpl extends BaseService<ArticleType> implements 
 	@Override
 	public List<ArticleType> getAll() {
 		
-		this.articleTypeMapper.getAll();
+		return this.articleTypeMapper.getAll();
 		
-		return null;
 	}
 
 }
