@@ -50,17 +50,17 @@ public interface ArticleMapper {
 	/**
 	 * 根据ID更新
 	 * 
-	 * @param articleType
+	 * @param article
 	 */
-	int updateById(Article articleType);
+	int updateById(Article article);
 
 	/**
 	 * 新增文章类型
 	 * 
-	 * @param articleType
+	 * @param article
 	 * @return
 	 */
-	int save(Article articleType);
+	int save(Article article);
 
 	/**
 	 * 删除文章类型

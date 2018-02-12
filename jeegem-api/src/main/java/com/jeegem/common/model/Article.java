@@ -19,7 +19,7 @@ public class Article {
 	private Integer recommend=0; // 是否推荐帖子  1  是  0 否  默认 0
 	private Integer slide=0; // 是否是幻灯帖子 1 是  0 否 默认0
 	private String slideImage; // 幻灯图片
-	private ArticleType arcType; // 帖子类型
+	private ArticleType articleType; // 帖子类型
 	private String keyWords; // 关键字 中间空格隔开
 	
 	public Integer getId() {
@@ -79,11 +79,12 @@ public class Article {
 	public void setSlide(Integer slide) {
 		this.slide = slide;
 	}
-	public ArticleType getArcType() {
-		return arcType;
+	
+	public ArticleType getArticleType() {
+		return articleType;
 	}
-	public void setArcType(ArticleType arcType) {
-		this.arcType = arcType;
+	public void setArticleType(ArticleType articleType) {
+		this.articleType = articleType;
 	}
 	public String getSlideImage() {
 		return slideImage;

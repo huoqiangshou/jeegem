@@ -59,72 +59,86 @@
           <div class="main">
 
             <!-- row -->
-            <div class="row">
+           <div class="row">
 
               <!-- col 12 -->
-              <div class="col-md-12">
+              <div class="col-md-12 ">
 
                 <!-- tile -->
                 <section class="tile color transparent-black">
 
                   <!-- tile header -->
                   <div class="tile-header">
-                    <h1><strong>添加文章</strong></h1>
+                    <h1><strong>Text</strong> Inputs</h1>
+                    <div class="controls">
+                      <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
                   </div>
                   <!-- /tile header -->
 
                   <!-- tile body -->
-                  <div class="tile-body" >
+                  <div class="tile-body">
                     
-                    <form class="form-horizontal"  role="form" id="formId" enctype="multipart/form-data" action="${basePath}/user/updatePswd.shtml" method="post">
+                    <form class="form-horizontal" role="form">
                       
                       <div class="form-group">
-                        <label for="password" class="col-sm-4 control-label">原密码</label>
+                        <label for="input01" class="col-sm-2 control-label">Normal input field</label>
                         <div class="col-sm-8">
-                          <input type="password" name="pswd" class="form-control" id="pswd" >
+                          <input type="text" class="form-control" id="input01">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="input02" class="col-sm-2 control-label">Password input field</label>
+                        <div class="col-sm-8">
+                          <input type="password" class="form-control" id="input02">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="input03" class="col-sm-2 control-label">Input with help text</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="input03">
+                          <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="input04" class="col-sm-2 control-label">Input field with placeholder</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="input04" placeholder="This is placeholder...">
                         </div>
                       </div>
 					  
-					  <div class="form-group">
-                        <label for="newPswd" class="col-sm-4 control-label">新密码</label>
-                        <div class="col-sm-8">
-                          <input type="password" name="newPswd" class="form-control" id="newPswd"  >
-                        </div>
-                      </div>
-                      
-					  <div class="form-group">
-                        <label for="reNewPswd" class="col-sm-4 control-label">新密码</label>
-                        <div class="col-sm-8">
-                          <input type="password" name="reNewPswd" class="form-control" id="reNewPswd"  >
-                        </div>
-                      </div>
-                     
-                      <div class="form-group form-footer">
-                        <div class="col-sm-offset-4 col-sm-8">
+					  <div class="form-group form-footer">
+                        <div class="col-sm-offset-4 col-sm-2">
                           <button type="submit" class="btn btn-primary">提交</button>
                           <button type="reset" class="btn btn-default">重置</button>
                         </div>
                       </div>
+                      <div class="form-group">
+                      	
+                        <script id="editor" type="text/plain" style="width:100%;height:500px;"></script>
+				   		<input type="hidden" id="content" name="content"/>
+                      </div>
+
+                      
 
                     </form>
 
                   </div>
                   <!-- /tile body -->
                   
+                
                 </section>
                 <!-- /tile -->
 
               </div>
               <!-- /col 6 -->
 
-              <!-- col 12 -->
-              <div class="col-md-6">
 
-              </div>
-              <!-- /col 6 -->
-
-
-              
             </div>
             <!-- /row -->
 
@@ -576,6 +590,10 @@
 
     <script src="${basePath}/resources/assets/js/vendor/colorpalette/bootstrap-colorpalette.js"></script>
 
+	<script type="text/javascript" charset="utf-8" src="${basePath}/resources/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="${basePath}/resources/ueditor/editor_jeegem.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="${basePath}/resources/ueditor/lang/zh-cn/zh-cn.js"></script>
+	
     <script src="${basePath}/resources/assets/js/minimal.js"></script>
 	<script src="${basePath}/js/common/jquery/jquery.form-2.82.js?${_v}"></script>
     <script  src="${basePath}/js/common/layer/layer.js"></script>
@@ -673,9 +691,14 @@
       
     })
       
-		
+	//实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
       
     </script>
+    
+    
+    
   </body>
 </html>
       

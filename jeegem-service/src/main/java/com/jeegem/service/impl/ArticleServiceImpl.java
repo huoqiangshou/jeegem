@@ -59,20 +59,20 @@ public class ArticleServiceImpl extends BaseService<Article> implements ArticleS
 	 */
 	@Transactional(readOnly = false)
 	@Override
-	public int updateById(Article articleType) {
-		return articleMapper.updateById(articleType);
+	public int updateById(Article article) {
+		return articleMapper.updateById(article);
 	}
 
 	/**
 	 * 
 	 */
 	/**
-	 * @see com.jeegem.service.ArticleTypeService#save(com.jeegem.common.model.ArticleType)
+	 * @see com.jeegem.service.articleService#save(com.jeegem.common.model.article)
 	 */
 	@Transactional(readOnly = false)
 	@Override
-	public int save(Article articleType) {
-		return articleMapper.save(articleType);
+	public int save(Article article) {
+		return articleMapper.save(article);
 	}
 
 	/**

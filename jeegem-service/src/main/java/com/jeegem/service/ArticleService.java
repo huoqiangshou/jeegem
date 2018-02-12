@@ -42,18 +42,18 @@ public interface ArticleService {
 	/**
 	 * 根据ID更新
 	 * 
-	 * @param articleType
+	 * @param article
 	 * @return 返回更新数量
 	 */
-	int updateById(Article articleType);
+	int updateById(Article article);
 
 	/**
 	 * 新增文章
 	 * 
-	 * @param articleType
+	 * @param article
 	 * @return
 	 */
-	int save(Article articleType);
+	int save(Article article);
 
 	/**
 	 * 根据ID集合删除数据

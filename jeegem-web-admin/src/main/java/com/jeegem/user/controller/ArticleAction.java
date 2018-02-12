@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeegem.common.controller.BaseController;
+import com.jeegem.common.model.Article;
 import com.jeegem.common.model.ArticleType;
 import com.jeegem.core.mv.JeeGemModelAndView;
 import com.jeegem.service.ArticleService;
@@ -57,15 +58,28 @@ public class ArticleAction extends BaseController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/articleType/addArticle", method = RequestMethod.GET)
-	public ModelAndView list(HttpServletRequest request, HttpServletResponse response, String pageNo) {
+	@RequestMapping(value = "/article/addArticle", method = RequestMethod.GET)
+	public ModelAndView addArticle(HttpServletRequest request, HttpServletResponse response, String pageNo) {
 		ModelAndView mv = new JeeGemModelAndView("article/addArticle.ftl");
-		
+
 		List<ArticleType> articleTypes = this.articleTypeService.getAll();
-		
+
 		mv.addObject("articleTypes", articleTypes);
-		
+
 		return mv;
+	}
+
+	/**
+	 * 文章类型
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/article/save", method = RequestMethod.POST)
+	public String save(HttpServletRequest request, HttpServletResponse response, Article article) {
+
+		this.articleService.save(article);
+
+		return "redirect:/articleType/list.shtml";
 	}
 
 }

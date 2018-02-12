@@ -453,7 +453,7 @@
                         </a>
                       </li>
                       <li class="${(child==42)?string('active',' ')}">
-                        <a href="${basePath}/articleType/addArticle.shtml">
+                        <a href="${basePath}/article/addArticle.shtml">
                           <i class="fa fa-caret-right"></i> 发布文章
                         </a>
                       </li>

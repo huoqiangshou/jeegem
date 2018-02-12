@@ -84,25 +84,26 @@ public class ArticleTypeAction extends BaseController {
 
 		return "redirect:/articleType/list.shtml";
 	}
-	
+
 	/**
 	 * 删除
+	 * 
 	 * @param request
 	 * @param response
 	 * @param ids
 	 */
 	@RequestMapping(value = "/articleType/deleteByIds", method = RequestMethod.POST)
-	public void deleteByIds(HttpServletRequest request, HttpServletResponse response, String[] ids){
-		
-		Map<String,Object> params = Maps.newHashMap();
+	public void deleteByIds(HttpServletRequest request, HttpServletResponse response, String[] ids) {
+
+		Map<String, Object> params = Maps.newHashMap();
 		params.put("ids", ids);
-		
+
 		int ret = this.articleTypeService.deleteByIds(params);
-		
+
 		response.setContentType("text/plain");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		try {
 			PrintWriter writer = response.getWriter();
 			writer.print(ret);
@@ -113,59 +114,34 @@ public class ArticleTypeAction extends BaseController {
 
 	/**
 	 * 根据ID获取文章类型
+	 * 
 	 * @param request
 	 * @param response
 	 * @param ids
 	 */
 	@RequestMapping(value = "/articleType/getArcicleTypeById", method = RequestMethod.POST)
 	@ResponseBody
-	public ArticleType getArcicleTypeById(HttpServletRequest request, HttpServletResponse response, Long id){
-		
+	public ArticleType getArcicleTypeById(HttpServletRequest request, HttpServletResponse response, Long id) {
+
 		ArticleType articleType = this.articleTypeService.getArcicleTypeById(id);
-		
+
 		return articleType;
-		
+
 	}
-	
-	
+
 	/**
 	 * 更新操作
 	 * 
-	 * @return 
+	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/articleType/updateArticleTypeById", method = RequestMethod.POST)
-	public String updateArticleTypeById(HttpServletRequest request, HttpServletResponse response, ArticleType articleType) throws Exception {
-		
+	public String updateArticleTypeById(HttpServletRequest request, HttpServletResponse response,
+			ArticleType articleType) throws Exception {
+
 		this.articleTypeService.updateById(articleType);
-		
+
 		return "redirect:/articleType/list.shtml";
 	}
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

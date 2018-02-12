@@ -5,17 +5,164 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.jeegem.common.dao.ArticleMapper">
 
 	<resultMap type="com.jeegem.common.model.Article" id="BaseResultMap">
-		<result property="id" column="id"/>
-		<result property="title" column="title"/>
-		<result property="addTime" column="addTime"/>
-		<result property="content" column="content"/>
-		<result property="summary" column="summary"/>
-		<result property="titleColor" column="titleColor"/>
-		<result property="click" column="click"/>
-		<result property="recommend" column="recommend"/>
-		<result property="slide" column="slide"/>
-		<result property="slideImage" column="slideImage"/>
-		<association property="arcType" column="typeId" select="com.jeegem.dao.ArcTypeDao.findById"></association>
+		<result property="id" column="id" jdbcType="BIGINT" />
+		<result property="title" column="title" jdbcType="VARCHAR" />
+		<result property="addTime" column="addTime" jdbcType="TIMESTAMP" />
+		<result property="content" column="content" jdbcType="VARCHAR" />
+		<result property="summary" column="summary" jdbcType="VARCHAR" />
+		<result property="titleColor" column="titleColor" jdbcType="VARCHAR" />
+		<result property="click" column="click" jdbcType="INTEGER" />
+		<result property="recommend" column="recommend" jdbcType="INTEGER" />
+		<result property="slide" column="slide" jdbcType="INTEGER" />
+		<result property="slideImage" column="slideImage" jdbcType="INTEGER" />
+		<association property="articleType" column="typeId" select="com.jeegem.common.dao.ArticleTypeMapper.getArcicleTypeById" />
 	</resultMap>
+	
+	<!-- column属性列 -->
+	<sql id="Base_Column_List">
+		id, title, addTime, content, summary , titleColor,click,recommend,slide,slideImage,typeId
+	</sql>
+	
+	<!-- where条件判断 -->
+	<sql id="whereStatement">
+		<where>
+			<if test="id !=null and id !=''">
+				id=#{id,jdbcType=BIGINT}
+			</if>
+
+			<if test="typeName !=null and typeName !=''">
+				typeName=#{typeName,jdbcType=VARCHAR}
+			</if>
+
+			<if test="sequence !=null and sequence !=''">
+				sequence=#{sequence,jdbcType=INTEGER}
+			</if>
+
+			<if test="keywords !=null and keywords !=''">
+				keywords=#{keywords,jdbcType=VARCHAR}
+			</if>
+
+			<if test="description !=null and description !=''">
+				description=#{description,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</sql>
+
+	<!-- update条件判断 -->
+	<sql id="updateStatement">
+		<if test="typeName != null">
+			typeName = #{typeName,jdbcType=VARCHAR},
+		</if>
+		<if test="sequence != null">
+			sequence = #{sequence,jdbcType=INTEGER},
+		</if>
+		<if test="keywords != null">
+			keywords = #{keywords,jdbcType=VARCHAR},
+		</if>
+		<if test="description != null">
+			description = #{description,jdbcType=VARCHAR},
+		</if>
+	</sql>
+
+	<!-- 分页limit -->
+	<sql id="limitStatement">
+		<if test="pageNo != null and pageSize != null">
+			LIMIT #{pageNo},#{pageSize}
+		</if>
+	</sql>
+
+	<!-- 集合排序 -->
+	<sql id="orderStatement">
+		<if test="orderBy != null and orderType != null">
+			ORDER BY ${orderBy} ${orderType}
+		</if>
+	</sql>
+
+	<!-- 分页查询数据 -->
+	<select id="getPageList" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_ARTICLETYPE
+		<include refid="whereStatement" />
+		<include refid="limitStatement" />
+		<include refid="orderStatement" />
+	</select>
+
+	<!-- 分页查询数据总量 -->
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		SELECT COUNT(ID) FROM JEEGEM_ARTICLETYPE
+		<include refid="whereStatement" />
+	</select>
+
+	<!-- 根据ID更新 -->
+	<update id="updateById" parameterType="com.jeegem.common.model.ArticleType">
+		UPDATE JEEGEM_ARTICLETYPE
+		<set>
+			<include refid="updateStatement" />
+		</set>
+		WHERE ID = #{id,jdbcType=BIGINT}
+	</update>
+
+	<!-- 新增文章类型 -->
+	<insert id="save" keyProperty="id" keyColumn="id"
+		useGeneratedKeys="true" parameterType="com.jeegem.common.model.ArticleType">
+		INSERT INTO JEEGEM_ARTICLETYPE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="typeName != null">
+				typeName,
+			</if>
+			<if test="sequence != null">
+				sequence,
+			</if>
+			<if test="keywords != null">
+				keywords,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="typeName != null">
+				#{typeName,jdbcType=VARCHAR},
+			</if>
+			<if test="sequence != null">
+				#{sequence,jdbcType=INTEGER},
+			</if>
+			<if test="keywords != null">
+				#{keywords,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据ID集合批量删除 -->
+	<delete id="deleteByIds" parameterType="java.util.Map">
+		DELETE FROM JEEGEM_ARTICLETYPE WHERE ID in
+		<foreach item="item" index="index" collection="ids" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 根据ID查询 -->
+	<select id="getArcicleTypeById" resultMap="BaseResultMap"
+		parameterType="com.jeegem.common.model.ArticleType">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_ARTICLETYPE
+		WHERE ID = #{id,jdbcType=BIGINT}
+	</select>
+
+	
+	
 	
 </mapper> 

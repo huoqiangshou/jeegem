@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeegem.common.dao.CodeGenSchemeMapper">
+
+	<!-- 通用属性结果集Map -->
+	<resultMap type="com.jeegem.common.model.CodeGenScheme" id="BaseResultMap">
+		<result property="id" column="id" jdbcType="BIGINT" />
+		<result property="tableName" column="tableName" jdbcType="VARCHAR" />
+		<result property="entityName" column="entityName" jdbcType="VARCHAR" />
+		<result property="comment" column="comment" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- column属性列 -->
+	<sql id="Base_Column_List">
+		id, tableName, entityName, comment
+	</sql>
+
+	<!-- where条件判断 -->
+	<sql id="whereStatement">
+		<where>
+			<if test="id !=null and id !=''">
+				id=#{id,jdbcType=BIGINT}
+			</if>
+
+			<if test="tableName !=null and tableName !=''">
+				tableName=#{tableName,jdbcType=VARCHAR}
+			</if>
+
+			<if test="entityName !=null and entityName !=''">
+				entityName=#{entityName,jdbcType=VARCHAR}
+			</if>
+
+			<if test="comment !=null and comment !=''">
+				comment=#{comment,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</sql>
+
+	<!-- update条件判断 -->
+	<sql id="updateStatement">
+		<if test="tableName != null">
+			tableName = #{tableName,jdbcType=VARCHAR},
+		</if>
+		<if test="entityName != null">
+			entityName = #{entityName,jdbcType=INTEGER},
+		</if>
+		<if test="comment != null">
+			comment = #{comment,jdbcType=VARCHAR},
+		</if>
+	</sql>
+
+	<!-- 分页limit -->
+	<sql id="limitStatement">
+		<if test="pageNo != null and pageSize != null">
+			LIMIT #{pageNo},#{pageSize}
+		</if>
+	</sql>
+
+	<!-- 集合排序 -->
+	<sql id="orderStatement">
+		<if test="orderBy != null and orderType != null">
+			ORDER BY ${orderBy} ${orderType}
+		</if>
+	</sql>
+
+	<!-- 根据ID查询 -->
+	<select id="getObjById" resultMap="BaseResultMap"
+		parameterType="com.jeegem.common.model.CodeGenScheme">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_CODEGEN_SCHEME
+		WHERE ID = #{id,jdbcType=BIGINT}
+	</select>
+
+	<!-- 查询所有数据 -->
+	<select id="getAll" resultMap="BaseResultMap"
+		parameterType="com.jeegem.common.model.CodeGenScheme">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_CODEGEN_SCHEME
+	</select>
+
+	<!-- 根据属性名称、值获取 -->
+	<select id="getObjByProperty" resultType="com.jeegem.common.model.CodeGenScheme"
+		resultMap="BaseResultMap" parameterType="map">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_CODEGEN_SCHEME
+		<where>
+			<if
+				test="operation_property != null and operation_symbol !=null and operation_value !=null">
+				and ${operation_property} <![CDATA[ ${operation_symbol} ]]>
+				#{operation_value}
+			</if>
+		</where>
+	</select>
+
+	<!-- 分页查询数据 -->
+	<select id="getPageList" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_CODEGEN_SCHEME
+		<include refid="whereStatement" />
+		<include refid="limitStatement" />
+		<include refid="orderStatement" />
+	</select>
+
+	<!-- 分页查询数据总量 -->
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		SELECT COUNT(ID) FROM JEEGEM_CODEGEN_SCHEME
+		<include refid="whereStatement" />
+	</select>
+
+	<!-- 根据ID更新 -->
+	<update id="updateById" parameterType="com.jeegem.common.model.CodeGenScheme">
+		UPDATE JEEGEM_CODEGEN_SCHEME
+		<set>
+			<include refid="updateStatement" />
+		</set>
+		WHERE ID = #{id,jdbcType=BIGINT}
+	</update>
+
+	<!-- 新增 -->
+	<insert id="save" keyProperty="id" keyColumn="id"
+		useGeneratedKeys="true" parameterType="com.jeegem.common.model.CodeGenScheme">
+		INSERT INTO JEEGEM_CODEGEN_SCHEME
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="tableName != null">
+				tableName,
+			</if>
+			<if test="entityName != null">
+				entityName,
+			</if>
+			<if test="comment != null">
+				comment,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="tableName != null">
+				#{tableName,jdbcType=VARCHAR},
+			</if>
+			<if test="entityName != null">
+				#{entityName,jdbcType=VARCHAR},
+			</if>
+			<if test="comment != null">
+				#{comment,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据ID删除 -->
+	<delete id="deleteById" parameterType="java.lang.Long">
+		DELETE FROM JEEGEM_CODEGEN_SCHEME WHERE ID=#{id,jdbcType=BIGINT}
+	</delete>
+
+	<!-- 根据ID集合批量删除 -->
+	<delete id="deleteByIds" parameterType="java.util.Map">
+		DELETE FROM JEEGEM_CODEGEN_SCHEME WHERE ID in
+		<foreach item="item" index="index" collection="ids" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 批量删除:参数是List<Entity> -->
+	<delete id="batchDelete" parameterType="java.util.List">
+		DELETE FROM JEEGEM_CODEGEN_SCHEME WHERE ID IN
+		<foreach collection="list" index="index" item="item" open="("
+			separator="," close=")">
+			#{item.id}
+		</foreach>
+	</delete>
+
+</mapper> 
