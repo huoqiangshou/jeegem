@@ -449,12 +449,17 @@
                     <ul class="dropdown-menu">
                       <li class="${(child==41)?string('active',' ')}">
                         <a href="${basePath}/articleType/list.shtml">
-                          <i class="fa fa-caret-right"></i> 类别管理
+                          <i class="fa fa-caret-right"></i> 类目管理
                         </a>
                       </li>
                       <li class="${(child==42)?string('active',' ')}">
                         <a href="${basePath}/article/addArticle.shtml">
                           <i class="fa fa-caret-right"></i> 发布文章
+                        </a>
+                      </li>
+                      <li class="${(child==43)?string('active',' ')}">
+                        <a href="${basePath}/article/list.shtml">
+                          <i class="fa fa-caret-right"></i> 文章列表
                         </a>
                       </li>
                     </li>                

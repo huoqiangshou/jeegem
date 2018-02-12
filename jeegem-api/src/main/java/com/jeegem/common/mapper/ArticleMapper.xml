@@ -65,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="keyWords !=null and keyWords !=''">
 				keyWords=#{keyWords,jdbcType=VARCHAR}
 			</if>
-			<if test="articleType.id !=null and articleType.id !=''">
+			<if test="articleType !=null and articleType.id != null">
 				typeId=#{articleType.id,jdbcType=VARCHAR}
 			</if>
 		</where>
@@ -106,7 +106,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="keyWords !=null and keyWords !=''">
 				keyWords=#{keyWords,jdbcType=VARCHAR},
 			</if>
-			<if test="articleType.id !=null and articleType.id !=''">
+			<if test="articleType !=null and articleType.id != null">
 				typeId=#{articleType.id,jdbcType=VARCHAR},
 			</if>
 	</sql>
@@ -150,7 +150,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="keyWords !=null and keyWords !=''">
 				keyWords,
 			</if>
-			<if test="articleType.id !=null and articleType.id !=''">
+			<if test="articleType !=null and articleType.id != null">
 				typeId,
 			</if>
 	</sql>
@@ -194,7 +194,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="keyWords !=null and keyWords !=''">
 				#{keyWords,jdbcType=VARCHAR},
 			</if>
-			<if test="articleType.id !=null and articleType.id !=''">
+			<if test="articleType !=null and articleType.id != null">
 				#{articleType.id,jdbcType=VARCHAR},
 			</if>
 	</sql>
@@ -261,7 +261,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 
 	<!-- 根据ID查询 -->
-	<select id="getArcicleTypeById" resultMap="BaseResultMap"
+	<select id="getArticleById" resultMap="BaseResultMap"
 		parameterType="com.jeegem.common.model.Article">
 		SELECT
 		<include refid="Base_Column_List" />

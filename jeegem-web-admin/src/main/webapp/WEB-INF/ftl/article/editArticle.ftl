@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>添加文章 —个人中心</title>
+    <title>编辑文章 —个人中心</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
@@ -52,7 +52,7 @@
         <div id="content" class="col-md-12">
           
           <!-- page header -->
-          <@_pageHeader.pageHeader  '文章管理' '添加文章'/>
+          <@_pageHeader.pageHeader  '文章管理' '编辑文章'/>
           <!-- /page header -->
 
           <!-- content main container -->
@@ -69,7 +69,7 @@
 
                   <!-- tile header -->
                   <div class="tile-header">
-                    <h1><strong>添加文章</strong></h1>
+                    <h1><strong>编辑文章</strong></h1>
                     <div class="controls">
                       <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
                       <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
@@ -82,22 +82,26 @@
                   <div class="tile-body">
                     
                     <form class="form-horizontal" role="form" id="theForm" method="post" action="${basePath}/article/save.shtml" enctype="multipart/form-data">
-                      
+                      <input type="hidden" name="id" value="${article.id}"/>
                       <div class="form-group">
                         <label for="input01" class="col-sm-2 control-label">帖子标题</label>
                         <div class="col-sm-4">
-                          <input type="text" class="form-control" id="input01" name="title">
+                          <input type="text" class="form-control" id="input01" name="title" value="${article.title}">
                         </div>
                       </div>
                       
                       <div class="form-group">
-                        <label for="input07" class="col-sm-2 control-label">文章类型</label>
+                        <label for="input07" class="col-sm-2 control-label">文章类目</label>
                         <div class="col-sm-4" id="selectbox">
                           <select class="chosen-select chosen-transparent form-control" name="articleType.id" id="input07" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox">
-                            <option value="">选择文章类型
+                            <option value="">选择文章类目
                             <#if articleTypes?exists && articleTypes?size gt 0 >
                             <#list articleTypes as item>
+                            	<#if item.id==article.articleType.id>
+                            	<option value="${item.id}" selected>${item.typeName}
+                            	<#else>
                             	<option value="${item.id}">${item.typeName}
+                            	</#if>
                             </#list>
                             </#if>
                           </select>
@@ -108,19 +112,19 @@
                         <label class="col-sm-2 control-label">文章属性</label>
                         <div class="col-sm-2">
                           <div class="radio radio-transparent">
-                            <input type="radio" name="slide" id="optionsRadios1" value="1" checked="">
+                            <input type="radio" name="slide" id="optionsRadios1" value="1" <#if 1==article.slide> checked </#if>>
                             <label for="optionsRadios1">Banner</label>
                           </div>
                           <div class="radio radio-transparent">
-                            <input type="radio" name="slide" id="optionsRadios2" value="2">
+                            <input type="radio" name="slide" id="optionsRadios2" value="2" <#if 2==article.slide> checked </#if>>
                             <label for="optionsRadios2">幻灯</label>
                           </div>
                           <div class="radio radio-transparent">
-                            <input type="radio" name="slide" id="optionsRadios3" value="3">
+                            <input type="radio" name="slide" id="optionsRadios3" value="3" <#if 3==article.slide> checked </#if>>
                             <label for="optionsRadios3">推荐</label>
                           </div>
                           <div class="radio radio-transparent">
-                            <input type="radio" name="slide" id="optionsRadios4" value="4">
+                            <input type="radio" name="slide" id="optionsRadios4" value="4" <#if 4==article.slide> checked </#if>>
                             <label for="optionsRadios4">图文</label>
                           </div>
                         </div>
@@ -143,14 +147,14 @@
                       <div class="form-group">
                         <label for="input05" class="col-sm-2 control-label">文章摘要</label>
                         <div class="col-sm-4">
-                          <textarea class="form-control" id="input05" name="summary" rows="6"></textarea>
+                          <textarea class="form-control" id="input05" name="summary" rows="6">${article.summary}</textarea>
                         </div>
                       </div>
 						
                       <div class="form-group">
                         <label for="input04" class="col-sm-2 control-label">关键字</label>
                         <div class="col-sm-4">
-                          <input type="text" class="form-control" name="keyWords" id="input04" placeholder="多个关键字用空格隔开">
+                          <input type="text" class="form-control" name="keyWords" id="input04" placeholder="多个关键字用空格隔开" value="${article.keyWords}">
                         </div>
                       </div>
 					  
@@ -743,6 +747,11 @@
       	$("#editorContent").val(editor);
 		$('#theForm').submit();
       }
+      
+    ue.addListener("ready",function(){
+        //通过ajax请求数据
+        UE.getEditor('editor').setContent('${article.content}');
+    });
       
     </script>
     

@@ -69,6 +69,6 @@ public interface ArticleService {
 	 * @param id
 	 * @return
 	 */
-	Article getArcicleTypeById(Long id);
+	Article getArticleById(Long id);
 
 }

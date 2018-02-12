@@ -75,7 +75,7 @@ public interface ArticleMapper {
 	 * @param id
 	 * @return
 	 */
-	Article getArcicleById(Long id);
+	Article getArticleById(Long id);
 	
 
 	

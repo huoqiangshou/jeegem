@@ -48,7 +48,7 @@
         <div id="content" class="col-md-12">
           
           <!-- page header -->
-          <@_pageHeader.pageHeader  '文章管理' '类目管理'/>
+          <@_pageHeader.pageHeader  'CMS管理' '类目管理'/>
           <!-- /page header -->
           
 
@@ -64,9 +64,9 @@
                 <!-- tile -->
                 <section class="tile color transparent-black">
                   <div class="tile-header">
-                      <a href="#updateArticleTypeModal" role="button" class="btn btn-cyan" id="updateArticleType" data-toggle="modal" disabled>修改文章</a>
-                      <a href="#addArticleTypeModal" role="button" class="btn btn-red" data-toggle="modal">新增文章</a>
-                      <a href="javascript:void(0);" role="button" class="btn btn-orange" id="deleteArticleType" >删除文章</a>
+                      <a href="#updateArticleTypeModal" role="button" class="btn btn-cyan" id="updateArticleType" data-toggle="modal" disabled>修改类目</a>
+                      <a href="#addArticleTypeModal" role="button" class="btn btn-red" data-toggle="modal">新增类目</a>
+                      <a href="javascript:void(0);" role="button" class="btn btn-orange" id="deleteArticleType" >删除类目</a>
                   </div>
 
                   <div class="tile-body nopadding">
@@ -81,7 +81,7 @@
                             </div>
                           </th>
                           <th >排序序号</th>
-                          <th>类型名称</th>
+                          <th>类目名称</th>
                           <th>SEO关键字</th>
                           <th>SEO描述</th>
                         </tr>
@@ -157,7 +157,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
-            <h3 class="modal-title" id="modalConfirmLabel"><strong>文章类型更新</strong></h3>
+            <h3 class="modal-title" id="modalConfirmLabel"><strong>类目更新</strong></h3>
           </div>
           <div class="modal-body">
             <form role="form" id="updateFormId" method="post" action="${basePath}/articleType/updateArticleTypeById.shtml">
