@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>news</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.jpg" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				     <li><a href="/channel/index">网站首页</a>
+				     </li>
+				     <li><a href="/channel/course">学习交流</a>
+					        <ul>
+									<li><a href="/channel/course_1">编程开发</a></li>
+									<li><a href="/channel/course_2">设计创作</a></li>
+									<li><a href="/channel/course_3">数据库</a></li>
+									<li><a href="/channel/course_4">系统运维</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/photo">精彩图库</a>
+					        <ul>
+									<li><a href="/channel/yule">娱乐图集</a></li>
+									<li><a href="/channel/zuguo">祖国之美</a></li>
+									<li><a href="/channel/wenhua">文化校园</a></li>
+									<li><a href="/channel/fouce">焦点图片</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/download">源码下载</a>
+				     </li>
+				     <li><a href="/channel/video">新闻动态</a>
+					        <ul>
+									<li><a href="/channel/vedio">IT资讯</a></li>
+									<li><a href="/channel/vedio">系统介绍</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/message">在线留言</a>
+				     </li>
+				     <li><a href="/channel/doc">论坛</a>
+				     </li>
+				     <li><a href="/channel/about">联系我们</a>
+				     </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			<div class="conbox">
+				<div><a href="#" title=""><img src="/static/three/tp/ddf.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img src="/static/three/tp/dde.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-02-22/f4fe9dd611bd459c0244159163109bc4.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-13/323ce4b13f72648e096bd1a86cba762a.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-17/9fae30738c94fb8e47dd2ba3e6003290.jpg"></a></div>
+			</div>
+
+			<div class="switcher">
+				<a href="#" class="cur">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="left">
+        	<div class="a03">
+            	<div class="info">新闻分类</div>
+                    <div class="content">
+                   		<ul>
+						       <li><a href="/channel/course_1">编程开发</a></li>
+						       <li><a href="/channel/course_2">设计创作</a></li>
+						       <li><a href="/channel/course_3">数据库</a></li>
+						       <li><a href="/channel/course_4">系统运维</a></li>
+                        </ul>
+                   </div>
+            </div>
+            <div class="b01">
+           	  <div class="info">客服服务</div>
+                <div class="content1">
+                <span class="red">尊贵的客户</span>，您好！欢迎进入伯爵婚纱摄
+                影客户服务中心！这里将为您展示新人的
+                幸福瞬间。与此同时，并将最美好的祝福
+                送给每对新人。<br />
+                婚纱摄影客户咨询热线：0592-021514155
+                 太阳城欢迎广大追求美的新人前来咨询我
+                们将留给您不一样的记忆。<br />
+                了解我们，从这里开始 | 摄影常见问题解
+                答 | 服务须知：拍摄当天 | 服务须知：拍
+                摄前准备 | 高端定制服务服务流程 | 高端
+                定制服务服务说明<br />
+                郑重声明：伯爵客户服务频道所展示的作品
+                均来自真实客人定制照片，并经由客户本人
+                同意在唯一官方网站www.stbjhs.com进行发
+                表。 </div>
+            </div>
+        </div>
+        <div class="right">
+        	<div class="new">
+            	<div class="info">
+                	<div class="title"></div>
+                </div>
+                <div class="content">
+                
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2532.html">河南鹤壁公安局副局长被双开 曾被称为警界英雄-搜狐新闻</a></h2>
+	                        <p>郝军据河南省纪委监察厅网站8月25日消息：日前，经鹤壁市委批准，鹤壁市纪委对市公安局党委委员、副局长、正县级侦察员郝军严重违纪问题进行了立案审查。经查，郝军违反</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2533.html">[明说吧]大学生绘性骚扰地图-搜狐新闻</a></h2>
+	                        <p>2016年8月31日搜狐搜天下《明说吧》视频节目内容介绍：【今日深评】8月29日，北京师范大学中文系大三学生康宸玮发了一份调查，《沉默的铁狮――2016年北京师</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2534.html">江苏镇江副市长蒋建明辞职获批-搜狐新闻</a></h2>
+	                        <p>蒋建明8月31日，江苏省镇江市人民代表大会常务委员会发布相关决定，接受蒋建明辞去镇江市副市长职务请求。此前，曾任镇江市委常委的蒋建明已不再出现在中共镇江市委常委</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2535.html">国务院安委会办公室：第二批安全生产巡查名单确定-搜狐新闻</a></h2>
+	                        <p>央视网消息：国务院安委会办公室日前印发《关于做好安全生产巡查工作准备认真开展全面自查的通知》，确定自10月份起对辽宁、吉林、黑龙江、安徽、山东、河南、四川、陕西</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2536.html">韩拟重启汉江入海口执法 防中国渔船“非法捕捞”-搜狐新闻</a></h2>
+	                        <p>【环球网综合报道】据韩联社8月31日报道，韩国联合参谋本部31日表示，鉴于可能有中国渔船在9月起的下半年梭子蟹捕捞旺季闯入汉江入海口朝韩中立水域，韩方民政警察将</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2537.html">菲外长再提南海仲裁案：中国必须承认 -搜狐新闻</a></h2>
+	                        <p>【环球网报道记者周骥滢】前天，菲律宾总统说，菲律宾与中国的任何双边对话都需以所谓“南海仲裁案”裁决为基础;昨天，菲律宾总统说，菲律宾与中国是兄弟，不会利用两国会</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2538.html">徐玉玉电信诈骗案三嫌犯在逃 公安部发布A级通缉令-搜狐新闻</a></h2>
+	                        <p>视频：女孩被骗离世170、171号段仍为电信诈骗重灾区来源:央视新闻中新网8月26日电&nbsp;据公安部刑事侦查局官方微博消息，8月19日，犯罪嫌疑人陈文辉等</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2539.html">“冰箭”登陆！长征五号抵达海南文昌发射场-搜狐新闻</a></h2>
+	                        <p>来自国防科工局、国家航天局的消息，今天，我国最大推力运载火箭长征五号，已经安全运抵海南文昌清澜港，随后长征五号火箭在完成一系列装配和测试工作后，将于今年11月择</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2540.html">郭声琨会见香港特区政府代表团-搜狐新闻</a></h2>
+	                        <p>7月5日，国务委员、公安部部长郭声琨在北京会见了参加内地与香港通报机制磋商的香港特区政府律政司司长袁国强、保安局局长黎栋国等一行。国务委员、公安部部长郭声琨5日</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2541.html">神吐槽:学生愁开学 日本鼓励不想上就休息-搜狐新闻</a></h2>
+	                        <p>九月第一天，亲爱的同学们，终于开学啦！&nbsp;据说面对开学，世界上有两种人……（小巴是躺地上的那个）&nbsp;小巴有开学恐惧症</p>
+	                    </div>
+                
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+        </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div class="bottom">
+    <div class="wenzi">何拉拉 设计制作 伯爵婚纱摄影 版权所有 - 网站统计<br />
+Copyright © 2013 STBJHS PHOTOGRAPHY AGENCY,SUPPORT BY STBJHS ad-agency CO.,Ltd.</div>
+    </div>
+</div></body>
+</html>

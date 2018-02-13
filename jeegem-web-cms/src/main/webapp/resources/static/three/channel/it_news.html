@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>youngcms-免费的JAVA CMS-内容管理系统-IT资讯</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.png" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				       <li><a href="http://www.51opencms.com/admin/index" target="_black">管理平台</a></li>
+					   <li><a href="/channel/about">联系我们</a>
+				       </li>
+					   <li><a href="/channel/message">在线留言</a>
+				       </li>
+				       <li><a href="https://git.oschina.net/fumiao/opencms_51opencms" target="_black">源码下载</a></li>
+					   <li><a href="/channel/news">新闻资讯</a>
+						        <ul>
+										 <li><a href="/channel/it_news">IT资讯</a></li>
+										 <li><a href="/channel/sys_news">系统介绍</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/photo">精彩图库</a>
+						        <ul>
+										 <li><a href="/channel/yule">娱乐图集</a></li>
+										 <li><a href="/channel/zuguo">祖国之美</a></li>
+										 <li><a href="/channel/wenhua">文化校园</a></li>
+										 <li><a href="/channel/fouce">焦点图片</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/course">技术分享</a>
+						        <ul>
+										 <li><a href="/channel/basic">基础语言</a></li>
+										 <li><a href="/channel/design">设计创作</a></li>
+										 <li><a href="/channel/databases">数据库</a></li>
+										 <li><a href="/channel/operation">系统运维</a></li>
+										 <li><a href="/channel/front">前端开发</a></li>
+										 <li><a href="/channel/server">后端开发</a></li>
+										 <li><a href="/channel/app">移动开发</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/index">网站首页</a>
+				       </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			 <div class="conbox">
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265113280.jpg" width="1000" height="355" /></a></div>
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265122606.jpg" width="1000" height="355" /></a></div>
+			</div>
+			<div class="switcher">
+					         <a href="#" class="cur">1</a>
+					         <a href="#">2</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="left">
+        	<div class="a03">
+            	<div class="info">资讯类型</div>
+                    <div class="content">
+                   		<ul>
+						                <li><a style="color:red;" href="/channel/it_news">IT资讯</a></li>
+						                <li><a href="/channel/sys_news">系统介绍</a></li>
+                        </ul>
+                   </div>
+            </div>
+        </div>
+        <div class="right">
+        	<div class="new">
+            	<div class="info">
+                	<div class="title">IT资讯</div>
+                </div>
+                <div class="content1">
+                
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2703.html">最高法关于深化司法公开促进司法公正情况报告-搜狐新闻</a></h2>
+	                        <p>最高人民法院关于深化司法公开、促进司法公正情况的报告――2016年11月5日在第十二届全国人民代表大会常务委员会第二十四次会议上最高人民法院院长周强全国人民代表</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2704.html">党报再谈楼市：政策要让炒房者知难而退-搜狐新闻</a></h2>
+	                        <p>“房子是用来住的、不是用来炒的。”最近一段时间里，中央经济工作会议对中国房地产市场的这个最新定位迅速成为了海内外各界广泛讨论的话题。分析人士指出，今年以来，中国</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2705.html">余旭父母赶到天津：执意睡在女儿床上 一夜未眠-搜狐新闻</a></h2>
+	                        <p>余旭曾说过：“我喜欢蓝天，我喜欢飞歼击机的感觉，那种感觉很自由、很酷。”（资料图片）川妹子余旭是我国首批歼击机女飞行员之一。（资料图片）《新闻联播》报道首位歼十</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2706.html">港媒：特朗普为博好感只象征性领取总统年薪一美元-搜狐新闻</a></h2>
+	                        <p>【环球网报道记者任梅子】香港东网11月14日报道称，刚赢得美国总统大选的特朗普接受CBS时事节目《60分钟时事杂志》访问时，开诚布公谈及自己的政见，也表达对各方</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2707.html">郭声琨会见香港特区政府代表团-搜狐新闻</a></h2>
+	                        <p>7月5日，国务委员、公安部部长郭声琨在北京会见了参加内地与香港通报机制磋商的香港特区政府律政司司长袁国强、保安局局长黎栋国等一行。国务委员、公安部部长郭声琨5日</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2708.html">习近平：摆脱贫困-搜狐新闻</a></h2>
+	                        <p>“40多年来，我先后在中国县、市、省、中央工作，扶贫始终是我工作的一个重要内容，我花的精力最多。”在2015减贫与发展高层论坛上，习近平满怀深情地说。摆脱贫困，</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2709.html">缅甸反华媒体大佬被捕 多次发布假消息抹黑中国-搜狐新闻</a></h2>
+	                        <p>【环球时报驻缅甸特约记者李司坤鲁同】11日下午，炒作高官“天价名表门”事件的缅甸《十一新闻》集团总裁丹图昂及总编吴伟漂因涉嫌诽谤，违反缅甸《电信法》，被捕入狱。</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2710.html">抽查千台无一合格！什么手机这么不让人放心？-搜狐新闻</a></h2>
+	                        <p>近几年，在智能手机功能日益强大并逐渐普及的同时，以音量大、字体大、操作简便以及售价低廉为卖点的老人手机也出现在市场，深受老年群体的喜爱。但是这种功能相对单一的产</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2711.html">台湾高中生扮纳粹事件持续延烧 涉事学校校长辞职-搜狐新闻</a></h2>
+	                        <p>中新社台北12月25日电台湾新竹市光复高中学生在校庆时扮纳粹事件持续延烧。该校校长程晓铭25日宣布辞职，以示负责。新竹市光复高中23日举办校庆活动时，竟有一班高</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2712.html">警方打掉编造散布系列“舆情员”网络谣言团伙-搜狐新闻</a></h2>
+	                        <p>图片来源：@共青团中央图片来源：@共青团中央炮制所谓《舆情员津贴发放表》，自导自演所谓“舆情员北戴河会议”并编造散布“内部会议录音”…&amp;helli</p>
+	                    </div>
+                
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+        </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div  class="bottom">
+		<ul>
+			 
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://cms.publiccms.com' target='_blank' title='企业网站管理系统'>Publiccms</a></li>
+			
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://www.jc868.com' target='_blank' title='企业网站管理系统'>竞彩</a></li>
+			 
+		</ul>
+	</div>
+	<div class="bottom">
+		<div class="wenzi">
+			youngcms 版权所有 - <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260175299'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1260175299%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+			<br /> Copyright © 2016-2022 京ICP备12051136号
+		</div>
+	</div>
+</div>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
+<!-- UJian Button END -->
+</body>
+</html>

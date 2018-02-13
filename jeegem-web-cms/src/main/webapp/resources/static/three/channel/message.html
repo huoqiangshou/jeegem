@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>youngcms-免费的JAVA CMS-内容管理系统-在线留言</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/message.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	
+	$(".showbox").click(function(){
+		$("#TB_overlayBG").css({
+			display:"block",height:$(document).height()
+		});
+		$(".box").css({
+			left:($("body").width()-$(".box").width())/2-20+"px",
+			top:($(window).height()-$(".box").height())/2+$(window).scrollTop()+"px",
+			display:"block"
+		});
+	});
+	
+	$(".close").click(function(){
+		$("#TB_overlayBG").css("display","none");
+		$(".box ").css("display","none");
+	});
+	
+})
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.png" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				       <li><a href="http://www.51opencms.com/admin/index" target="_black">管理平台</a></li>
+					   <li><a href="/channel/about">联系我们</a>
+				       </li>
+					   <li><a href="/channel/message">在线留言</a>
+				       </li>
+				       <li><a href="https://git.oschina.net/fumiao/opencms_51opencms" target="_black">源码下载</a></li>
+					   <li><a href="/channel/news">新闻资讯</a>
+						        <ul>
+										 <li><a href="/channel/it_news">IT资讯</a></li>
+										 <li><a href="/channel/sys_news">系统介绍</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/photo">精彩图库</a>
+						        <ul>
+										 <li><a href="/channel/yule">娱乐图集</a></li>
+										 <li><a href="/channel/zuguo">祖国之美</a></li>
+										 <li><a href="/channel/wenhua">文化校园</a></li>
+										 <li><a href="/channel/fouce">焦点图片</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/course">技术分享</a>
+						        <ul>
+										 <li><a href="/channel/basic">基础语言</a></li>
+										 <li><a href="/channel/design">设计创作</a></li>
+										 <li><a href="/channel/databases">数据库</a></li>
+										 <li><a href="/channel/operation">系统运维</a></li>
+										 <li><a href="/channel/front">前端开发</a></li>
+										 <li><a href="/channel/server">后端开发</a></li>
+										 <li><a href="/channel/app">移动开发</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/index">网站首页</a>
+				       </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script>
+	<div id="TB_overlayBG"></div>
+	<div class="box" style="display:none">
+		<h2>网站登录<a href="#" class="close">关闭</a></h2>
+		<div class="mainlist">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="6%">&nbsp;</td>
+                <td width="21%" align="right" style="color:#000; font-size:14px; line-height:50px; line-height:50px;">用户名\邮箱：</td>
+                <td width="67%"><input type="text" name="textfield" id="textfield" / class="yanse"></td>
+                <td width="6%">&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td align="right" style="color:#000; font-size:14px; line-height:50px; line-height:50px;">密 码：</td>
+                <td>
+                <input type="text" name="textfield2" id="textfield2" /class="yanse"></td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td><input type="checkbox" name="checkbox" id="checkbox" />
+                  自动登录</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td><table width="205" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="41"><div class="login"><a href="/channel/register">登录</a></div></td>
+                    <td width="10">&nbsp;</td>
+                    <td width="69"><a href="/channel/register" style="color:#999">忘记密码</a></td>
+                    <td width="14" align="center" style="color:#999">|</td>
+                    <td width="47"><a href="/channel/register" style="color:#999">注册</a></td>
+                    <td width="17">&nbsp;</td>
+                  </tr>
+                </table></td>
+                <td>&nbsp;</td>
+              </tr>
+                            <tr>
+                <td>&nbsp;</td>
+                <td><label for="checkbox"></label></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+
+		</div>
+	</div>
+    
+    
+    
+ <div class="mian" style="margin-top: 80px;">
+	<div class="matter">
+    	<div class="info">您现在的位置：<a href="#"> 首页</a>> 留言板</div>
+        <div class="content">你可以<a href="/channel/register">注册</a>一个帐号，并以此<a href="/channel/register">登录</a>，随时发表留言，与大家交流。</div>
+        <div class="content2">
+             	<div class="inputLong"><textarea name="" cols="" rows=""></textarea></div>
+                <div class="commentFunc">还可以输入 2000 个字符 &nbsp;&nbsp;<a href="#" href="javascript:void(0);" class="showbox"><img src="/static/three/images/pj.jpg" width="89" height="27" /></a></div>
+             </div>
+      <div class="liuyan">
+        	<div class="title"><a href="#">留言（18789）</a></div>
+            <div class="recListS borderTop">
+     	<ul>
+     		
+         	<li>
+                 <div class="layout recListLeft f14">
+                 	<a class="fLeft" target="_blank" href="#">
+              		<img width="48" height="48" alt="love" src="http://image.zcool.com.cn/avatar/s_1noavatar.gif">
+              	</a>
+                     <div class="recDes">
+						<div class="vm bold c999">
+	                   		<p class="rightFloor"><span class="cf90" style=" color:#ffb900;">1F</span></p>
+	                   		<a class="c4095ce" target="_blank" href="#">水玩</a>	
+	                   		<span>2013-1-5</span>
+	                   	</div>
+                       <p class="recBox">能给我一份吗？1924828707@qq.com<br>小菜鸟在这里拜谢了！能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？能给我一份吗？</p>
+                       <div class="mblFunc mt10 f12 downWh">
+                        <a href="#" style=" color:#7f7f7f;">
+                        	<img src="http://static.zcool.com.cn/v1.0.8/images/info.png" style="vertical-align:middle;"><span>举报</span>
+                        </a>               
+                        <a  style="color:#4095ce" href="#">回复</a>|
+                        <a  style="color:#4095ce" href="#">赞同</a><span>(0)</span>
+                       </div>
+                     </div>
+                 </div>
+             </li> 
+         </ul>
+      </div>
+      <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+        </div>
+   </div>
+ </div>
+<div class="bottomwrap">
+	<div  class="bottom">
+		<ul>
+			 
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://cms.publiccms.com' target='_blank' title='企业网站管理系统'>Publiccms</a></li>
+			
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://www.jc868.com' target='_blank' title='企业网站管理系统'>竞彩</a></li>
+			 
+		</ul>
+	</div>
+	<div class="bottom">
+		<div class="wenzi">
+			youngcms 版权所有 - <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260175299'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1260175299%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+			<br /> Copyright © 2016-2022 京ICP备12051136号
+		</div>
+	</div>
+</div>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
+<!-- UJian Button END -->
+</body>
+</html>

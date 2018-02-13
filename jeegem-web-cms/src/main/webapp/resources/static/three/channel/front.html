@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>youngcms-免费的JAVA CMS-内容管理系统-前端开发</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.png" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				       <li><a href="http://www.51opencms.com/admin/index" target="_black">管理平台</a></li>
+					   <li><a href="/channel/about">联系我们</a>
+				       </li>
+					   <li><a href="/channel/message">在线留言</a>
+				       </li>
+				       <li><a href="https://git.oschina.net/fumiao/opencms_51opencms" target="_black">源码下载</a></li>
+					   <li><a href="/channel/news">新闻资讯</a>
+						        <ul>
+										 <li><a href="/channel/it_news">IT资讯</a></li>
+										 <li><a href="/channel/sys_news">系统介绍</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/photo">精彩图库</a>
+						        <ul>
+										 <li><a href="/channel/yule">娱乐图集</a></li>
+										 <li><a href="/channel/zuguo">祖国之美</a></li>
+										 <li><a href="/channel/wenhua">文化校园</a></li>
+										 <li><a href="/channel/fouce">焦点图片</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/course">技术分享</a>
+						        <ul>
+										 <li><a href="/channel/basic">基础语言</a></li>
+										 <li><a href="/channel/design">设计创作</a></li>
+										 <li><a href="/channel/databases">数据库</a></li>
+										 <li><a href="/channel/operation">系统运维</a></li>
+										 <li><a href="/channel/front">前端开发</a></li>
+										 <li><a href="/channel/server">后端开发</a></li>
+										 <li><a href="/channel/app">移动开发</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/index">网站首页</a>
+				       </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			 <div class="conbox">
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265113280.jpg" width="1000" height="355" /></a></div>
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265122606.jpg" width="1000" height="355" /></a></div>
+			</div>
+			<div class="switcher">
+					         <a href="#" class="cur">1</a>
+					         <a href="#">2</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="choose">
+                	<div class="select1">
+                    	<ul>
+						                <li><a href="/channel/basic">基础语言</a></li>
+						                <li><a href="/channel/design">设计创作</a></li>
+						                <li><a href="/channel/databases">数据库</a></li>
+						                <li><a href="/channel/operation">系统运维</a></li>
+						                <li class="se1"><a href="/channel/front">前端开发</a></li>
+						                <li><a href="/channel/server">后端开发</a></li>
+						                <li><a href="/channel/app">移动开发</a></li>
+                        </ul>
+                    </div>
+         </div>
+        <div class="new1">
+                <div class="content">
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2598.html">河南一法院副院长敲诈两名市(县)委书记 私吞罚金-搜狐新闻</a></h2>
+		                        <p>通过发送威胁短信、寄送控告信、到北京上访等手段，河南舞钢市法院副院长伙同他人对时任舞钢市市委书记祝某，舞阳县县委书记秦某、县长刘某等政府官员实施敲诈勒索，金额达</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2592.html">明知违法 甘愿“身体被掏空”？-搜狐新闻</a></h2>
+		                        <p>2016年9月7日搜狐搜天下《明说吧》视频节目内容介绍：【今日深评】“申请成为公司的奋进者，自愿放弃所有带薪年休假，自愿进行非指令性加班、自愿每天工作12个小时</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2593.html">深圳拟赋予4万辅警执法权 并调整薪酬标准-搜狐新闻</a></h2>
+		                        <p>羊城晚报讯记者林园报道：目前，深圳公安机关共有临聘人员约4万人，在警力不足的矛盾下，这些辅警的作用还没有完全发挥。辅警存在法律地位不明、职责权限不清、职业保障偏</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2594.html">韩媒：美韩首次宣布对朝“延伸威慑”意味什么-搜狐新闻</a></h2>
+		                        <p>奥巴马似乎憋坏了，离开杭州后，到老挝大谈南海、东海和萨德。综合韩媒9月7日报道，正在老挝万象出席老挝东盟领导人会议的韩国总统朴槿惠与美国总统奥巴马举行会谈，并于</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2595.html">郭声琨会见香港特区政府代表团-搜狐新闻</a></h2>
+		                        <p>7月5日，国务委员、公安部部长郭声琨在北京会见了参加内地与香港通报机制磋商的香港特区政府律政司司长袁国强、保安局局长黎栋国等一行。国务委员、公安部部长郭声琨5日</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2596.html">习近平出席G20领导人杭州峰会系列活动纪实-搜狐新闻</a></h2>
+		                        <p>新华社杭州9月6日电题：弄潮儿向涛头立――习近平主席出席二十国集团领导人杭州峰会系列活动纪实新华社记者秦杰、霍小光、李忠发、熊争艳初秋九月，钱江潮起。世界的目光</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2597.html">辽宁营口发生劫持运钞车事件 3500万元现金被劫-搜狐新闻</a></h2>
+		                        <p>新华社沈阳9月7日电（记者孙仁斌、于力）记者7日傍晚从辽宁省营口市委宣传部获悉，当天下午，营口市下辖的大石桥市发生一起运钞车被劫持事件。据了解，当地中国农业银行</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2585.html">第二批公办养老机构改革试点展开 公建民营为重点-搜狐新闻</a></h2>
+		                        <p>●扩大公建民营范围●丰富公建民营实施方式●发挥公建民营机构作用●提升公建民营规范化水平●加强公建民营机构监督管理●完善公建民营配套措施●稳步推进公办养老机构转企</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2586.html">郭德纲曹云金 “互撕”伤了谁？-搜狐新闻</a></h2>
+		                        <p>2016年9月6日搜狐搜天下《明说吧》视频节目内容介绍：【今日深评】这两天，在郭德纲日前发布德云社家谱，将何云伟、曹云金“两位云字辈徒弟”逐出师门后，当事人之一</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2587.html">山东省工商局原局长牛启忠受贿案宣判 获刑五年-搜狐新闻</a></h2>
+		                        <p>9月7日，东营市中级人民法院公开宣判山东省工商行政管理局原党组书记、局长牛启忠受贿案，认定被告人牛启忠犯受贿罪，判处有期徒刑五年，并处罚金人民币二十万元。法院经</p>
+		                    </div>
+	                    </div>
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div  class="bottom">
+		<ul>
+			 
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://cms.publiccms.com' target='_blank' title='企业网站管理系统'>Publiccms</a></li>
+			
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://www.jc868.com' target='_blank' title='企业网站管理系统'>竞彩</a></li>
+			 
+		</ul>
+	</div>
+	<div class="bottom">
+		<div class="wenzi">
+			youngcms 版权所有 - <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260175299'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1260175299%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+			<br /> Copyright © 2016-2022 京ICP备12051136号
+		</div>
+	</div>
+</div>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
+<!-- UJian Button END -->
+</body>
+</html>

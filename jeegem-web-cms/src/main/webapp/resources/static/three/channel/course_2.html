@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>news</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.jpg" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				     <li><a href="/channel/index">网站首页</a>
+				     </li>
+				     <li><a href="/channel/course">学习交流</a>
+					        <ul>
+									<li><a href="/channel/course_1">编程开发</a></li>
+									<li><a href="/channel/course_2">设计创作</a></li>
+									<li><a href="/channel/course_3">数据库</a></li>
+									<li><a href="/channel/course_4">系统运维</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/photo">精彩图库</a>
+					        <ul>
+									<li><a href="/channel/yule">娱乐图集</a></li>
+									<li><a href="/channel/zuguo">祖国之美</a></li>
+									<li><a href="/channel/wenhua">文化校园</a></li>
+									<li><a href="/channel/fouce">焦点图片</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/download">源码下载</a>
+				     </li>
+				     <li><a href="/channel/video">新闻动态</a>
+					        <ul>
+									<li><a href="/channel/vedio">IT资讯</a></li>
+									<li><a href="/channel/vedio">系统介绍</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/message">在线留言</a>
+				     </li>
+				     <li><a href="/channel/doc">论坛</a>
+				     </li>
+				     <li><a href="/channel/about">联系我们</a>
+				     </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			<div class="conbox">
+				<div><a href="#" title=""><img src="/static/three/tp/ddf.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img src="/static/three/tp/dde.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-02-22/f4fe9dd611bd459c0244159163109bc4.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-13/323ce4b13f72648e096bd1a86cba762a.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-17/9fae30738c94fb8e47dd2ba3e6003290.jpg"></a></div>
+			</div>
+
+			<div class="switcher">
+				<a href="#" class="cur">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="left">
+        	<div class="a03">
+            	<div class="info">新闻分类</div>
+                    <div class="content">
+                   		<ul>
+						       <li><a href="/channel/course_1">编程开发</a></li>
+						       <li><a href="/channel/course_2">设计创作</a></li>
+						       <li><a href="/channel/course_3">数据库</a></li>
+						       <li><a href="/channel/course_4">系统运维</a></li>
+                        </ul>
+                   </div>
+            </div>
+            <div class="b01">
+           	  <div class="info">客服服务</div>
+                <div class="content1">
+                <span class="red">尊贵的客户</span>，您好！欢迎进入伯爵婚纱摄
+                影客户服务中心！这里将为您展示新人的
+                幸福瞬间。与此同时，并将最美好的祝福
+                送给每对新人。<br />
+                婚纱摄影客户咨询热线：0592-021514155
+                 太阳城欢迎广大追求美的新人前来咨询我
+                们将留给您不一样的记忆。<br />
+                了解我们，从这里开始 | 摄影常见问题解
+                答 | 服务须知：拍摄当天 | 服务须知：拍
+                摄前准备 | 高端定制服务服务流程 | 高端
+                定制服务服务说明<br />
+                郑重声明：伯爵客户服务频道所展示的作品
+                均来自真实客人定制照片，并经由客户本人
+                同意在唯一官方网站www.stbjhs.com进行发
+                表。 </div>
+            </div>
+        </div>
+        <div class="right">
+        	<div class="new">
+            	<div class="info">
+                	<div class="title"></div>
+                </div>
+                <div class="content">
+                
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2560.html">三星新1代TabPro S曝光：搭完整版Win10-搜狐数码</a></h2>
+	                        <p>据外媒Sammobile报道，三星二合一平板Galaxy&nbsp;Tab&nbsp;Pro&nbsp;S上市之后，一直被誉为微软Surface&nbsp;Pr</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2561.html">周涛董卿朱迅李思思 探秘央视主播们的化妆间-搜狐传媒</a></h2>
+	                        <p>舞台上光彩照人的主持人们在化妆间的样子，你见过吗？幕后的精心准备，只为在观众面前展现最好的样子。央视总编室微信公众号“cctv看点”日前贴出一组照片，揭秘化妆间</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2547.html">中国奶业D20峰会聚力供给侧改革 飞鹤点燃升级新引擎-搜狐新闻</a></h2>
+	                        <p>为振兴中国奶业，展示奶业发展和质量安全监管成效，树立奶业企业形象，提振消费信心，8月26日，“2016中国奶业20强（D20）峰会”在石家庄举行。飞鹤、君乐宝、</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2548.html">白银案刑警遗孀哭祭：你追了20年的人终于抓到了-搜狐新闻</a></h2>
+	                        <p>王福芬拿出丈夫生前的警官证，抚摸着泛黄的照片说：“老张，这回你再也不用惦记了。”退休刑警回忆白银杀人案28年侦破过程高承勇在8月27日落网的消息传出后，不大的白</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2549.html">开国上将刘亚楼旧居遭强拆 11名领导干部被追责-搜狐新闻</a></h2>
+	                        <p>2016年8月27日，7处被人为破坏的不可移动文物实施原址重建。视觉中国图哈尔滨廉政网8月30日消息，2015年底，双城区政府决定征收棚户区改造工程项目地块，刘</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2550.html">韩驻华大使盛赞中国主办G20峰会 必将取得显著成果-搜狐新闻</a></h2>
+	                        <p>2016年8月31日，G20峰会西湖灯光秀，杭州南山路人流爆满，在夜幕下交织成绚丽多彩的城市景观。徐瑞康/东方IC韩国驻华大使盛赞中国主办G20峰会必将取得显著</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2551.html">全国近两成企业服务质量不合格 服务热线形同虚设-搜狐新闻</a></h2>
+	                        <p>新京报快讯(记者李婷婷)今天是9月“质量月”的第一天，今年以来国内企业的质量服务情况如何?今日下午，由中国质量万里行召开的第二届中国服务大会上，发布了2016年</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2552.html">中国驻吉尔吉斯使馆附近爆炸-搜狐新闻</a></h2>
+	                        <p>搜狐新闻直播进行中：手机用户请点击这里</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2553.html">中国乒乓球的大魔王们合体啦-搜狐新闻</a></h2>
+	                        <p>号外号外，中国乒乓球的大魔王们合体了！新组合名字居然叫“张怡宁”。张怡宁、张继科、丁宁同台最近，里约奥运会中国奥运精英代表团在香港访问，但更像是娘家团来香港看女</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2554.html">江苏拟立法应对校园欺凌 专家建议中学配校警-搜狐新闻</a></h2>
+	                        <p>近年来校园欺凌、校园暴力事件不时曝出，这一问题备受关注，然而迟迟得不到解决。昨天，《江苏省预防未成年人犯罪条例》立法研讨会在宁举行。现代快报记者从会上获悉，《江</p>
+	                    </div>
+                
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+        </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div class="bottom">
+    <div class="wenzi">何拉拉 设计制作 伯爵婚纱摄影 版权所有 - 网站统计<br />
+Copyright © 2013 STBJHS PHOTOGRAPHY AGENCY,SUPPORT BY STBJHS ad-agency CO.,Ltd.</div>
+    </div>
+</div></body>
+</html>

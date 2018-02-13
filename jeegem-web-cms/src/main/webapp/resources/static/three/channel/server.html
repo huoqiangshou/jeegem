@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>youngcms-免费的JAVA CMS-内容管理系统-后端开发</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.png" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				       <li><a href="http://www.51opencms.com/admin/index" target="_black">管理平台</a></li>
+					   <li><a href="/channel/about">联系我们</a>
+				       </li>
+					   <li><a href="/channel/message">在线留言</a>
+				       </li>
+				       <li><a href="https://git.oschina.net/fumiao/opencms_51opencms" target="_black">源码下载</a></li>
+					   <li><a href="/channel/news">新闻资讯</a>
+						        <ul>
+										 <li><a href="/channel/it_news">IT资讯</a></li>
+										 <li><a href="/channel/sys_news">系统介绍</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/photo">精彩图库</a>
+						        <ul>
+										 <li><a href="/channel/yule">娱乐图集</a></li>
+										 <li><a href="/channel/zuguo">祖国之美</a></li>
+										 <li><a href="/channel/wenhua">文化校园</a></li>
+										 <li><a href="/channel/fouce">焦点图片</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/course">技术分享</a>
+						        <ul>
+										 <li><a href="/channel/basic">基础语言</a></li>
+										 <li><a href="/channel/design">设计创作</a></li>
+										 <li><a href="/channel/databases">数据库</a></li>
+										 <li><a href="/channel/operation">系统运维</a></li>
+										 <li><a href="/channel/front">前端开发</a></li>
+										 <li><a href="/channel/server">后端开发</a></li>
+										 <li><a href="/channel/app">移动开发</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/index">网站首页</a>
+				       </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			 <div class="conbox">
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265113280.jpg" width="1000" height="355" /></a></div>
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265122606.jpg" width="1000" height="355" /></a></div>
+			</div>
+			<div class="switcher">
+					         <a href="#" class="cur">1</a>
+					         <a href="#">2</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="choose">
+                	<div class="select1">
+                    	<ul>
+						                <li><a href="/channel/basic">基础语言</a></li>
+						                <li><a href="/channel/design">设计创作</a></li>
+						                <li><a href="/channel/databases">数据库</a></li>
+						                <li><a href="/channel/operation">系统运维</a></li>
+						                <li><a href="/channel/front">前端开发</a></li>
+						                <li class="se1"><a href="/channel/server">后端开发</a></li>
+						                <li><a href="/channel/app">移动开发</a></li>
+                        </ul>
+                    </div>
+         </div>
+        <div class="new1">
+                <div class="content">
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="http://7u2hth.com1.z0.glb.clouddn.com/1474295954339.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2609.html">内地警方向香港移交重大抢劫杀人犯罪嫌疑人-搜狐新闻</a></h2>
+		                        <p>28日下午4时许，在深圳皇岗口岸，应香港警方请求在内地被抓获的香港“3・14”重大抢劫杀人案犯罪嫌疑人揭冠国，由广东警方正式移交给香港警方押解回港。今年3月17</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2610.html">营口持枪抢劫运钞车案 嫌犯在逃中-搜狐新闻</a></h2>
+		                        <p>搜狐新闻直播进行中：手机用户请点击这里</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2611.html">福克斯前CEO性骚扰女主播 赔偿1.33亿和解-搜狐新闻</a></h2>
+		                        <p>&nbsp;卡尔森(左)投诉CEO艾尔斯(右)性骚扰。文丨胡然美国时间9月6日，76岁的福克斯前CEO罗杰・艾尔斯性骚扰女主播卡尔森(GretchenCarls</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2612.html">中纪委网站这三年：让百姓感知党中央反腐决心-搜狐新闻</a></h2>
+		                        <p>“每天上中央纪委网站看一看，已经成了我的习惯。”一位网友这样说。反腐倡廉，百姓关心，社会关注。2013年9月2日，中央纪委监察部网站正式开通上线。网站每天点击量</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2613.html">辽宁抚顺市(矿震)发生2.8级地震 震源深度0千米-搜狐新闻</a></h2>
+		                        <p>中国地震台网正式测定：9月8日4时23分在辽宁抚顺市顺城区（矿震）（北纬41.87度，东经123.95度）发生2.8级地震，震源深度0千米。</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2603.html">国家质检总局就寨卡病毒病疫情发布旅行警示-搜狐新闻</a></h2>
+		                        <p>中国证券网讯记者9月8日获悉，9月7日，针对新加坡等国家/地区寨卡病毒病疫情，国家质检总局发布88号公告，对以上国家和地区进行旅行警示，要求出入境检验检疫机构加</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2604.html">普京专车发生交通事故 司机当场死亡(图)-搜狐新闻</a></h2>
+		                        <p>据俄罗斯媒体透露，近日，莫斯科市中心发生一起车祸事故，一辆黑色宝马与奔驰车对撞，司机当场死亡。涉事宝马车为俄罗斯总统普京的专车，当时普京并不在车上。事发地点是莫</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2605.html">漯河原市委委员秦建忠被双开 被指与黑老大关系密切-搜狐新闻</a></h2>
+		                        <p>猛犸新闻客户端9月8日消息，据漯河市纪委消息：依据《中国共产党纪律处分条例》等有关规定，近日，经漯河市纪委常委会议研究并报市委常委会议决定、省纪委常委会议讨论并</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2606.html">G20峰会倒计时 杭州已成总统专机最多的城市-搜狐新闻</a></h2>
+		                        <p>碧波荡漾的西子湖畔，平阔奔涌的钱塘江边，二十国集团（G20）领导人第十一次峰会的大幕即将拉开。人文炽盛的江南古城――杭州，这几日敞开胸怀迎来四方宾客。伴随着一架</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2607.html">公安部长就电信诈骗表态：决不能让悲剧屡屡发生-搜狐新闻</a></h2>
+		                        <p>9月6日，国务委员、公安部部长郭声琨在上海市反电信网络诈骗中心平台调研。原标题：郭声琨在上海调研反电信网络诈骗工作时强调有效防范精准打击坚决遏制电信网络诈骗犯罪</p>
+		                    </div>
+	                    </div>
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div  class="bottom">
+		<ul>
+			 
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://cms.publiccms.com' target='_blank' title='企业网站管理系统'>Publiccms</a></li>
+			
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://www.jc868.com' target='_blank' title='企业网站管理系统'>竞彩</a></li>
+			 
+		</ul>
+	</div>
+	<div class="bottom">
+		<div class="wenzi">
+			youngcms 版权所有 - <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260175299'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1260175299%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+			<br /> Copyright © 2016-2022 京ICP备12051136号
+		</div>
+	</div>
+</div>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
+<!-- UJian Button END -->
+</body>
+</html>

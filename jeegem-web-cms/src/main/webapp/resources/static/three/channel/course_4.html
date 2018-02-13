@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>news</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.jpg" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				     <li><a href="/channel/index">网站首页</a>
+				     </li>
+				     <li><a href="/channel/course">学习交流</a>
+					        <ul>
+									<li><a href="/channel/course_1">编程开发</a></li>
+									<li><a href="/channel/course_2">设计创作</a></li>
+									<li><a href="/channel/course_3">数据库</a></li>
+									<li><a href="/channel/course_4">系统运维</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/photo">精彩图库</a>
+					        <ul>
+									<li><a href="/channel/yule">娱乐图集</a></li>
+									<li><a href="/channel/zuguo">祖国之美</a></li>
+									<li><a href="/channel/wenhua">文化校园</a></li>
+									<li><a href="/channel/fouce">焦点图片</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/download">源码下载</a>
+				     </li>
+				     <li><a href="/channel/video">新闻动态</a>
+					        <ul>
+									<li><a href="/channel/vedio">IT资讯</a></li>
+									<li><a href="/channel/vedio">系统介绍</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/message">在线留言</a>
+				     </li>
+				     <li><a href="/channel/doc">论坛</a>
+				     </li>
+				     <li><a href="/channel/about">联系我们</a>
+				     </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			<div class="conbox">
+				<div><a href="#" title=""><img src="/static/three/tp/ddf.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img src="/static/three/tp/dde.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-02-22/f4fe9dd611bd459c0244159163109bc4.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-13/323ce4b13f72648e096bd1a86cba762a.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-17/9fae30738c94fb8e47dd2ba3e6003290.jpg"></a></div>
+			</div>
+
+			<div class="switcher">
+				<a href="#" class="cur">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="left">
+        	<div class="a03">
+            	<div class="info">新闻分类</div>
+                    <div class="content">
+                   		<ul>
+						       <li><a href="/channel/course_1">编程开发</a></li>
+						       <li><a href="/channel/course_2">设计创作</a></li>
+						       <li><a href="/channel/course_3">数据库</a></li>
+						       <li><a href="/channel/course_4">系统运维</a></li>
+                        </ul>
+                   </div>
+            </div>
+            <div class="b01">
+           	  <div class="info">客服服务</div>
+                <div class="content1">
+                <span class="red">尊贵的客户</span>，您好！欢迎进入伯爵婚纱摄
+                影客户服务中心！这里将为您展示新人的
+                幸福瞬间。与此同时，并将最美好的祝福
+                送给每对新人。<br />
+                婚纱摄影客户咨询热线：0592-021514155
+                 太阳城欢迎广大追求美的新人前来咨询我
+                们将留给您不一样的记忆。<br />
+                了解我们，从这里开始 | 摄影常见问题解
+                答 | 服务须知：拍摄当天 | 服务须知：拍
+                摄前准备 | 高端定制服务服务流程 | 高端
+                定制服务服务说明<br />
+                郑重声明：伯爵客户服务频道所展示的作品
+                均来自真实客人定制照片，并经由客户本人
+                同意在唯一官方网站www.stbjhs.com进行发
+                表。 </div>
+            </div>
+        </div>
+        <div class="right">
+        	<div class="new">
+            	<div class="info">
+                	<div class="title"></div>
+                </div>
+                <div class="content">
+                
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2392.html">5名男子为找刺激轮奸路人 其中2人未成年-搜狐新闻</a></h2>
+	                        <p>视频截图视频截图视频截图视频截图视频截图今年7月12日深夜至13日，汕头岐山派出所连续接到五宗市民报警，称他们被人殴打、砸车，有一名女子甚至还被轮奸。警方迅速出</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2393.html">崔永元江一燕"父女档"做客《明说奥运》-搜狐新闻</a></h2>
+	                        <p>崔永元江一燕" 父女档"做客《明说奥运》名嘴小崔也来说奥运，更有文艺女神组"父女档"联袂出席。8月18日晚，崔永元、江一燕做客搜狐《明说奥运》直播间，与网友在线互</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2394.html">政府涉企信息将归集公示 省政府对公示工作负责-搜狐新闻</a></h2>
+	                        <p>据新华社电近日，国务院办公厅发布《政府部门涉企信息统一归集公示工作实施方案》。《方案》明确，要将目前分散在各地区、各有关部门应当公示的政府涉企信息统一归集到国家</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2395.html">网曝村民因送不作为锦旗被拘 警方：涉非法游行-搜狐新闻</a></h2>
+	                        <p>警方出具的拘留通知书显示，冯勇军涉嫌非法游行、示威被刑事拘留。家属供图四川绵阳三台县百顷镇人冯勇军被曝因给三台县百顷镇党委政府、三台县环保局送“不作为”锦旗被刑</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2396.html">习近平总书记主持召开党的新闻舆论工作座谈会-搜狐新闻</a></h2>
+	                        <p>“与党和人民同呼吸，与时代共进步”――习近平总书记主持召开党的新闻舆论工作座谈会并到人民日报社、新华社、中央电视台调研侧记新华社北京2月20日电（记者霍小光、李</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2397.html">人社部最新思路：用住房公积金补充养老保险-搜狐新闻</a></h2>
+	                        <p>近日，人社部社会保险事业管理中心发布《中国社会保险发展年度报告2015》显示，城镇职工与城乡居民两项养老保险累计结余近4万亿元，但职工养老保险抚养比已下降至“不</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2398.html">蔡英文死活不登太平岛 到底答应了美国什么？-搜狐新闻</a></h2>
+	                        <p>中国台湾网8月19日讯在所谓的“南海仲裁”公布一个多月、台湾护权渔民登上南沙太平岛三周，以及舆论的再三质疑催促下，蔡英文执政当局总算拖拖拉拉地派出“内政部长”叶</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2399.html">内地警方向香港移交重大抢劫杀人犯罪嫌疑人-搜狐新闻</a></h2>
+	                        <p>28日下午4时许，在深圳皇岗口岸，应香港警方请求在内地被抓获的香港“3・14”重大抢劫杀人案犯罪嫌疑人揭冠国，由广东警方正式移交给香港警方押解回港。今年3月17</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2400.html">习近平总书记来安徽考察纪实-搜狐新闻</a></h2>
+	                        <p>4月24日下午，中共中央总书记、国家主席、中央军委主席习近平在六安市金寨县花石乡大湾村村民陈泽申家同村民们亲切交流。记者徐国康摄习近平指出，现在，安徽发展已经站</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2401.html">网曝韩国空姐打人 扇老人巴掌拒绝道歉-搜狐新闻</a></h2>
+	                        <p>网曝韩国空姐打人近日，有网友曝光韩国空姐打人，而且被打者是一名老人。据现场视频显示，几名空姐堵在机舱，在扇老人巴掌后，立即被家属和导游围起来。现场声音杂乱，据文</p>
+	                    </div>
+                
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+        </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div class="bottom">
+    <div class="wenzi">何拉拉 设计制作 伯爵婚纱摄影 版权所有 - 网站统计<br />
+Copyright © 2013 STBJHS PHOTOGRAPHY AGENCY,SUPPORT BY STBJHS ad-agency CO.,Ltd.</div>
+    </div>
+</div></body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>youngcms-免费的JAVA CMS-内容管理系统-移动开发</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.png" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				       <li><a href="http://www.51opencms.com/admin/index" target="_black">管理平台</a></li>
+					   <li><a href="/channel/about">联系我们</a>
+				       </li>
+					   <li><a href="/channel/message">在线留言</a>
+				       </li>
+				       <li><a href="https://git.oschina.net/fumiao/opencms_51opencms" target="_black">源码下载</a></li>
+					   <li><a href="/channel/news">新闻资讯</a>
+						        <ul>
+										 <li><a href="/channel/it_news">IT资讯</a></li>
+										 <li><a href="/channel/sys_news">系统介绍</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/photo">精彩图库</a>
+						        <ul>
+										 <li><a href="/channel/yule">娱乐图集</a></li>
+										 <li><a href="/channel/zuguo">祖国之美</a></li>
+										 <li><a href="/channel/wenhua">文化校园</a></li>
+										 <li><a href="/channel/fouce">焦点图片</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/course">技术分享</a>
+						        <ul>
+										 <li><a href="/channel/basic">基础语言</a></li>
+										 <li><a href="/channel/design">设计创作</a></li>
+										 <li><a href="/channel/databases">数据库</a></li>
+										 <li><a href="/channel/operation">系统运维</a></li>
+										 <li><a href="/channel/front">前端开发</a></li>
+										 <li><a href="/channel/server">后端开发</a></li>
+										 <li><a href="/channel/app">移动开发</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/index">网站首页</a>
+				       </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			 <div class="conbox">
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265113280.jpg" width="1000" height="355" /></a></div>
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265122606.jpg" width="1000" height="355" /></a></div>
+			</div>
+			<div class="switcher">
+					         <a href="#" class="cur">1</a>
+					         <a href="#">2</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="choose">
+                	<div class="select1">
+                    	<ul>
+						                <li><a href="/channel/basic">基础语言</a></li>
+						                <li><a href="/channel/design">设计创作</a></li>
+						                <li><a href="/channel/databases">数据库</a></li>
+						                <li><a href="/channel/operation">系统运维</a></li>
+						                <li><a href="/channel/front">前端开发</a></li>
+						                <li><a href="/channel/server">后端开发</a></li>
+						                <li class="se1"><a href="/channel/app">移动开发</a></li>
+                        </ul>
+                    </div>
+         </div>
+        <div class="new1">
+                <div class="content">
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2620.html">这个中秋 传统味儿够足-搜狐新闻</a></h2>
+		                        <p>九月十五日，在广东省广州市文化公园，市民欣赏以“粤韵灯影共争辉”为主题的中秋灯会。新华社记者吴鲁摄但愿人长久，千里共婵娟。又是一年中秋时，经典诗词《水调歌头》吟</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2621.html">李克强美洲三国行哪些看点值得期待？-搜狐新闻</a></h2>
+		                        <p>应联合国秘书长潘基文、加拿大总理特鲁多、古巴国务委员会主席兼部长会议主席劳尔・卡斯特罗邀请，国务院总理李克强将于9月18日至28日赴纽约联合国总部出席第71届联</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2622.html">前瞻：李克强联大“首秀” 三大看点可期-搜狐新闻</a></h2>
+		                        <p>中新社北京9月16日电&nbsp;(记者马德林)中国国务院总理李克强将于近日赴纽约联合国总部出席第71届联合国大会系列高级别会议。据知，这是李克强总理首次在联合</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2623.html">浙江干部因台风“搀扶照”被免 事件正在调查中-搜狐新闻</a></h2>
+		                        <p>中新网温州9月16日电&nbsp;(记者李婷婷)受强台风影响，浙江省温州市泰顺县近日遭遇强降雨、受灾严重。在该县动员救灾期间，一张教育局一干部靠他人搀扶过淤泥的</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2615.html">骨骼清奇的菲律宾总统，到底是怎样一个人？-搜狐新闻</a></h2>
+		                        <p>菲律宾新任总统杜特尔特，谜一样的男子。因为他的画风确实不走寻常路。作为美国的军事盟国，杜特尔特看上去并不太买美国的账，不仅大骂美国驻菲大使是“伪娘炮”，而且还在</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2616.html">女儿在宿舍受气 父母来校“帮忙”殴打4名舍友-搜狐新闻</a></h2>
+		                        <p>华商报商洛讯（记者陈永辉）女儿与舍友发生矛盾，家长到学校帮娃“出头”，殴打了4名女生；被打女生家长闻讯赶来，双方发生冲突，一名家长被打骨折住院。这一幕就发生在商</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2617.html">7岁男童中秋夜被继母砍20余刀 刀刀致命(图)-搜狐新闻</a></h2>
+		                        <p>9月16日凌晨1点，记者接到报料称，有一7岁男童被其继母连砍20余刀，现在男童正在徐州仁慈医院抢救。记者连夜赶到徐州仁慈医院，确认了男童是被其继母用菜刀砍伤，致</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2618.html">李克强：各级政府官员要不断提高感知群众冷暖-搜狐新闻</a></h2>
+		                        <p>9月14日的国务院常务会上，李克强总理讲了一个“手机”的故事。“我这次出席东亚峰会时，看到一些国家的领导人，有的拿着3部手机，有的甚至有6部手机。他们在开会间隙</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2619.html">北京大部分地区现雷阵雨 气象台发雷电黄色预警-搜狐新闻</a></h2>
+		                        <p>北京市气象局官方微博截图中新网9月16日电&nbsp;据北京市气象局官方微博消息，市气象台9月16日19时30分发布雷电黄色预警信号，预计当前至16日23时本市</p>
+		                    </div>
+	                    </div>
+			           <div class="contentAll1">
+				           <div class="imgShow1">
+		                    	<img src="/static/three/tp/ddf.jpg" width="100%" height="100%" />
+		                    </div>
+					       <div class="description1">
+		                    	<h2><a href="/static/three/content/2614.html">中科院：霾污染影响粮食作物产量-搜狐新闻</a></h2>
+		                        <p>近年来，由于大气污染物的排放总量不断增加，导致环境空气质量日趋下降，空气污染越发严重，全国多个城市深受“霾伏”影响，这已经成为区域或全国性的环境问题，引起人们的</p>
+		                    </div>
+	                    </div>
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div  class="bottom">
+		<ul>
+			 
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://cms.publiccms.com' target='_blank' title='企业网站管理系统'>Publiccms</a></li>
+			
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://www.jc868.com' target='_blank' title='企业网站管理系统'>竞彩</a></li>
+			 
+		</ul>
+	</div>
+	<div class="bottom">
+		<div class="wenzi">
+			youngcms 版权所有 - <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260175299'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1260175299%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+			<br /> Copyright © 2016-2022 京ICP备12051136号
+		</div>
+	</div>
+</div>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
+<!-- UJian Button END -->
+</body>
+</html>

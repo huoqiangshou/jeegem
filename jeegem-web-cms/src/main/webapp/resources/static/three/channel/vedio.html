@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>openCms-免费的JAVA CMS-内容管理系统-系统介绍</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.png" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				     <li><a href="/channel/index">网站首页</a>
+				     </li>
+				     <li><a href="/channel/course">技术分享</a>
+					        <ul>
+									<li><a href="/channel/basic">基础语言</a></li>
+									<li><a href="/channel/design">设计创作</a></li>
+									<li><a href="/channel/databases">数据库</a></li>
+									<li><a href="/channel/operation">系统运维</a></li>
+									<li><a href="/channel/front">前端开发</a></li>
+									<li><a href="/channel/server">后端开发</a></li>
+									<li><a href="/channel/app">移动开发</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/photo">精彩图库</a>
+					        <ul>
+									<li><a href="/channel/yule">娱乐图集</a></li>
+									<li><a href="/channel/zuguo">祖国之美</a></li>
+									<li><a href="/channel/wenhua">文化校园</a></li>
+									<li><a href="/channel/fouce">焦点图片</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/download">源码下载</a>
+				     </li>
+				     <li><a href="/channel/video">新闻资讯</a>
+					        <ul>
+									<li><a href="/channel/it_news">IT资讯</a></li>
+									<li><a href="/channel/vedio">系统介绍</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/message">在线留言</a>
+				     </li>
+				     <li><a href="/channel/doc">论坛</a>
+				     </li>
+				     <li><a href="/channel/about">联系我们</a>
+				     </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			<div class="conbox">
+				<div><a href="#" title=""><img src="/static/three/tp/ddf.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img src="/static/three/tp/dde.jpg" width="1000" height="355" /></a></div>
+			</div>
+
+			<div class="switcher">
+				<a href="#" class="cur">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="left">
+        	<div class="a03">
+            	<div class="info">资讯分类</div>
+                    <div class="content">
+                   		<ul>
+						       <li><a href="/channel/it_news">IT资讯</a></li>
+						       <li><a href="/channel/vedio">系统介绍</a></li>
+                        </ul>
+                   </div>
+            </div>
+        </div>
+        <div class="right">
+        	<div class="new">
+            	<div class="info">
+                	<div class="title">系统介绍</div>
+                </div>
+                <div class="content">
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2517.html">上半年北上广深平均调薪率上海最低 没企业降薪-搜狐新闻</a></h2>
+	                        <p>最近四年，国内企业的整体调薪率一降再降。根据对全国近800家企业的调研，《2016中智第二季度人力资源市场关键指标观察》（下称“报告”）显示，2016年1-6月</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2518.html">河北“最牛女村支书”：带人冲入政府打记者泼毒药-搜狐新闻</a></h2>
+	                        <p>8月22日，河北定州市泉邱二村原村主任孟玲芬，以寻衅滋事、故意毁坏财物、职务侵占等七项罪名被定州市人民法院一审判处有期徒刑20年，并处罚金人民币15.5万元。2</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2519.html">习近平总书记主持召开党的新闻舆论工作座谈会-搜狐新闻</a></h2>
+	                        <p>“与党和人民同呼吸，与时代共进步”――习近平总书记主持召开党的新闻舆论工作座谈会并到人民日报社、新华社、中央电视台调研侧记新华社北京2月20日电（记者霍小光、李</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2520.html">美女教师性侵男生后产女 男生获赔600万美元-搜狐新闻</a></h2>
+	                        <p>现年29岁的怀荷丝特(LauraWhitehurst)2013年7月被捕，并被控41项非法性行为重罪，如果全都成立，意味她将获刑29年。受害男学生Michael</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2521.html">包头航茂二手车市场突发暴力事件 优信回应称追究到底-搜狐新闻</a></h2>
+	                        <p>&nbsp;近日，内蒙古包头市航茂二手车交易市场发生了两起暴力事件。两名男子在同一地点先后被市场内人员施暴，据悉，被打的两名男子都是优信二手车公司的员工，在毫无</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2522.html">市民北京打车4公里花1728元 司机：去了趟济南-搜狐新闻</a></h2>
+	                        <p>新京报讯你用滴滴打过最贵的一次车，花了多少钱？昨天上午，市民温先生向新京报记者反映称，自己从单位打车回家，大约4公里的路，却被收了1728.1元的车费。而此前，</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2523.html">骗光山东女孩学费的电话171开头 虚拟运营商难查-搜狐新闻</a></h2>
+	                        <p>徐玉玉的录取通知书，手机上的号码，就是当时骗子用的号码。山东省临沂市一名家境贫寒的准大学生近日因接到骗子的诈骗电话，被骗走9900元学费，在当天傍晚与父亲报警返</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2524.html">内地警方向香港移交重大抢劫杀人犯罪嫌疑人-搜狐新闻</a></h2>
+	                        <p>28日下午4时许，在深圳皇岗口岸，应香港警方请求在内地被抓获的香港“3・14”重大抢劫杀人案犯罪嫌疑人揭冠国，由广东警方正式移交给香港警方押解回港。今年3月17</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2525.html">国务院：国企违规投资遭损 或终身禁当国企高管-搜狐新闻</a></h2>
+	                        <p>国务院办公厅《关于建立国有企业违规经营投资责任追究制度的意见》23日对外发布，明确九大方面54种需要追责的情形。这份文件是在当前国企改革的大背景下制定的，旨在通</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2526.html">7・23老虎伤人事件调查结果：不属于安全责任事故-搜狐新闻</a></h2>
+	                        <p>2016年7月23日15时许，延庆区北京八达岭野生动物世界有限公司发生一起东北虎伤人事件，造成1死1伤。调查组对事发原因作出如下认定：造成此次事件的原因：一是赵</p>
+	                    </div>
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+        </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div class="bottom">
+    <div class="wenzi">何拉拉 设计制作 伯爵婚纱摄影 版权所有 - 网站统计<br />
+            Copyright © 2016-2022 京ICP备12051136号</div>
+    </div>
+</div></body>
+</html>

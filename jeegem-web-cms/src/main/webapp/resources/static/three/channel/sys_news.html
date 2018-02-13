@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>youngcms-免费的JAVA CMS-内容管理系统-系统介绍</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.png" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				       <li><a href="http://www.51opencms.com/admin/index" target="_black">管理平台</a></li>
+					   <li><a href="/channel/about">联系我们</a>
+				       </li>
+					   <li><a href="/channel/message">在线留言</a>
+				       </li>
+				       <li><a href="https://git.oschina.net/fumiao/opencms_51opencms" target="_black">源码下载</a></li>
+					   <li><a href="/channel/news">新闻资讯</a>
+						        <ul>
+										 <li><a href="/channel/it_news">IT资讯</a></li>
+										 <li><a href="/channel/sys_news">系统介绍</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/photo">精彩图库</a>
+						        <ul>
+										 <li><a href="/channel/yule">娱乐图集</a></li>
+										 <li><a href="/channel/zuguo">祖国之美</a></li>
+										 <li><a href="/channel/wenhua">文化校园</a></li>
+										 <li><a href="/channel/fouce">焦点图片</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/course">技术分享</a>
+						        <ul>
+										 <li><a href="/channel/basic">基础语言</a></li>
+										 <li><a href="/channel/design">设计创作</a></li>
+										 <li><a href="/channel/databases">数据库</a></li>
+										 <li><a href="/channel/operation">系统运维</a></li>
+										 <li><a href="/channel/front">前端开发</a></li>
+										 <li><a href="/channel/server">后端开发</a></li>
+										 <li><a href="/channel/app">移动开发</a></li>
+								</ul>
+				       </li>
+					   <li><a href="/channel/index">网站首页</a>
+				       </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			 <div class="conbox">
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265113280.jpg" width="1000" height="355" /></a></div>
+					 <div><a href="#" title=""><img src="http://7u2hth.com1.z0.glb.clouddn.com/1474265122606.jpg" width="1000" height="355" /></a></div>
+			</div>
+			<div class="switcher">
+					         <a href="#" class="cur">1</a>
+					         <a href="#">2</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="left">
+        	<div class="a03">
+            	<div class="info">资讯类型</div>
+                    <div class="content">
+                   		<ul>
+						                <li><a href="/channel/it_news">IT资讯</a></li>
+						                <li><a style="color:red;" href="/channel/sys_news">系统介绍</a></li>
+                        </ul>
+                   </div>
+            </div>
+        </div>
+        <div class="right">
+        	<div class="new">
+            	<div class="info">
+                	<div class="title">系统介绍</div>
+                </div>
+                <div class="content1">
+                
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2658.html">内地警方向香港移交重大抢劫杀人犯罪嫌疑人-搜狐新闻</a></h2>
+	                        <p>28日下午4时许，在深圳皇岗口岸，应香港警方请求在内地被抓获的香港“3・14”重大抢劫杀人案犯罪嫌疑人揭冠国，由广东警方正式移交给香港警方押解回港。今年3月17</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2659.html">韩海警动再用机枪射击中国渔船 叫嚣以后还要用-搜狐新闻</a></h2>
+	                        <p>韩国海警使用机枪向中国渔船扫射【环球时报驻韩国特约记者王伟】据韩国仁川海警署13日对外发布的消息，12日中午，在打击中国渔船“非法捕鱼”过程中，韩海警再次动用M</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2660.html">女清洁工拍写真被赞像闫妮 老公看照片后很惊讶-搜狐新闻</a></h2>
+	                        <p>冯永珍很像闫妮（图片由卡多利亚摄影提供）工作中的冯永珍每天都弓着腰，眼睛时时刻刻都像长在地上一样，哪儿脏就往哪儿去――这样的女人，抬起头来会是什么样的呢？在重庆</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2661.html">马航残骸“猎人”穿越印度洋 发现13块疑似碎片-搜狐新闻</a></h2>
+	                        <p>马航残骸“猎人”：穿越印度洋发现13块疑似碎片自从在雷达上消失那一刻起，马航MH370已经失踪了30个月。当澳马中三方在12万平方公里海域上联合搜索之时，一些个</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2662.html">朴槿惠四面楚歌 下一步何去何从？-搜狐新闻</a></h2>
+	                        <p>自10月24日“亲信干政门”事件引爆以来，韩国社会反对朴槿惠政府的行动不断升级，参加者逐渐扩大到社会各阶层。12日更是爆发了2000年以来韩国规模最大的集会。1</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2663.html">专家：统筹推进监管改革 切实防控金融风险-搜狐新闻</a></h2>
+	                        <p>（资料图片）中国经济时报记者姜业庆“防控金融风险”成为刚刚闭幕的中央经济工作会议重要议题之一。会议提出，要在增强汇率弹性的同时，保持人民币汇率在合理均衡水平上的</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2664.html">浙江百户村民刚住新居遭拆迁 城改规划被指折腾人-搜狐新闻</a></h2>
+	                        <p>央广网绍兴11月14日消息（记者管昕）据中国之声《新闻纵横》报道，俗话说，安居才能乐业。但对浙江省绍兴市下辖的嵊州市三江街道合新社区的上百户村民来说，想要安居却</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2665.html">福建检方回应“男子追小偷致其倒地身亡被起诉”-搜狐新闻</a></h2>
+	                        <p>新华社福州11月13日电（记者郑良）针对引发广泛关注的“福建一名男子追小偷致其倒地后身亡被起诉”事件，福建检察机关13日向新华社记者表示，这起案件目前还在审查起</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2666.html">北京将开通8元直达八达岭巴士 “一日游”纳入公共服务-搜狐新闻</a></h2>
+	                        <p>“人民日报政文”微信公号11月14日消息，人民日报于10月11日刊发了《“北京一日游”遭遇记》调查报道，介绍了记者两次随机体验的经历，揭示了非法“北京一日游”能</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2667.html">访贾敬龙杀人案发生地：大年初一的命案如何发生的-搜狐新闻</a></h2>
+	                        <p>新华社北京11月14日电题：大年初一的命案是如何发生的？――走访贾敬龙故意杀人案发生地新华社记者罗沙、杨帆、孔维一2016年10月，最高人民法院依法核准犯故意杀</p>
+	                    </div>
+                
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+        </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div  class="bottom">
+		<ul>
+			 
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://cms.publiccms.com' target='_blank' title='企业网站管理系统'>Publiccms</a></li>
+			
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://www.jc868.com' target='_blank' title='企业网站管理系统'>竞彩</a></li>
+			 
+		</ul>
+	</div>
+	<div class="bottom">
+		<div class="wenzi">
+			youngcms 版权所有 - <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260175299'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1260175299%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+			<br /> Copyright © 2016-2022 京ICP备12051136号
+		</div>
+	</div>
+</div>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
+<!-- UJian Button END -->
+</body>
+</html>

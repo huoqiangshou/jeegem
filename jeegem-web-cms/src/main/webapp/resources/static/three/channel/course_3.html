@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset=utf-8>
+<title>news</title>
+<link href="/static/three/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/static/three/css/news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/three/js/jquery.js"></script>
+<script type="text/javascript" src="/static/three/js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="/static/three/images/logo.jpg" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <ul class="menu1">
+				     <li><a href="/channel/index">网站首页</a>
+				     </li>
+				     <li><a href="/channel/course">学习交流</a>
+					        <ul>
+									<li><a href="/channel/course_1">编程开发</a></li>
+									<li><a href="/channel/course_2">设计创作</a></li>
+									<li><a href="/channel/course_3">数据库</a></li>
+									<li><a href="/channel/course_4">系统运维</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/photo">精彩图库</a>
+					        <ul>
+									<li><a href="/channel/yule">娱乐图集</a></li>
+									<li><a href="/channel/zuguo">祖国之美</a></li>
+									<li><a href="/channel/wenhua">文化校园</a></li>
+									<li><a href="/channel/fouce">焦点图片</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/download">源码下载</a>
+				     </li>
+				     <li><a href="/channel/video">新闻动态</a>
+					        <ul>
+									<li><a href="/channel/vedio">IT资讯</a></li>
+									<li><a href="/channel/vedio">系统介绍</a></li>
+							</ul>
+				     </li>
+				     <li><a href="/channel/message">在线留言</a>
+				     </li>
+				     <li><a href="/channel/doc">论坛</a>
+				     </li>
+				     <li><a href="/channel/about">联系我们</a>
+				     </li>
+                 </ul>
+			</div>
+        </div>
+</div>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("li");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script><div id="slider1" class="slider">
+			<div class="conbox">
+				<div><a href="#" title=""><img src="/static/three/tp/ddf.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img src="/static/three/tp/dde.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-02-22/f4fe9dd611bd459c0244159163109bc4.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-13/323ce4b13f72648e096bd1a86cba762a.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-17/9fae30738c94fb8e47dd2ba3e6003290.jpg"></a></div>
+			</div>
+
+			<div class="switcher">
+				<a href="#" class="cur">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+			</div>
+</div>
+<div class="mian">
+    <div class="matter">
+        <div class="left">
+        	<div class="a03">
+            	<div class="info">新闻分类</div>
+                    <div class="content">
+                   		<ul>
+						       <li><a href="/channel/course_1">编程开发</a></li>
+						       <li><a href="/channel/course_2">设计创作</a></li>
+						       <li><a href="/channel/course_3">数据库</a></li>
+						       <li><a href="/channel/course_4">系统运维</a></li>
+                        </ul>
+                   </div>
+            </div>
+            <div class="b01">
+           	  <div class="info">客服服务</div>
+                <div class="content1">
+                <span class="red">尊贵的客户</span>，您好！欢迎进入伯爵婚纱摄
+                影客户服务中心！这里将为您展示新人的
+                幸福瞬间。与此同时，并将最美好的祝福
+                送给每对新人。<br />
+                婚纱摄影客户咨询热线：0592-021514155
+                 太阳城欢迎广大追求美的新人前来咨询我
+                们将留给您不一样的记忆。<br />
+                了解我们，从这里开始 | 摄影常见问题解
+                答 | 服务须知：拍摄当天 | 服务须知：拍
+                摄前准备 | 高端定制服务服务流程 | 高端
+                定制服务服务说明<br />
+                郑重声明：伯爵客户服务频道所展示的作品
+                均来自真实客人定制照片，并经由客户本人
+                同意在唯一官方网站www.stbjhs.com进行发
+                表。 </div>
+            </div>
+        </div>
+        <div class="right">
+        	<div class="new">
+            	<div class="info">
+                	<div class="title"></div>
+                </div>
+                <div class="content">
+                
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2502.html">希拉里首次回击“健康有问题” 徒手开罐头辟谣-搜狐新闻</a></h2>
+	                        <p>22日，希拉里做客美国广播公司深夜谈话节目“吉米・基梅尔秀”。桌上的罐头被希拉里用来展示力气。美国共和党总统候选人唐纳德・特朗普的竞选团队屡次拿对手、民主党总统</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2503.html">令计划令政策领衔 官场落马“兄弟档”还有谁？-搜狐新闻</a></h2>
+	                        <p>8月23日，安徽省马鞍山市中院对合肥市人大常委会内务司法工作委员会原主任方东屏受贿、利用影响力受贿一案公开宣判。方东屏因犯受贿罪、利用影响力受贿罪，被判有期徒刑</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2504.html">全国人大机关2名部级官员被问责 4名官员被双开-搜狐新闻</a></h2>
+	                        <p>新京报讯（记者王姝）自去年3月至今，中纪委驻全国人大机关纪检组组建17个月来，共问责了全国人大机关的19名领导干部，其中包括2名部级官员。昨日，驻全国人大机关纪</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2505.html">日本举办殡葬产业博览会 女僧人获赞颜值高(图)-搜狐新闻</a></h2>
+	                        <p>当地时间2016年8月22日，日本东京，参加殡葬产业博览会的KoyuOsawa在“颜值最高僧人”评选中获胜。当地时间2016年8月22日，日本东京，殡葬产业博览</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2506.html">媒体：八达岭老虎咬人事故调查报告你看懂了吗？-搜狐新闻</a></h2>
+	                        <p>撰文|杨凡匡小颖今天（8月24日）下午2点多，政知君的手机被“八达岭野生动物世界东北虎伤人事件调查报告”刷屏。延庆区政府官网上发布的老虎咬人事件调查报告就在一个</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2507.html">山东临沂一女孩被骗学费9900元 郁结于心离世-搜狐新闻</a></h2>
+	                        <p>即将踏入大学的18岁罗庄女孩徐玉玉，19日接到了一通诈骗电话，结果被骗走了上大学的费用9900元。得知被骗后，徐玉玉伤心欲绝，郁结于心，最终导致心脏骤停，虽经医</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2508.html">宣昌能将任证监会主席助理 陆磊接手央行稳定局-搜狐新闻</a></h2>
+	                        <p>据财联社消息，中国人民银行再向中国证监会输出一名干部。央行稳定局局长宣昌能即将赴任证监会，升任主席助理一职，央行稳定局局长一职将由现任央行研究局局长陆磊接任。据</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2509.html">央地财政事权和支出责任改革路线图出炉-搜狐新闻</a></h2>
+	                        <p>中央与地方收入划分总体方案加快研究制定本报记者包兴安财税改革重头戏――中央与地方间财政关系调整，迈出重要一步。国务院昨日发布《关于推进中央与地方财政事权和支出责</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2510.html">美中学生称被女教师勾引生子 获赔600万美元-搜狐新闻</a></h2>
+	                        <p>参考消息网8月24日报道外媒称，一名美国州学校的学生在被学校女教师勾引并成为父亲后，打赢了诉讼官司，并获得了600万美元的精神损失费。据俄罗斯卫星网8月23日援</p>
+	                    </div>
+				       <div class="one">
+	                    	<h2><a href="/static/three/content/2511.html">缅甸突发6.9级地震 云南有震感-搜狐新闻</a></h2>
+	                        <p>搜狐新闻直播进行中：手机用户请点击这里</p>
+	                    </div>
+                
+                </div>
+                <div class="digg"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+            </div>
+        </div>
+    </div>	
+
+ </div>
+<div class="bottomwrap">
+	<div class="bottom">
+    <div class="wenzi">何拉拉 设计制作 伯爵婚纱摄影 版权所有 - 网站统计<br />
+Copyright © 2013 STBJHS PHOTOGRAPHY AGENCY,SUPPORT BY STBJHS ad-agency CO.,Ltd.</div>
+    </div>
+</div></body>
+</html>
