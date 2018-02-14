@@ -8,8 +8,8 @@
 		<artifactId>jeegem</artifactId>
 		<version>v1.0.1</version>
 	</parent>
-	<artifactId>jeegem-service</artifactId>
-	<name>jeegem-service</name>
+	<artifactId>jeegem-admin-service</artifactId>
+	<name>jeegem-admin-service</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

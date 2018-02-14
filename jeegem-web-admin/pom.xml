@@ -24,7 +24,7 @@
   	
 	<dependency>
   		<groupId>jeegem</groupId>
-  		<artifactId>jeegem-service</artifactId>
+  		<artifactId>jeegem-admin-service</artifactId>
   		<version>v1.0.1</version>
   	</dependency>
   
