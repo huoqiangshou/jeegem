@@ -7,8 +7,8 @@
     <artifactId>jeegem</artifactId>
     <version>v1.0.1</version>
   </parent>
-  <artifactId>jeegem-api</artifactId>
-  <name>jeegem-api</name>
+  <artifactId>jeegem-service-cms</artifactId>
+  <name>jeegem-service-cms</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,7 +21,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
-  
-  
 </project>

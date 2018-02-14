@@ -8,7 +8,6 @@
 		<artifactId>jeegem</artifactId>
 		<version>v1.0.1</version>
 	</parent>
-	<groupId>jeegem-web-cms</groupId>
 	<artifactId>jeegem-web-cms</artifactId>
 	<packaging>war</packaging>
 	<name>jeegem-web-cms</name>
@@ -25,10 +24,9 @@
 			<artifactId>jeegem-api</artifactId>
 			<version>v1.0.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>jeegem</groupId>
-			<artifactId>jeegem-service</artifactId>
+			<artifactId>jeegem-service-cms</artifactId>
 			<version>v1.0.1</version>
 		</dependency>
 	</dependencies>

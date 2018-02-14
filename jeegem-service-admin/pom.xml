@@ -8,8 +8,8 @@
 		<artifactId>jeegem</artifactId>
 		<version>v1.0.1</version>
 	</parent>
-	<artifactId>jeegem-admin-service</artifactId>
-	<name>jeegem-admin-service</name>
+	<artifactId>jeegem-service-admin</artifactId>
+	<name>jeegem-service-admin</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

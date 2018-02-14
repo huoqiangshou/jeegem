@@ -7,7 +7,7 @@
         <dependent-module archiveName="jeegem-api-v1.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeegem-api/jeegem-api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="jeegem-admin-service-v1.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeegem-admin-service/jeegem-admin-service">
+        <dependent-module archiveName="jeegem-service-admin-v1.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeegem-service-admin/jeegem-service-admin">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="jeegem-web-admin"/>
