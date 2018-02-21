@@ -1,5 +1,7 @@
 package com.jeegem.common.model;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * Title: CodeGenScheme.java
@@ -23,8 +25,12 @@ package com.jeegem.common.model;
  * 
  * @version JeeGem V3.0
  */
-public class CodeGenScheme {
+public class CodeGenScheme implements Serializable{
 	
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	//ID主键
 	private Integer id;
 	//表名

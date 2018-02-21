@@ -100,14 +100,15 @@
 	</appender>
 
 	<!-- 为某个包下的所有类的指定Appender 这里也可以指定类名称例如：com.aa.bb.ClassName 
+	即com.apache.ibatis包下级别为 ERROR的才会使用file.async来打印 -->
 	<logger name="com.apache.ibatis" additivity="false">
 		<level value="ERROR" />
 		<appender-ref ref="stdout" /> 
-		 即com.apache.ibatis包下级别为 ERROR的才会使用file.async来打印 
+		 
 		<appender-ref ref="file.async" />
 		<appender-ref ref="file.error" />
 	</logger>
-	-->
+	
 	
 	<!-- 为某个包下的所有类的指定Appender 这里也可以指定类名称例如：com.aa.bb.ClassName 
 	<logger name="org.springframework" additivity="false">

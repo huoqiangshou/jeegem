@@ -1,18 +1,22 @@
 package com.jeegem.cms.action;
 
-import java.util.Map;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.common.collect.Maps;
 import com.jeegem.cms.action.base.BaseController;
+import com.jeegem.common.model.Article;
+import com.jeegem.common.model.ArticleType;
 import com.jeegem.core.mv.JeeGemModelAndView;
+import com.jeegem.service.ArticleService;
+import com.jeegem.service.ArticleTypeService;
 
 /**
  * 
@@ -38,19 +42,30 @@ import com.jeegem.core.mv.JeeGemModelAndView;
 @Controller
 @Scope(value = "prototype")
 public class FrontAction extends BaseController {
-
+	
+	@Autowired
+	ArticleTypeService articleTypeService;
+	
+	@Autowired
+	ArticleService articleService;
+	
 	/**
 	 * 用户
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/test/list")
+	@RequestMapping(value = "/index")
 	public ModelAndView userIndex(HttpServletRequest request, HttpServletResponse response, String pageNo) {
-		ModelAndView mv = new JeeGemModelAndView("user/list.ftl");
-
-		Map<String, Object> params = Maps.newHashMap();
-		params.put("pageNo", pageNo);
-
+		ModelAndView mv = new JeeGemModelAndView(request,"front/index.ftl");
+		
+		List<ArticleType> articleTypes = this.articleTypeService.getAll();
+		
+		mv.addObject("articleTypes", articleTypes);
+		
+		List<Article> articles = this.articleService.getAll();
+		
+		mv.addObject("articles", articles);
+		
 		return mv;
 	}
 

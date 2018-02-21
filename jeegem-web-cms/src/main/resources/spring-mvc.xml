@@ -103,9 +103,6 @@
 				<prop key="whitespace_stripping">true</prop>
 				<prop key="auto_import">
 					<!-- 自动装载，引入Freemarker，用于Freemarker Macro引入 -->
-					/WEB-INF/ftl/common/config/branding.ftl as _branding,
-					/WEB-INF/ftl/common/config/navbar.ftl as _navbar,
-					/WEB-INF/ftl/common/config/pageHeader.ftl as _pageHeader
 				</prop>
 			</props>
 		</property>

@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="sequence" column="sequence" jdbcType="INTEGER" />
 		<result property="keywords" column="keywords" jdbcType="VARCHAR" />
 		<result property="description" column="description" jdbcType="VARCHAR" />
+		<collection property="articles" column="id" select="com.jeegem.common.dao.ArticleMapper.getArticleByArticleTypeId" />
 	</resultMap>
 
 	<!-- column属性列 -->

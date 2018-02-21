@@ -3,7 +3,8 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jeegem.common.dao.ArticleMapper">
-
+	
+	<cache type="com.jeegem.core.cache.RedisCache" />
 	<resultMap type="com.jeegem.common.model.Article" id="BaseResultMap">
 		<result property="id" column="id" jdbcType="BIGINT" />
 		<result property="title" column="title" jdbcType="VARCHAR" />
@@ -267,6 +268,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="Base_Column_List" />
 		FROM JEEGEM_ARTICLE
 		WHERE ID = #{id,jdbcType=BIGINT}
+	</select>
+
+	<!-- 根据articleTypeId查询 -->
+	<select id="getArticleByArticleTypeId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_ARTICLE
+		WHERE typeId = #{id,jdbcType=BIGINT}
+	</select>
+
+	<!-- 查询所有 -->
+	<select id="getAll" resultMap="BaseResultMap"
+		parameterType="com.jeegem.common.model.Article">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_ARTICLE
 	</select>
 
 </mapper> 

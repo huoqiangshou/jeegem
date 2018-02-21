@@ -1,5 +1,6 @@
 package com.jeegem.common.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,8 +8,12 @@ import java.util.Date;
  * @author redpigedu_code
  *
  */
-public class Article {
+public class Article implements Serializable{
 
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id; // 编号
 	private String title; // 标题
 	private Date addTime; // 发布日期 假如 修改帖子 发布日期也会更新

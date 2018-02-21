@@ -1,6 +1,10 @@
 package com.jeegem.core.mv;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.servlet.ModelAndView;
+
+import com.jeegem.core.config.JeeGemPropertyPlaceholderConfigurer;
 
 /**
  * <p>
@@ -26,19 +30,32 @@ import org.springframework.web.servlet.ModelAndView;
  * @version redpigmall_b2b2c 5.0
  */
 public class JeeGemModelAndView extends ModelAndView {
-	
+
+
 	public JeeGemModelAndView() {
-		
+
 	}
-	
+
 	public JeeGemModelAndView(String viewName) {
-		super.setViewName("WEB-INF/ftl/"+viewName);
+		super.setViewName("WEB-INF/ftl/" + viewName);
 	}
-	
-	public JeeGemModelAndView(String viewName,String attributeName,Object attributeValue) {
+
+	public JeeGemModelAndView(String viewName, String attributeName, Object attributeValue) {
+		this(viewName);
 		super.addObject(attributeName, attributeValue);
-		super.setViewName("WEB-INF/ftl/"+viewName);
 	}
 	
-	
+	public JeeGemModelAndView(HttpServletRequest request, String viewName) {
+		this(viewName);
+		
+		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() ;
+		String queryUrl = url + request.getServletPath();
+		if (request.getQueryString() != null) {
+			queryUrl += "?" + request.getQueryString();
+		}
+		
+		super.addObject("basePath", url);
+		super.addObject("queryUrl", queryUrl);
+		super.addObject("imageWebServer", JeeGemPropertyPlaceholderConfigurer.properties.get("imageWebServer"));
+	}
 }

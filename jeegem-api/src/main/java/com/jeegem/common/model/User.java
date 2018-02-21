@@ -25,6 +25,10 @@ import net.sf.json.JSONObject;
  * 
  */
 public class User implements Serializable{
+	
+	/**
+	 * serialVersionUID
+	 */
 	private static final long serialVersionUID = 1L;
 	//0:禁止登录
 	public static final Long _0 = new Long(0);

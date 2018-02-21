@@ -1,5 +1,6 @@
 package com.jeegem.common.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -25,7 +26,12 @@ import java.util.Date;
  * 
  * @version JeeGem V3.0
  */
-public class SysConfig {
+public class SysConfig implements Serializable{
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//ID
 	private String id;
 	

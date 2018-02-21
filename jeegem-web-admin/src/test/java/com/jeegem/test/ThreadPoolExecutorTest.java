@@ -1,0 +1,41 @@
+package com.jeegem.test;
+
+/**
+ * <p>
+ * Title: ThreadPoolExecutorTest.java
+ * </p>
+ * 
+ * <p>
+ * Description: 
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2018
+ * </p>
+ * 
+ * <p>
+ * Company: www.jeegem.com
+ * </p>
+ * 
+ * @author JeeGem
+ * 
+ * @date 2018年2月21日 下午6:03:57
+ * 
+ * @version JeeGem V3.0
+ */
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+public class ThreadPoolExecutorTest {
+	public static void main(String[] args) {
+		ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(5);
+	    scheduledThreadPool.scheduleAtFixedRate(new Runnable() {  
+	        
+	        @Override  
+	        public void run() {  
+	            System.out.println("delay 1 seconds, and excute every 3 seconds");  
+	        }  
+	    }, 1, 3, TimeUnit.SECONDS);  
+	}
+}

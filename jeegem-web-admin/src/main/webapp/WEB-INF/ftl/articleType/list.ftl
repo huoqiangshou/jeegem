@@ -203,7 +203,18 @@
           </div>
           <div class="modal-body">
             
-              
+<div class="form-group">
+                        <label for="input07" class="col-sm-2 control-label">文章类型</label>
+                        <div class="col-sm-4" id="selectbox">
+                          <select class="chosen-select chosen-transparent form-control" name="articleType.id" id="input07" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox">
+                            <option value="">选择文章类型
+                            <#if articleTypes?exists && articleTypes?size gt 0 >
+                            <#list articleTypes as item>
+                            	<option value="${item.id}">${item.typeName}
+                            </#list>
+                            </#if>
+                          </select>
+                        </div>
               <div class="form-group">
                 <label for="exampleInput">类型名称</label>
                 <input type="text" class="form-control" id="typeName" name="typeName" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">

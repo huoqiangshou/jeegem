@@ -69,7 +69,7 @@
 
                   <!-- tile header -->
                   <div class="tile-header">
-                    <h1><strong>Nestable</strong> List 1</h1>
+                    <h1><strong>权限列表</strong></h1>
                     <div class="controls">
                       <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
                       <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>

@@ -35,7 +35,6 @@
   <body class="bg-1">
 
     <!-- Preloader -->
-    <div class="mask"><div id="loader"></div></div>
     <!--/Preloader -->
 
     <!-- Wrap all page content here -->
