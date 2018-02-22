@@ -5,12 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.jeegem.cms.action.base.BaseController;
 import com.jeegem.common.model.Article;
 import com.jeegem.common.model.ArticleType;
@@ -40,13 +39,12 @@ import com.jeegem.service.ArticleTypeService;
  * 
  */
 @Controller
-@Scope(value = "prototype")
 public class FrontAction extends BaseController {
 	
-	@Autowired
+	@Reference
 	ArticleTypeService articleTypeService;
 	
-	@Autowired
+	@Reference
 	ArticleService articleService;
 	
 	/**
@@ -58,7 +56,7 @@ public class FrontAction extends BaseController {
 	public ModelAndView userIndex(HttpServletRequest request, HttpServletResponse response, String pageNo) {
 		ModelAndView mv = new JeeGemModelAndView(request,"front/index.ftl");
 		
-		List<ArticleType> articleTypes = this.articleTypeService.getAll();
+		List<ArticleType> articleTypes = articleTypeService.getAll();
 		
 		mv.addObject("articleTypes", articleTypes);
 		

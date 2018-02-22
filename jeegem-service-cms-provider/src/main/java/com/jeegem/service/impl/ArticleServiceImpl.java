@@ -4,16 +4,17 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.jeegem.common.dao.ArticleMapper;
 import com.jeegem.common.model.Article;
 import com.jeegem.core.mybatis.page.Pagination;
 import com.jeegem.service.ArticleService;
 import com.jeegem.service.impl.base.BaseService;
-
-@Service
+@Component
+@Service(interfaceClass=ArticleService.class)
 @Transactional(readOnly = true)
 public class ArticleServiceImpl extends BaseService<Article> implements ArticleService {
 

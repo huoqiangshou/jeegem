@@ -6,7 +6,7 @@
 	<!-- 加载spring配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring-*.xml</param-value>
+		<param-value>classpath:spring.xml</param-value>
 	</context-param>
 	<!-- 可以在项目中通过System.getProperty获取项目实际物理位置 -->
 	<context-param>
@@ -49,7 +49,7 @@
 		<init-param>
 			<description>SpringMvc 配置文件</description>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring-config.xml</param-value>
+			<param-value>classpath:spring-mvc.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
