@@ -58,4 +58,7 @@ public class JeeGemModelAndView extends ModelAndView {
 		super.addObject("queryUrl", queryUrl);
 		super.addObject("imageWebServer", JeeGemPropertyPlaceholderConfigurer.properties.get("imageWebServer"));
 	}
+	
+	
+	
 }

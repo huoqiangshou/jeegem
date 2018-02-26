@@ -467,7 +467,121 @@
                   </li>
 
 
-                </li></ul>
+                </li>
+				<li class="dropdown ${(parent==5)?string('open active',' ')}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-desktop"></i> 案例页面 <b class="fa fa-plus dropdown-plus"></b>
+                      <span class="label label-greensea">mails</span>
+                    </a>
+                    
+                    <ul class="dropdown-menu">
+                      <li class="${(child==50)?string('active',' ')}">
+                        <a href="${basePath}/example/charts.shtml">
+                          <i class="fa fa-caret-right"></i> 报表图表
+                          <span class="label label-greensea">mails</span>
+                        </a>
+                      </li>
+                      <li class="${(child==51)?string('active',' ')}">
+                        <a href="${basePath}/example/calendar.shtml">
+                          <i class="fa fa-caret-right"></i> 日历组件
+                        </a>
+                      </li>
+                      <li class="${(child==52)?string('active',' ')}">
+                        <a href="${basePath}/example/invoice.shtml">
+                          <i class="fa fa-caret-right"></i> 发票管理
+                          <span class="label label-greensea">new</span>
+                        </a>
+                      </li>
+                      <li class="${(child==53)?string('active',' ')}">
+                        <a href="${basePath}/example/timeline.shtml">
+                          <i class="fa fa-caret-right"></i> 时间线轴
+                        </a>
+                      </li>
+                      <li class="${(child==54)?string('active',' ')}">
+                        <a href="${basePath}/example/chat.shtml">
+                          <i class="fa fa-caret-right"></i> 聊天工具
+                        </a>
+                      </li>
+                      <li class="${(child==55)?string('active',' ')}">
+                        <a href="${basePath}/example/search-results.shtml">
+                          <i class="fa fa-caret-right"></i> 搜索结果
+                          <span class="label label-greensea">new</span>
+                        </a>
+                      </li>
+                      <li>
+                      <li class="${(child==56)?string('active',' ')}">
+                        <a href="${basePath}/example/profile-page.shtml">
+                          <i class="fa fa-caret-right"></i> 个人主页
+                          <span class="label label-greensea">new</span>
+                        </a>
+                      </li>
+                      <li class="${(child==57)?string('active',' ')}">
+                        <a href="${basePath}/example/mail-horizontal.shtml">
+                          <i class="fa fa-caret-right"></i> 邮箱页面
+                          <span class="label label-greensea">mails</span>
+                        </a>
+                      </li>
+                      
+                      
+                      
+                    </li>
+                
+					<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-folder"></i> 一级菜单 <b class="fa fa-plus dropdown-plus"></b>
+                      <span class="label label-cyan">new</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 1.1</a></li>
+
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 1.2 <b class="fa fa-plus dropdown-plus"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.1</a></li>
+                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.2</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 2.3 <b class="fa fa-plus dropdown-plus"></b></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.1</a></li>
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.2</a></li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 3.3 <b class="fa fa-plus dropdown-plus"></b></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 4.1</a></li>
+                                   <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 4.2 <b class="fa fa-plus dropdown-plus"></b></a>
+                                      <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 5.1</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 5.2</a></li>
+                                      </ul>
+                                    </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 1.3 <b class="fa fa-plus dropdown-plus"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.1</a></li>
+                          <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 2.2</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Menu Level 2.3 <b class="fa fa-plus dropdown-plus"></b></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.1</a></li>
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.2</a></li>
+                              <li><a href="#"><i class="fa fa-caret-right"></i> Menu Level 3.3</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </li>
+                
+                </ul>
 
               
 
