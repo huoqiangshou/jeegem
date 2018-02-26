@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jeegem.common.dao.ArticleMapper">
 	
-	<cache type="com.jeegem.core.cache.RedisCache" />
+	<!-- <cache type="com.jeegem.core.cache.RedisCache" /> -->
 	<resultMap type="com.jeegem.common.model.Article" id="BaseResultMap">
 		<result property="id" column="id" jdbcType="BIGINT" />
 		<result property="title" column="title" jdbcType="VARCHAR" />
@@ -30,44 +30,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<sql id="whereStatement">
 		<where>
 			<if test="id !=null and id !=''">
-				id=#{id,jdbcType=BIGINT}
+				and id=#{id,jdbcType=BIGINT}
 			</if>
 
 			<if test="title !=null and title !=''">
-				title=#{title,jdbcType=VARCHAR}
+				and title=#{title,jdbcType=VARCHAR}
 			</if>
 
 			<if test="addTime !=null and addTime !=''">
-				addTime=#{addTime,jdbcType=TIMESTAMP}
+				and addTime=#{addTime,jdbcType=TIMESTAMP}
 			</if>
 
 			<if test="content !=null and content !=''">
-				content=#{content,jdbcType=VARCHAR}
+				and content=#{content,jdbcType=VARCHAR}
 			</if>
 
 			<if test="summary !=null and summary !=''">
-				summary=#{summary,jdbcType=VARCHAR}
+				and summary=#{summary,jdbcType=VARCHAR}
 			</if>
 			<if test="titleColor !=null and titleColor !=''">
-				titleColor=#{titleColor,jdbcType=VARCHAR}
+				and titleColor=#{titleColor,jdbcType=VARCHAR}
 			</if>
 			<if test="click !=null and click !=''">
-				click=#{click,jdbcType=VARCHAR}
+				and click=#{click,jdbcType=VARCHAR}
 			</if>
 			<if test="recommend !=null and recommend !=''">
-				recommend=#{recommend,jdbcType=VARCHAR}
+				and recommend=#{recommend,jdbcType=VARCHAR}
 			</if>
 			<if test="slide !=null and slide !=''">
-				slide=#{slide,jdbcType=VARCHAR}
+				and slide=#{slide,jdbcType=VARCHAR}
 			</if>
 			<if test="slideImage !=null and slideImage !=''">
-				slideImage=#{slideImage,jdbcType=VARCHAR}
+				and slideImage=#{slideImage,jdbcType=VARCHAR}
 			</if>
 			<if test="keyWords !=null and keyWords !=''">
-				keyWords=#{keyWords,jdbcType=VARCHAR}
+				and keyWords=#{keyWords,jdbcType=VARCHAR}
 			</if>
 			<if test="articleType !=null and articleType.id != null">
-				typeId=#{articleType.id,jdbcType=VARCHAR}
+				and typeId=#{articleType.id,jdbcType=VARCHAR}
 			</if>
 		</where>
 	</sql>
@@ -263,7 +263,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 根据ID查询 -->
 	<select id="getArticleById" resultMap="BaseResultMap"
-		parameterType="com.jeegem.common.model.Article">
+		parameterType="java.lang.Integer">
 		SELECT
 		<include refid="Base_Column_List" />
 		FROM JEEGEM_ARTICLE
@@ -285,5 +285,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="Base_Column_List" />
 		FROM JEEGEM_ARTICLE
 	</select>
-
+	
+	<!-- 根据属性名称、值查询 -->
+	 <select id="getByPropertyName" resultMap="BaseResultMap" parameterType="java.util.Map">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_ARTICLE
+		<where>
+			<if	test="key != null and operator != null">
+				${key} ${operator} #{value}
+			</if>
+		</where>
+	</select> 
+	
+	<!-- 根据属性名称、值查询 -->
+	<select id="getByArticle" resultMap="BaseResultMap" parameterType="com.jeegem.common.model.Article">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM JEEGEM_ARTICLE
+		<include refid="whereStatement" />
+	</select> 
+	
 </mapper> 

@@ -89,20 +89,37 @@ public class ArticleServiceImpl extends BaseService<Article> implements ArticleS
 
 	/**
 	 * 
-	 * @see com.jeegem.service.ArticleService#getArticleById(java.lang.Long)
+	 * @see com.jeegem.service.ArticleService#getArticleById(java.lang.Integer)
 	 */
 	@Override
-	public Article getArticleById(Long id) {
+	public Article getArticleById(Integer id) {
 
 		return articleMapper.getArticleById(id);
 	}
-
+	
 	/** 
 	 * @see com.jeegem.service.ArticleService#getAll()
 	 */
 	@Override
 	public List<Article> getAll() {
 		return articleMapper.getAll();
+	}
+
+	/** 
+	 * @see com.jeegem.service.ArticleService#getByPropertyName(java.util.Map)
+	 */
+	@Override
+	public List<Article> getByPropertyName(Map<String, Object> params) {
+		
+		return articleMapper.getByPropertyName(params);
+	}
+
+	/** 
+	 * @see com.jeegem.service.ArticleService#getByArticle(com.jeegem.common.model.Article)
+	 */
+	@Override
+	public List<Article> getByArticle(Article article) {
+		return articleMapper.getByArticle(article);
 	}
 
 }

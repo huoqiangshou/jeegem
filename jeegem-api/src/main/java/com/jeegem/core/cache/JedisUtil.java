@@ -76,4 +76,16 @@ public class JedisUtil {
             jedisPool.returnResource(jedis);
         }
     }
+    /** 
+     * Jedis对象出异常的时候，回收Jedis对象资源 
+     *  
+     * @param jedis 
+     */  
+    @SuppressWarnings("deprecation")
+	public synchronized void returnBrokenResource(Jedis jedis) {  
+        if (jedis != null) {  
+            jedisPool.returnBrokenResource(jedis);  
+        }  
+  
+    }  
 }

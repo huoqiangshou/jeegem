@@ -112,7 +112,11 @@
                           </div>
                           <div class="radio radio-transparent">
                             <input type="radio" name="slide" id="optionsRadios2" value="2">
-                            <label for="optionsRadios2">幻灯</label>
+                            <label for="optionsRadios2">首页幻灯</label>
+                          </div>
+                          <div class="radio radio-transparent">
+                            <input type="radio" name="slide" id="optionsRadios5" value="5">
+                            <label for="optionsRadios5">详情幻灯</label>
                           </div>
                           <div class="radio radio-transparent">
                             <input type="radio" name="slide" id="optionsRadios3" value="3">

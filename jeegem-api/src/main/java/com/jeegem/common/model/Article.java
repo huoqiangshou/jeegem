@@ -22,7 +22,7 @@ public class Article implements Serializable{
 	private String titleColor="black"; // 标题颜色 默认黑色
 	private Integer click=0; // 阅读次数 默认0
 	private Integer recommend=0; // 是否推荐帖子  1  是  0 否  默认 0
-	private Integer slide=0; // 1:Banner 2:幻灯 3:推荐 4:图文
+	private Integer slide=0; // 1:Banner 2:幻灯 3:推荐 4:图文 5:详情幻灯
 	private String slideImage; // 幻灯图片
 	private ArticleType articleType; // 帖子类型
 	private String keyWords; // 关键字 中间空格隔开

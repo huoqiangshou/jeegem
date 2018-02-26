@@ -70,7 +70,7 @@ public interface ArticleService {
 	 * @param id
 	 * @return
 	 */
-	Article getArticleById(Long id);
+	Article getArticleById(Integer id);
 	
 	
 	/**
@@ -78,5 +78,18 @@ public interface ArticleService {
 	 * @return
 	 */
 	List<Article> getAll();
-
+	
+	/**
+	 * 根据属性查询
+	 * @param params
+	 * @return
+	 */
+	List<Article> getByPropertyName(Map<String, Object> params);
+	
+	/**
+	 *  根据各个属性查询
+	 * @param article
+	 * @return
+	 */
+	List<Article> getByArticle(Article article);
 }

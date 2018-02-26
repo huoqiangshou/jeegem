@@ -37,10 +37,10 @@ public class TestRedisCache extends BaseJunitTest{
 	
 	@Test  
     public void test0(){
-		Article article = articleService.getArticleById(2L);
+		Article article = articleService.getArticleById(2);
 		System.out.println(article);
 		
-		Article article2 = articleService.getArticleById(2L);
+		Article article2 = articleService.getArticleById(2);
 		System.out.println(article2);
     }  
 	

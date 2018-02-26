@@ -75,7 +75,7 @@ public interface ArticleMapper {
 	 * @param id
 	 * @return
 	 */
-	Article getArticleById(Long id);
+	Article getArticleById(Integer id);
 
 	/**
 	 * 查询所有
@@ -89,5 +89,19 @@ public interface ArticleMapper {
 	 * @return
 	 */
 	List<Article> getArticleByArticleTypeId(Long id);
+
+	/**
+	 * 根据属性查询
+	 * @param params
+	 * @return
+	 */
+	List<Article> getByPropertyName(Map<String, Object> params);
+
+	/** 根据各个属性查询
+	 * @param article
+	 * @return
+	 */
+	List<Article> getByArticle(Article article);
+	
 	
 }

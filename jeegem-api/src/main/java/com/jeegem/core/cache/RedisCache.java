@@ -63,6 +63,7 @@ public class RedisCache implements Cache {
 
 	public void clear() {
 		JedisUtil.getJedis().flushDB();
+		JedisUtil.getJedis().close();
 	}
 
 	public int getSize() {

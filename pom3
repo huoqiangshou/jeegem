@@ -101,7 +101,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.1.0</version>
+			<version>3.1.1</version>
 		</dependency>
 		<!-- Spring 在 3.2.13版本后，要单独引用 -->
 		<dependency>
@@ -167,9 +167,8 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-			<version>1.1.1</version>
+			<version>1.3.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -209,10 +208,6 @@
 					<groupId>javax.servlet</groupId>
 					<artifactId>javax.servlet-api</artifactId>
 				</exclusion>
-				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
-				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -230,22 +225,8 @@
 			<groupId>com.101tec</groupId>
 			<artifactId>zkclient</artifactId>
 			<version>0.2</version>
-			<exclusions>
-				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<!-- dubbo end -->
-		<!-- log -->
-		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-
 		<!-- logback+slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -275,6 +256,7 @@
 			<artifactId>logback-ext-spring</artifactId>
 			<version>0.1.4</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -398,28 +380,28 @@
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-all</artifactId>
-			<version>1.4.0</version>
+			<version>1.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-core</artifactId>
-			<version>1.4.0</version>
+			<version>1.2.5</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-web</artifactId>
-			<version>1.4.0</version>
+			<version>1.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-quartz</artifactId>
-			<version>1.4.0</version>
+			<version>1.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
-			<version>1.4.0</version>
+			<version>1.2.5</version>
 		</dependency>
 
 

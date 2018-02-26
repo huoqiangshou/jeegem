@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset=utf-8>
-<title>youngcms-免费的JAVA CMS-内容管理系统-</title>
+<title>JeeGem-免费的JAVA CMS-内容管理系统-</title>
 <link href="${basePath}/resources/static/three/css/public.css" rel="stylesheet" type="text/css" />
 <link href="${basePath}/resources/static/three/css/index.css" rel="stylesheet" type="text/css" />
 <link href="${basePath}/resources/static/three/css/tab.css" rel="stylesheet" type="text/css" />
@@ -64,21 +64,12 @@ $(function(){
 <body>
 <div class="wrap_top">
     	<div class="top">
-        	<div class="logo"><a href="#"><img src="${basePath}/resources/static/three/images/logo.png" width="200" height="74" /></a></div>
+        	<div class="logo"><a href="/index.shtml"><img src="${basePath}/resources/static/three/images/logo.png" width="200" height="60" /></a></div>
             <div id="navMenu">
 				<ul class="menu1">
 				       <#if articleTypes?exists && articleTypes?size gt 0 >
 							<#list articleTypes as articleType>
-				       			<li><a href="http://admin.youngcms.com/admin/index" target="_black">${articleType.typeName}</a>
- <ul>
-										 <li><a href="/channel/basic">基础语言</a></li>
-										 <li><a href="/channel/design">设计创作</a></li>
-										 <li><a href="/channel/databases">数据库</a></li>
-										 <li><a href="/channel/operation">系统运维</a></li>
-										 <li><a href="/channel/front">前端开发</a></li>
-										 <li><a href="/channel/server">后端开发</a></li>
-										 <li><a href="/channel/app">移动开发</a></li>
-								</ul>
+				       			<li><a href="${basePath}/list.shtml?typeId=${articleType.id}" target="_black">${articleType.typeName}</a>
 				       			</li>
 					   		</#list>
                      	</#if>
@@ -118,7 +109,7 @@ $(function(){
 					   <#if articles?exists && articles?size gt 0 >
 							<#list articles as article>
 					   		<#if article.slide==1>
-				       			<li><a href="#"><img src="${imageWebServer}/jeegem/upload/JeeGem/${article.slideImage}" width="100%" height="439" /></a></li>
+				       			<li><a href="${basePath}/content.shtml?id=${article.id}"><img src="${imageWebServer}/jeegem/upload/JeeGem/${article.slideImage}" width="100%" height="439" /></a></li>
 				       		</#if>
 					   		</#list>
                      	</#if>
@@ -143,7 +134,7 @@ $(function(){
 				<div class="conbox">
 					   <#list articles as article>
 					   		<#if article.slide==2>
-				       			<div><a href="#" title=""><img src="${imageWebServer}/jeegem/upload/JeeGem/${article.slideImage}" width="632" height="210" /></a></div>
+				       			<div><a href="${basePath}/content.shtml?id=${article.id}" title=""><img src="${imageWebServer}/jeegem/upload/JeeGem/${article.slideImage}" width="632" height="210" /></a></div>
 				       		</#if>
 					   </#list>
 			              
@@ -152,7 +143,7 @@ $(function(){
 				<#assign var = 1 >  
 				<#list articles as article>
 					   		<#if article.slide==2>
-						   		<a href="#" <#if var==1>class="cur" </#if>>${var}</a>
+						   		<a href="${basePath}/content.shtml?id=${article.id}" <#if var==1>class="cur" </#if>>${var}</a>
 						   		<#assign var = var + 1>
 				       		</#if>
 				</#list>
@@ -166,7 +157,7 @@ $(function(){
                     	 <ul>
 							<#list articles as article>
 								   		<#if article.slide==3>
-									   		<li><a href="/static/three/content/2751.html">${article.title}</a></li>
+									   		<li><a href="${basePath}/content.shtml?id=${article.id}">${article.title}</a></li>
 							       		</#if>
 							</#list>
                         </ul>
@@ -186,7 +177,7 @@ $(function(){
 						<div class="news">
 		                	<div class="info">
 		                        <div class="title">${articleType.typeName}</div>
-		                        <div class="more"><a href="/channel/front">+more</a></div>
+		                        <div class="more"><a href="${basePath}/list.shtml?typeId=10">+more</a></div>
 		               		</div>
 		                    <div class="content">
 		                    	  <ul>
@@ -194,7 +185,7 @@ $(function(){
 		                    	    <#list articleType.articles as article>
 										 <li>
 										   <div class="time">${article.addTime?string("yyyy-MM-dd")}</div>
-										   <a href="/static/three/content/2598.html" class="newslist_time" title="#">${article.title}</a>
+										   <a href="${basePath}/content.shtml?id=${article.id}" class="newslist_time" title="#">${article.title}</a>
 										 </li>
 									</#list>
 									
@@ -222,7 +213,7 @@ $(function(){
 						<div class="news">
 		                	<div class="info">
 		                        <div class="title">${articleType.typeName}</div>
-		                        <div class="more"><a href="/channel/front">+more</a></div>
+		                        <div class="more"><a href="${basePath}/list.shtml?typeId=11">+more</a></div>
 		               		</div>
 		                    <div class="content">
 		                    	  <ul>
@@ -230,7 +221,7 @@ $(function(){
 		                    	    <#list articleType.articles as article>
 										 <li>
 										   <div class="time">${article.addTime?string("yyyy-MM-dd")}</div>
-										   <a href="/static/three/content/2598.html" class="newslist_time" title="#">${article.title}</a>
+										   <a href="${basePath}/content.shtml?id=${article.id}" class="newslist_time" title="#">${article.title}</a>
 										 </li>
 									</#list>
 									
@@ -250,16 +241,15 @@ $(function(){
 	<div  class="bottom">
 		<ul>
 			 
-			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://cms.publiccms.com' target='_blank' title='企业网站管理系统'>Publiccms</a></li>
+			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://jeegem.com' target='_blank' title='企业网站管理系统'>JeeGem</a></li>
 			
-			<li  style="float: left;margin-left: 20px;"><a style="color: white;" href='http://www.jc868.com' target='_blank' title='企业网站管理系统'>竞彩</a></li>
 			 
 		</ul>
 	</div>
 	<div class="bottom">
 		<div class="wenzi">
-			youngcms 版权所有 - <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260175299'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1260175299%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-			<br /> Copyright © 2016-2022 京ICP备12051136号
+			JeeGem 版权所有 
+			<br /> Copyright © 2016-2022 
 		</div>
 	</div>
 </div>

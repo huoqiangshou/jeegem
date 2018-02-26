@@ -150,7 +150,7 @@ public class ArticleAction extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/article/editById", method = RequestMethod.GET)
-	public ModelAndView editById(HttpServletRequest request, HttpServletResponse response, Long id) {
+	public ModelAndView editById(HttpServletRequest request, HttpServletResponse response, Integer id) {
 		ModelAndView mv = new JeeGemModelAndView("article/editArticle.ftl");
 		
 		Article article = this.articleService.getArticleById(id);

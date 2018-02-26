@@ -88,10 +88,10 @@ public class ArticleServiceImpl extends BaseService<Article> implements ArticleS
 
 	/**
 	 * 
-	 * @see com.jeegem.service.ArticleService#getArticleById(java.lang.Long)
+	 * @see com.jeegem.service.ArticleService#getArticleById(java.lang.Integer)
 	 */
 	@Override
-	public Article getArticleById(Long id) {
+	public Article getArticleById(Integer id) {
 
 		return articleMapper.getArticleById(id);
 	}
