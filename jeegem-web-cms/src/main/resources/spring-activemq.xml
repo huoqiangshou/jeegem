@@ -17,7 +17,7 @@
 
 
 	<amq:connectionFactory id="amqConnectionFactory"
-		brokerURL="tcp://192.168.0.102:61616" userName="admin" password="admin" />
+		brokerURL="tcp://192.168.0.103:61616" userName="admin" password="admin" />
 
 	<!-- 配置JMS连接工长 -->
 	<bean id="connectionFactory"
